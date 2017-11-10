@@ -116,6 +116,8 @@ public class CustomersEntity extends BaseEntity {
     public boolean erase(Customer customer) {
         return executeUpdate(String.format("DELETE FROM %s WHERE id = %d",
                 getTableName(), customer.getId()));
+
+        //mensaje de prueba :v
     }
 
 
