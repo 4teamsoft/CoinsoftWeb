@@ -84,7 +84,7 @@ public class User {
                     rs.getString("user"),
                     rs.getString("password"),
                     rs.getString("type"),
-                    rs.getString("status"));
+                    rs.getString("status1"));
 
             } catch (SQLException e){
                 e.printStackTrace();
