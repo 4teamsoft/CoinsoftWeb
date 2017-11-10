@@ -94,7 +94,9 @@ public class Assignment {
     public static Assignment from(ResultSet rs) {
         Assignment assignment=new Assignment();
                 try {
-            return assignment.setId(rs.getInt("id")).setAssignedFrom(rs.getDate("assigned_from")).setAssignedTo(rs.getDate("assigned_to"))
+            return assignment.setId(rs.getInt("id"))
+                    .setAssignedFrom(rs.getDate("assigned_from"))
+                    .setAssignedTo(rs.getDate("assigned_to"))
                     .setDetail(rs.getString("detail"))
                     .setStatus(rs.getString("status"));
 
