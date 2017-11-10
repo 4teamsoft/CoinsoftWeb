@@ -1,14 +1,16 @@
 package com.coinsoft.models;
 
+import java.util.Date;
+
 public class AuditTrail {
     private int id;
     private String type;
-    private date dateTime;
+    private Date dateTime;
     private String affectedTable;
     private String detail;
     private String status;
 
-    public AuditTrail(int id,String type, date dateTime, String affectedTable, String detail, String status) {
+    public AuditTrail(int id, String type, Date dateTime, String affectedTable, String detail, String status) {
         this.id = id;
         this.type = type;
         this.dateTime = dateTime;
@@ -30,11 +32,11 @@ public class AuditTrail {
         return this;
     }
 
-    public date getDateTime() {
+    public Date getDateTime() {
         return dateTime;
     }
 
-    public AuditTrail setDateTime(date dateTime) {
+    public AuditTrail setDateTime(Date dateTime) {
         this.dateTime = dateTime;
         return this;
     }
