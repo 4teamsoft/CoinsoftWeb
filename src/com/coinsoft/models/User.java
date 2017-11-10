@@ -76,4 +76,18 @@ public class User {
         this.person = person;
         return this;
     }
+
+    public static User from(ResultSet rs){
+        try{
+            return new User(
+                    rs.getInt("user_id"),
+                    rs.getString("user"),
+                    rs.getString("password"),
+                    rs.getString("type"),
+                    rs.getString("status"));
+
+            } catch (SQLException e){
+                e.printStackTrace();
+            }
+    }
 }

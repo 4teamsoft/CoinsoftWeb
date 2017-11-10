@@ -3,7 +3,7 @@ package com.coinsoft.models;
 public class AuditTrail {
     private int id;
     private String type;
-    private date dateTime;
+    private Date dateTime;
     private String affectedTable;
     private String detail;
     private String status;
