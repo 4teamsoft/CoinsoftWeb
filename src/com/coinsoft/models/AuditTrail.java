@@ -76,4 +76,18 @@ public class AuditTrail {
         this.id = id;
         return this;
     }
+
+    public static User from(ResultSet rs){
+        try{
+            return new User(
+                    rs.getInt("audit_trails_id"),
+                    rs.getString("type"),
+                    rs.getString("date_time"),
+                    rs.getString("affected_table"),
+                    rs.getString("detail"),
+                    rs.getString("status"));
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }
