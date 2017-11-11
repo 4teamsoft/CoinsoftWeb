@@ -12,16 +12,16 @@
 </head>
 <body>
 <h1>Product Information</h1>
-<s:form action="product">
-    <s:label for="name" value="Product Name"/>
-    <s:textfield id="name" name="name"/>
-    <s:label for="description" value="Product Description"/>
-    <s:textfield id="description" name="description"/>
-    <s:label for="price" value="Product Price"/>
-    <s:textfield id="price" name="price"/>
-    <s:label for="supplierEmail" value="Supplier Email"/>
-    <s:textfield id="supplierEmail" name="supplierEmail"/>
+<s:form action="user">
+
+    <s:label for="username" value="UserName"/>
+    <s:textfield id="username" name="username"/>
+
+    <s:label for="password" value="Password"/>
+    <s:textfield id="password" name="password"/>
+
     <s:submit value="Save"/>
+
 </s:form>
 </body>
 </html>

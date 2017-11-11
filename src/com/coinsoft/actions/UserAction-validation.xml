@@ -1,0 +1,18 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="username">
+        <field-validator type="requiredstring">
+            <message>A value is required in Username</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[A-Za-z]+$</param>
+            <message>UserName must include only Alphabet characters</message>
+        </field-validator>
+    </field>
+    <field name="password">
+        <field-validator type="email">
+            <message>Please input a valid email address</message>
+        </field-validator>
+    </field>
+</validators>

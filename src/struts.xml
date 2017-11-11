@@ -18,7 +18,7 @@
 
         <action name="user" class="com.coinsoft.actions.UserAction">
             <result name="success">validationAccess.jsp</result>
-            <result name="input">index.jsp</result>
+            <result name="input">login.jsp</result>
         </action>
 
 
