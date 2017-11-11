@@ -80,8 +80,12 @@ public class Phone {
     public static Phone from(ResultSet rs, CustomersEntity customersEntity) {
         Phone phone = new Phone();
         try {
-            return phone.setId(rs.getInt("phone_id")).setNumber(rs.getString("number")).setType(rs.getString("type"))
-                    .setOperator(rs.getString("operator")).setStatus(rs.getString("status")).setCustomer(customersEntity.findById(rs.getInt("customer_id")));
+            return phone.setId(rs.getInt("id"))
+                    .setNumber(rs.getString("number"))
+                    .setType(rs.getString("type"))
+                    .setOperator(rs.getString("operator"))
+                    .setStatus(rs.getString("status"))
+                    .setCustomer(customersEntity.findById(rs.getInt("customer_id")));
 
         } catch (SQLException e) {
             e.printStackTrace();

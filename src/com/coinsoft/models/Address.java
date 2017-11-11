@@ -157,7 +157,7 @@ public class Address {
     public static Address from(ResultSet rs, CustomersEntity customersEntity) {
         Address address = new Address();
         try {
-            return address.setId(rs.getInt("address_id"))
+            return address.setId(rs.getInt("id"))
                     .setDepartment(rs.getString("department"))
                     .setProvince(rs.getString("province"))
                     .setDistrict(rs.getString("district"))
@@ -177,5 +177,3 @@ public class Address {
         return null;
     }
 }
-
-//creditos a kevin que no trajo laptop :v
