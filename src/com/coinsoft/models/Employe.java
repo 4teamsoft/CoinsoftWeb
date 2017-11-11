@@ -9,10 +9,9 @@ public class Employe extends Person {
 
 
 
-    public Employe(int id, String code, String dni, String name, String lastName, int age, String mail, String status, Employe manager, Employe admin) {
+    public Employe(int id, String code, String dni, String name, String lastName, int age, String mail, String status) {
         super(id, code, dni, name, lastName, age, mail, status);
-        this.setManager(manager);
-        this.setAdmin(admin);
+
     }
 
     public Employe() {
@@ -38,17 +37,24 @@ public class Employe extends Person {
         return this;
     }
 
-    public static Employe from(ResultSet rs, EmployeesEntity employeesEntity) {
-        Employe employe = new Employe();
+    public static Employe from(ResultSet rs) {
         try {
-            return employe.setManager(employeesEntity.findById(rs.getInt("manager_id")))
-                    .setAdmin(employeesEntity.findById(rs.getInt("admin_id")));
+            return new Employe(
+                    rs.getInt("id"),
+                    rs.getString("code"),
+                    rs.getString("dni"),
+                    rs.getString("name"),
+                    rs.getString("last_name"),
+                    rs.getInt("age"),
+                    rs.getString("mail"),
+                    rs.getString("status")
+            );
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
-    }
 
+    }
 
 
 }

@@ -66,7 +66,7 @@ public class CustomersEntity extends BaseEntity {
     }
 
     private int getMaxId() {
-        String sql = "SELECT MAX(customer_id) AS max_id FROM customers";
+        String sql = "SELECT MAX(id) AS max_id FROM customers";
         try {
             ResultSet resultSet = getConnection().createStatement().executeQuery(sql);
             return resultSet.next() ? resultSet.getInt("max_id") : 0;

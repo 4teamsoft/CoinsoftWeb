@@ -34,12 +34,13 @@ public class LoansEntity extends BaseEntity{
         return null;
 
     }
+/*
+    public List<Loan> findAll(CustomersEntity customersEntity)
+    {
+        return findByCriteria("",customersEntity);
+   }
 
-    //public List<Loan> findAll(CustomersEntity customersEntity)
-    //{
-      //  return findByCriteria("",customersEntity);
-   // }
-
+*/
 
    /* public Loan create(Loan loan) {
         return executeUpdate(String.format
@@ -48,9 +49,9 @@ public class LoansEntity extends BaseEntity{
     }
     */
 
-    public Loan findById(int id, LoansEntity customersEntity) {
+    public Loan findById(int id, LoansEntity loansEntity) {
 
-        return findByCriteria(String.format("WHERE id = '%d'", id),customersEntity).get(0);
+        return findByCriteria(String.format("WHERE id = '%d'", id),loansEntity).get(0);
 
     }
 //comentario pruebaaaa

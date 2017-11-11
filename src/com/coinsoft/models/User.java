@@ -9,18 +9,18 @@ public class User {
     private String password;
     private int type;
     private String status;
-    private Person person;
+    private Employe employe;
 
     public User() {
     }
 
-    public User(int id, String user, String password, int type, String status, Person person) {
+    public User(int id, String user, String password, int type, String status, Employe employe) {
         this.id = id;
         this.user = user;
         this.password = password;
         this.type = type;
         this.status = status;
-        this.person = person;
+        this.employe = employe;
     }
 
     public int getId() {
@@ -68,12 +68,12 @@ public class User {
         return this;
     }
 
-    public Person getPerson() {
-        return person;
+    public Person getEmploye() {
+        return employe;
     }
 
-    public User setPerson(Person person) {
-        this.person = person;
+    public User setPerson(Employe employe) {
+        this.employe = employe;
         return this;
     }
 
@@ -86,7 +86,7 @@ public class User {
                     .setPassword(rs.getString("password"))
                     .setType(rs.getInt("type"))
                     .setStatus(rs.getString("status"))
-                    .setPerson(employeesEntity.findById(rs.getInt("person_id")));
+                    .setPerson(employeesEntity.findById(rs.getInt("employe_id")));
 
             } catch (SQLException e){
                 e.printStackTrace();
