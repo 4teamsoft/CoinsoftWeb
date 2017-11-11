@@ -79,10 +79,7 @@ public class CustomersEntity extends BaseEntity {
 
     public Customer create(Customer customer) {
         return executeUpdate(String.format(
-                "INSERT INTO %s(id,code,dni, name, last_name, age , mail, status ) VALUES(%d,'%s','%s', '%s', '%s',%d,'%s','%s')",
-                getTableName(), customer.getId(), customer.getCode(), customer.getDni(), customer.getName(), customer.getLastName(),
-                customer.getAge(), customer.getMail(), customer.getStatus()))
-                ? customer : null;
+                "INSERT INTO %s(id,code,dni, name, last_name, age , mail, status ) VALUES(%d,'%s','%s', '%s', '%s',%d,'%s','%s')", getTableName(), customer.getId(), customer.getCode(), customer.getDni(), customer.getName(), customer.getLastName(), customer.getAge(), customer.getMail(), customer.getStatus())) ? customer : null;
     }
 
     public Customer create(String code,String dni,String name, String lastName, int age,String mail, String status) {
