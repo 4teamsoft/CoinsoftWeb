@@ -76,7 +76,7 @@ public class AuditTrail {
         this.id = id;
         return this;
     }
-
+/*
     public static User from(ResultSet rs){
         try{
             return new User(
@@ -90,4 +90,6 @@ public class AuditTrail {
             e.printStackTrace();
         }
     }
+
+    */
 }
