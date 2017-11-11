@@ -22,9 +22,7 @@ public class CustomersEntity extends BaseEntity {
         try {
             ResultSet rs = getConnection()
                     .createStatement()
-                    .executeQuery(
-                            getBaseStatement()
-                                    .concat(criteria));
+                    .executeQuery(getBaseStatement().concat(criteria));
             List<Customer> customers = new ArrayList<>();
             while (rs.next())
                 customers.add(Customer.from(rs));

@@ -1,5 +1,8 @@
 package com.coinsoft.models;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Employe extends Person {
     private Employe manager;
     private Employe admin;
@@ -12,7 +15,7 @@ public class Employe extends Person {
         this.setAdmin(admin);
     }
 
-    public Employe(Employe manager, Employe admin) {
+    public Employe() {
         this.setManager(manager);
         this.setAdmin(admin);
     }
@@ -34,4 +37,18 @@ public class Employe extends Person {
         this.admin = admin;
         return this;
     }
+
+    public static Employe from(ResultSet rs, EmployeesEntity employeesEntity) {
+        Employe employe = new Employe();
+        try {
+            return employe.setManager(employeesEntity.findById(rs.getInt("manager_id")))
+                    .setAdmin(employeesEntity.findById(rs.getInt("admin_id")));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+
 }
