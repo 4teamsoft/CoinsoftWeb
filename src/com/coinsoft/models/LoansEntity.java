@@ -53,7 +53,7 @@ public class LoansEntity extends BaseEntity{
         return findByCriteria(String.format("WHERE id = '%d'", id),customersEntity).get(0);
 
     }
-
+//comentario prueba
 
 
 }
