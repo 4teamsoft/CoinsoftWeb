@@ -1,6 +1,8 @@
 package com.coinsoft.models;
 
 import java.util.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class AuditTrail {
     private int id;
@@ -77,17 +79,18 @@ public class AuditTrail {
         return this;
     }
 
-    public static User from(ResultSet rs){
-        try{
-            return new User(
+    public static AuditTrail from(ResultSet rs) {
+        try {
+            return new AuditTrail(
                     rs.getInt("audit_trails_id"),
                     rs.getString("type"),
-                    rs.getString("date_time"),
+                    rs.getDate("date_time"),
                     rs.getString("affected_table"),
                     rs.getString("detail"),
                     rs.getString("status"));
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
 }
