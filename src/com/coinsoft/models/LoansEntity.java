@@ -18,14 +18,14 @@ public class LoansEntity extends BaseEntity{
         super(connection, tableName);
     }
 
-    public List<Loan> findByCriteria(String criteria, CustomersEntity customersEntity) {
+    public List<Loan> findByCriteria(String criteria, LoansEntity customersEntity) {
         try {
             ResultSet rs = getConnection()
                     .createStatement()
                     .executeQuery(getBaseStatement().concat(criteria));
             List<Loan> loans = new ArrayList<>();
             while (rs.next())
-                loans.add(Loan.from(rs,customersEntity));
+                //loans.add(Loan.from(rs,customersEntity));
 
             return loans;
         } catch (SQLException e) {
@@ -35,9 +35,10 @@ public class LoansEntity extends BaseEntity{
 
     }
 
-    public List<Loan> findAll(CustomersEntity customersEntity) {
-        return findByCriteria("",customersEntity);
-    }
+    //public List<Loan> findAll(CustomersEntity customersEntity)
+    //{
+      //  return findByCriteria("",customersEntity);
+   // }
 
 
    /* public Loan create(Loan loan) {
@@ -47,7 +48,7 @@ public class LoansEntity extends BaseEntity{
     }
     */
 
-    public Loan findById(int id,CustomersEntity customersEntity) {
+    public Loan findById(int id, LoansEntity customersEntity) {
 
         return findByCriteria(String.format("WHERE id = '%d'", id),customersEntity).get(0);
 

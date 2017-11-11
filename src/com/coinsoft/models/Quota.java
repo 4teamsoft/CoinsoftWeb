@@ -84,7 +84,7 @@ public class Quota {
                     .setPaymentDate(rs.getString("payment_Date"))
                     .setAmount(rs.getDouble("amount"))
                     .setStatus(rs.getString("status"))
-                    .setLoan(loansEntity.findById(rs.getInt("loan_id")));
+                    .setLoan(loansEntity.findById(rs.getInt("loan_id"),loansEntity));
 
         } catch (SQLException e) {
             e.printStackTrace();

@@ -77,17 +77,21 @@ public class User {
         return this;
     }
 
-    public static User from(ResultSet rs){
+    public static User from(ResultSet rs, EmployeesEntity employeesEntity){
+        User user=new User();
         try{
-            return new User(
-                    rs.getInt("user_id"),
-                    rs.getString("user"),
-                    rs.getString("password"),
-                    rs.getString("type"),
-                    rs.getString("status"));
+
+            return user.setId(rs.getInt("id"))
+                    .setUser(rs.getString("user"))
+                    .setPassword(rs.getString("password"))
+                    .setType(rs.getInt("type"))
+                    .setStatus(rs.getString("status"))
+                    .setPerson(employeesEntity.findById(rs.getInt("person_id")));
 
             } catch (SQLException e){
                 e.printStackTrace();
             }
+
+        return null;
     }
 }
