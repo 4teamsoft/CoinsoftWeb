@@ -62,7 +62,7 @@ public class CmService {
 
     public List<Employe> findAllEmployes() { return dataStore.findAllEmploye(); }
 
-    public List<User> findAllUsers() { return dataStore.findAllUser(); }
+    public List<User> findAllUser() { return dataStore.findAllUser(); }
 
     public List<Loan> findAllLoans() { return dataStore.findAllLoan(); }
 

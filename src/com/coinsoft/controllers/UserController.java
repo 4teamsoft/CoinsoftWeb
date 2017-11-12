@@ -33,14 +33,14 @@ public class UsersController extends javax.servlet.http.HttpServlet {
         if(method.equals("GET")) {
             // Index Action
             if(action.equals("index")) {
-                List<User> users = service.findAllRegions();
+                List<User> users = service.findAllUser();
                 request.setAttribute("users", users);
                 url = "listUser.jsp";
             }
             if(action.equals("show")) {
                 int id = Integer.parseInt(request.getParameter("id"));
-                User region = service.findRegionById(id);
-                request.setAttribute("user", user);
+                User user = service.findUserById(id);
+                request.setAttribute("users", user);
                 url = "showUser.jsp";
             }
             if(action.equals("new")) {
@@ -48,7 +48,7 @@ public class UsersController extends javax.servlet.http.HttpServlet {
             }
             if(action.equals("edit")) {
                 int id = Integer.parseInt(request.getParameter("id"));
-                User user = service.findRegionById(id);
+                User user = service.findUserById(id);
                 request.setAttribute("user", user);
                 url = "editUser.jsp";
             }
