@@ -13,6 +13,7 @@
 <body>
 <s:form action="employe">
 
+
     <s:label for="username" value="UserName"/>
     <s:textfield id="username" name="username"/>
 

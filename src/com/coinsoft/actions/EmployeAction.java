@@ -72,11 +72,11 @@ public class EmployeAction extends ActionSupport{
     }
 
     public int getAge() {
-        return edad;
+        return age;
     }
 
-    public void setAge(int edad) {
-        this.edad = edad;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getMail() {
