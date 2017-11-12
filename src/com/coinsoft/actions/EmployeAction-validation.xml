@@ -64,13 +64,13 @@
             <message>Age must include only number.</message>
         </field-validator>
     </field>
-    <field name="lastName">
+    <field name="mail">
         <field-validator type="requiredstring">
-            <message>A value is required in Last Name</message>
+            <message>A value is required in Mail</message>
         </field-validator>
         <field-validator type="regex">
-            <param name="regexExpression">^[A-z]+$</param>
-            <message>Last Name must include only Alphabet characters.</message>
+            <param name="regexExpression">^[A-Z0-9._%+-]+@(?:[A-Z0-9-]+\.)+[A-Z]{2,}$</param>
+            <message>Error unknown.</message>
         </field-validator>
     </field>
 </validators>
