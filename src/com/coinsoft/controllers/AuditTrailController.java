@@ -38,14 +38,14 @@ public class AuditTrailController  extends javax.servlet.http.HttpServlet {
         if(method.equals("GET")) {
             // Index Action
             if(action.equals("index")) {
-              //  List<AuditTrail> auditTrails = service.findAllAuditTrail();
-              //  request.setAttribute(" auditTrail", auditTrails);
+                List<AuditTrail> auditTrails = service.findAllAuditTrail();
+                request.setAttribute(" auditTrail", auditTrails);
                 url = "listAuditTrail.jsp";
             }
             if(action.equals("show")) {
                 int id = Integer.parseInt(request.getParameter("id"));
-             //   AuditTrail auditTrail = service.findAuditTrailById(id);
-             //   request.setAttribute("auditTrail",auditTrail);
+                AuditTrail auditTrail = service.findAuditTrailById(id);
+                request.setAttribute("auditTrail",auditTrail);
                 url = "showAuditTrail.jsp";
             }
             if(action.equals("new")) {
@@ -53,8 +53,8 @@ public class AuditTrailController  extends javax.servlet.http.HttpServlet {
             }
             if(action.equals("edit")) {
                 int id = Integer.parseInt(request.getParameter("id"));
-            //    AuditTrail auditTrail = service.findAuditTrailById(id);
-              //  request.setAttribute("auditTrail", auditTrail);
+                AuditTrail auditTrail = service.findAuditTrailById(id);
+                request.setAttribute("auditTrail", auditTrail);
                 url = "editAuditTrail.jsp";
             }
         }
@@ -63,17 +63,17 @@ public class AuditTrailController  extends javax.servlet.http.HttpServlet {
             // Create Action
             if(action.equals("create")) {
                 String name = request.getParameter("name");
-              //  AuditTrail auditTrail = service.createAuditTrail(name);
-              //  List<AuditTrail> assignments = service.findAllAuditTrail();
-               // request.setAttribute("auditTrail", auditTrail);
+                AuditTrail auditTrail = service.createAuditTrail(name);
+                List<AuditTrail> assignments = service.findAllAuditTrail();
+                request.setAttribute("auditTrail", auditTrail);
                 url = "listAuditTrail.jsp";
             }
             if(action.equals("update")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 String name = request.getParameter("name");
-             //   boolean isUpdated = service.updateAuditTrail(id, name);
-             //   List<AuditTrail> auditTrails = service.findAllAuditTrail();
-             //   request.setAttribute("auditTrail", auditTrails);
+                boolean isUpdated = service.updateAuditTrail(id, name);
+                List<AuditTrail> auditTrails = service.findAllAuditTrail();
+               request.setAttribute("auditTrail", auditTrails);
                 url = "listAuditTrail.jsp";
             }
         }
