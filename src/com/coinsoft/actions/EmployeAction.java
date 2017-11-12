@@ -1,5 +1,7 @@
 package com.coinsoft.actions;
 
+import com.opensymphony.xwork2.ActionSupport;
+
 public class EmployeAction extends ActionSupport{
     private String username;
     private String password;
@@ -7,17 +9,17 @@ public class EmployeAction extends ActionSupport{
     private String dni;
     private String name;
     private String lastName;
-    private int edad;
+    private int age;
     private String mail;
 
-    public EmployeAction(String username, String password, String type, String dni, String name, String lastName, int edad, String mail) {
+    public EmployeAction(String username, String password, String type, String dni, String name, String lastName, int age, String mail) {
         this.username = username;
         this.password = password;
         this.type = type;
         this.dni = dni;
         this.name = name;
         this.lastName = lastName;
-        this.edad = edad;
+        this.age = age;
         this.mail = mail;
     }
 
@@ -69,11 +71,11 @@ public class EmployeAction extends ActionSupport{
         this.lastName = lastName;
     }
 
-    public int getEdad() {
+    public int getAge() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    public void setAge(int edad) {
         this.edad = edad;
     }
 

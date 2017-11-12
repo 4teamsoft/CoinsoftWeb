@@ -6,7 +6,7 @@
             <message>A value is required in Username</message>
         </field-validator>
         <field-validator type="regex">
-            <param name="regexExpression">[a-zA-Z0-9]+</param>
+            <param name="regexExpression">^[-_a-zA-Z0-9.]+$</param>
             <message>UserName must include only Alphabet characters and number.</message>
         </field-validator>
     </field>
@@ -15,7 +15,7 @@
             <message>A value is required in Password</message>
         </field-validator>
         <field-validator type="regex">
-            <param name="regexExpression">[a-zA-Z0-9]+</param>
+            <param name="regexExpression">^[-_a-zA-Z0-9.]+$</param>
             <message>Password must include only Alphabet characters and number.</message>
         </field-validator>
     </field>

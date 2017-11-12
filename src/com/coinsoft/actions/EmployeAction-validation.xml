@@ -1,0 +1,76 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="username">
+        <field-validator type="requiredstring">
+            <message>A value is required in Username</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[-_a-zA-Z0-9.]+$</param>
+            <message>UserName must include only Alphabet characters and number.</message>
+        </field-validator>
+    </field>
+    <field name="password">
+        <field-validator type="requiredstring">
+            <message>A value is required in Password</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[-_a-zA-Z0-9.]+$</param>
+            <message>Password must include only Alphabet characters and number.</message>
+        </field-validator>
+    </field>
+    <field name="type">
+        <field-validator type="requiredstring">
+            <message>A value is required in type</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[0-9]*$</param>
+            <message>type must include only number.</message>
+        </field-validator>
+    </field>
+    <field name="dni">
+        <field-validator type="requiredstring">
+            <message>A value is required in dni</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[0-9]*$</param>
+            <message>DNI must include only number.</message>
+        </field-validator>
+    </field>
+    <field name="name">
+        <field-validator type="requiredstring">
+            <message>A value is required in Name</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[A-z]+$</param>
+            <message>Name must include only Alphabet characters.</message>
+        </field-validator>
+    </field>
+    <field name="lastName">
+        <field-validator type="requiredstring">
+            <message>A value is required in Last Name</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[A-z]+$</param>
+            <message>Last Name must include only Alphabet characters.</message>
+        </field-validator>
+    </field>
+    <field name="age">
+        <field-validator type="requiredstring">
+            <message>A value is required in Age</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[0-9]*$</param>
+            <message>Age must include only number.</message>
+        </field-validator>
+    </field>
+    <field name="lastName">
+        <field-validator type="requiredstring">
+            <message>A value is required in Last Name</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[A-z]+$</param>
+            <message>Last Name must include only Alphabet characters.</message>
+        </field-validator>
+    </field>
+</validators>
