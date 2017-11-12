@@ -34,14 +34,14 @@ public class AddressController extends javax.servlet.http.HttpServlet {
             if(method.equals("GET")) {
                 // Index Action
                 if(action.equals("index")) {
-                   // List<Address> addresses = service.findAllAddress();
-                   // request.setAttribute("address", addresses);
+                    List<Address> addresses = service.findAllAddress();
+                    request.setAttribute("address", addresses);
                     url = "listAddress.jsp";
                 }
                 if(action.equals("show")) {
                     int id = Integer.parseInt(request.getParameter("id"));
-                    //Address address = service.findAddressById(id);
-                    //request.setAttribute("address",address);
+                    Address address = service.findAddressById(id);
+                    request.setAttribute("address",address);
                     url = "showAddress.jsp";
                 }
                 if(action.equals("new")) {
@@ -49,8 +49,8 @@ public class AddressController extends javax.servlet.http.HttpServlet {
                 }
                 if(action.equals("edit")) {
                     int id = Integer.parseInt(request.getParameter("id"));
-                   // Address address = service.findAddressById(id);
-                   // request.setAttribute("address", address);
+                    Address address = service.findAddressById(id);
+                    request.setAttribute("address", address);
                     url = "editAddress.jsp";
                 }
             }
@@ -59,17 +59,17 @@ public class AddressController extends javax.servlet.http.HttpServlet {
                 // Create Action
                 if(action.equals("create")) {
                     String name = request.getParameter("name");
-                  //  Address address = service.createAddress(name);
-                  //  List<Address> addresses = service.findAllAddress();
-                  //  request.setAttribute("address", addresses);
+                   Address address = service.createAddress(name);
+                    List<Address> addresses = service.findAllAddress();
+                    request.setAttribute("address", addresses);
                     url = "listAddress.jsp";
                 }
                 if(action.equals("update")) {
                     int id = Integer.parseInt(request.getParameter("id"));
                     String name = request.getParameter("name");
-                  //  boolean isUpdated = service.updateAddress(id, name);
-                  //  List<Address> addresses = service.findAllAddress();
-                  //  request.setAttribute("addresses", addresses);
+                    boolean isUpdated = service.updateAddress(id, name);
+                   List<Address> addresses = service.findAllAddress();
+                    request.setAttribute("addresses", addresses);
                     url = "listAddress.jsp";
                 }
             }
