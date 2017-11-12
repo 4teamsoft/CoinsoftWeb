@@ -54,15 +54,14 @@ public class CmService {
 
     public List<Assignment> findAllAssignments() { return dataStore.findAllAssignment(); }
 
-
-
-
-    /*
-    public Assignment findAssignmentById(int id) {
-        if(connection == null) return null;
-        return getAssignmentsEntity().findById(id);
+    public User findUserById (int id) {
+        return dataStore.findUserById(id);
     }
-     */
+
+    public List<Employe> findAllEmployes() { return dataStore.findAllEmploye(); }
+
+    public List<User> findAllUsers() { return dataStore.findAllUser(); }
+
 
 
 }
