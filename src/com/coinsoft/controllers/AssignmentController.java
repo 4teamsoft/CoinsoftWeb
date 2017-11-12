@@ -35,8 +35,8 @@ public class AssignmentController  extends javax.servlet.http.HttpServlet {
         if(method.equals("GET")) {
             // Index Action
             if(action.equals("index")) {
-                List<Assignment> assignments = service.findAllAssignment();
-                request.setAttribute("assignment", addresses);
+                List<Assignment> assignments = service.findAllAssignments();
+                request.setAttribute("assignment", assignments);
                 url = "listAssignment.jsp";
             }
             if(action.equals("show")) {
@@ -60,16 +60,16 @@ public class AssignmentController  extends javax.servlet.http.HttpServlet {
             // Create Action
             if(action.equals("create")) {
                 String name = request.getParameter("name");
-                Assignment address = service.createAssignment(name);
-                List<Assignment> assignments = service.findAllAssignment();
+               // Assignment address = service.createAssignment(name);
+                List<Assignment> assignments = service.findAllAssignments();
                request.setAttribute("assignment", assignments);
                 url = "listAssignment.jsp";
             }
             if(action.equals("update")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 String name = request.getParameter("name");
-                boolean isUpdated = service.updateAssignment(id, name);
-                List<Assignment> assignments = service.findAllAssignment();
+               // boolean isUpdated = service.updateAssignment(id, name);
+                List<Assignment> assignments = service.findAllAssignments();
                 request.setAttribute("assignments", assignments);
                 url = "listAssignment.jsp";
             }

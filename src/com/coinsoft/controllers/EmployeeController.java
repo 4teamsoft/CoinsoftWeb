@@ -38,24 +38,24 @@ public class EmployeeController extends javax.servlet.http.HttpServlet {
         if(method.equals("GET")) {
             // Index Action
             if(action.equals("index")) {
-               // List<Employe> employes = service.findAllEmployee();
-               // request.setAttribute("customers", employes);
-                url = "listCustomer.jsp";
+                List<Employe> employes = service.findAllEmployes();
+                request.setAttribute("employes", employes);
+                url = "listEmploye.jsp";
             }
             if(action.equals("show")) {
                 int id = Integer.parseInt(request.getParameter("id"));
-               // Employe employe = service.findEmployeeById(id);
-               // request.setAttribute("auditTrail",employe);
-                url = "showCustomer.jsp";
+                Employe employe = service.findEmployeById(id);
+                request.setAttribute("employee",employe);
+                url = "showEmployee.jsp";
             }
             if(action.equals("new")) {
                 url = "newCustomer.jsp";
             }
             if(action.equals("edit")) {
                 int id = Integer.parseInt(request.getParameter("id"));
-             //   Employe employe = service.findEmployeeById(id);
-              //  request.setAttribute("auditTrail", employe);
-                url = "editCustomer.jsp";
+               Employe employe = service.findEmployeById(id);
+                request.setAttribute("employee", employe);
+                url = "editEmployee.jsp";
             }
         }
 
@@ -63,18 +63,18 @@ public class EmployeeController extends javax.servlet.http.HttpServlet {
             // Create Action
             if(action.equals("create")) {
                 String name = request.getParameter("name");
-              //  Employe employe = service.createCustomer(name);
-              //  List<Employe> employes = service.findAllEmployee();
-              //  request.setAttribute("auditTrail", employe);
+               // Employe employe = service.createCustomer(name);
+                List<Employe> employes = service.findAllEmployes();
+                request.setAttribute("employee", employes);
                 url = "listCustomer.jsp";
             }
             if(action.equals("update")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 String name = request.getParameter("name");
-              //  boolean isUpdated = service.updateEmployee(id, name);
-              //  List<Employe> employes = service.findAllEmployee();
-              //  request.setAttribute("auditTrail", employes);
-                url = "listCustomer.jsp";
+                //boolean isUpdated = service.updateEmployee(id, name);
+                List<Employe> employes = service.findAllEmployes();
+                request.setAttribute("employe", employes);
+                url = "listEmploye.jsp";
             }
         }
 

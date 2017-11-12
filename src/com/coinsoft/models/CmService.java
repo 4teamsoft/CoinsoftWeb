@@ -41,7 +41,9 @@ public class CmService {
         return dataStore.findCustomerById(id);
     }
 
-    public List<Customer> findAllCustomers() { return dataStore.findAllCustomer(); }
+    public List<Customer> findAllCustomers() {
+        return dataStore.findAllCustomer();
+    }
 
 
     public Assignment findAssignmentById (int id) {

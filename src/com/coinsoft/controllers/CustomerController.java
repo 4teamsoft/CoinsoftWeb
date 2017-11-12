@@ -38,14 +38,14 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
         if(method.equals("GET")) {
             // Index Action
             if(action.equals("index")) {
-               // List<Customer> customers = service.findAllCustomer();
-               //   request.setAttribute("customers", customers);
+                List<Customer> customers = service.findAllCustomers();
+                  request.setAttribute("customers", customers);
                 url = "listCustomer.jsp";
             }
             if(action.equals("show")) {
                 int id = Integer.parseInt(request.getParameter("id"));
-                //Customer customer = service.findCustomerById(id);
-                 //  request.setAttribute("auditTrail",customer);
+                Customer customer = service.findCustomerById(id);
+                   request.setAttribute("auditTrail",customer);
                 url = "showCustomer.jsp";
             }
             if(action.equals("new")) {
@@ -53,8 +53,8 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
             }
             if(action.equals("edit")) {
                 int id = Integer.parseInt(request.getParameter("id"));
-                //Customer customer = service.findCustomerById(id);
-                //  request.setAttribute("auditTrail", customer);
+                Customer customer = service.findCustomerById(id);
+                  request.setAttribute("auditTrail", customer);
                 url = "editCustomer.jsp";
             }
         }
@@ -63,8 +63,8 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
             // Create Action
             if(action.equals("create")) {
                 String name = request.getParameter("name");
-                // Customer customer = service.createCustomer(name);
-                // List<Customer> assignments = service.findAllCustomer();
+                 //Customer customer = service.createCustomer(name);
+                 //List<Customer> assignments = service.findAllCustomers();
                 // request.setAttribute("auditTrail", customer);
                 url = "listCustomer.jsp";
             }
@@ -72,8 +72,8 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
                 int id = Integer.parseInt(request.getParameter("id"));
                 String name = request.getParameter("name");
                 //  boolean isUpdated = service.updateCustomer(id, name);
-                //  List<Customer> customers = service.findAllCustomer();
-                //  request.setAttribute("auditTrail", customers);
+                // List<Customer> customers = service.findAllCustomer();
+                 // request.setAttribute("auditTrail", customers);
                 url = "listCustomer.jsp";
             }
         }
