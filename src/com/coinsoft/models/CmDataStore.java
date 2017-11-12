@@ -35,10 +35,10 @@ public class CmDataStore {
         return getEmployeesEntity().findById(id);
     }
 
-    /*public Loan findLoanById(int id) {
+    public Loan findLoanById(int id) {
         if(connection == null) return null;
-        return getLoansEntity().findById(id);
-    }*/
+        return getLoansEntity().findById(id, getCustomersEntity());
+    }
 
     public User findUserById(int id) {
         if(connection == null) return null;
@@ -65,10 +65,10 @@ public class CmDataStore {
         return connection == null ? null: getEmployeesEntity().findAll();
     }
 
-    /*public List<Loan> findAllLoan() {
+    public List<Loan> findAllLoan() {
 
-        return connection == null ? null : getLoansEntity().findAll();
-    }*/
+        return connection == null ? null : getLoansEntity().findAll(getCustomersEntity());
+    }
 
     public List<User> findAllUser() {
 
