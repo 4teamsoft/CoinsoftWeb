@@ -1,4 +1,15 @@
 package com.coinsoft.models;
 
-public class VisitsEntity {
+import java.sql.Connection;
+
+public class VisitsEntity extends BaseEntity {
+    public VisitsEntity(Connection connection, String tableName) {
+        super(connection, tableName);
+    }
+
+    public VisitsEntity() {
+        super();
+        setTableName("visits");
+    }
+
 }
