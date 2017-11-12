@@ -16,7 +16,7 @@ public class UsersEntity extends BaseEntity {
         setTableName("users");
     }
 
-    public User findById(String id, EmployeesEntity employeesEntity) {
+    public User findById(int id, EmployeesEntity employeesEntity) {
         return findByCriteria(
                 String.format("WHERE id = %d", id), employeesEntity).get(0);
     }
@@ -85,5 +85,9 @@ public class UsersEntity extends BaseEntity {
     public boolean erase(User user) {
         return executeUpdate(String.format("DELETE FROM %s WHERE id = %d",
                 getTableName(), user.getId(), user.getEmploye()));
+    }
+
+    public User findById(int user_id) {
+        return null;
     }
 }

@@ -109,7 +109,7 @@ public class Visit {
                     .setResult(rs.getInt("result"))
                     .setActionCode(rs.getInt("action_code"))
                     .setStatus(rs.getString("status"))
-                    .setUser(usersEntity.findById(rs.getInt("user_id")));
+                    .setUser(usersEntity.findById(rs.getInt("user_id")))
                     .setCustomer(customersEntity.findById(rs.getInt("customer_id")));
 
         } catch (SQLException e) {
