@@ -10,6 +10,7 @@
         <action name="index">
             <result>index.jsp</result>
         </action>
+
         <action name="product" class="pe.edu.utp.struts2sample.actions.ProductAction">
             <result name="success">showProduct.jsp</result>
             <result name="input">index.jsp</result>
@@ -19,6 +20,11 @@
         <action name="user" class="com.coinsoft.actions.UserAction">
             <result name="success">validationAccess.jsp</result>
             <result name="input">login.jsp</result>
+        </action>
+
+        <action name="user" class="com.coinsoft.actions.UserAction">
+            <result name="success">EmployeSuccess.jsp</result>
+            <result name="input">CreateEmploye.jsp</result>
         </action>
 
 
