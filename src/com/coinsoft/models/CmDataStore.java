@@ -45,10 +45,10 @@ public class CmDataStore {
         return getUsersEntity().findById(id, getEmployeesEntity());
     }
 
-    /*public Visit findVisitById(int id) {
+    public Visit findVisitById(int id) {
         if(connection == null) return null;
-        return getVisitsEntity().findById(id);
-    }*/
+        return getVisitsEntity().findById(id,getUsersEntity(),getCustomersEntity());
+    }
 
     public List<Assignment> findAllAssignment() {
 
@@ -75,10 +75,10 @@ public class CmDataStore {
         return connection == null ? null: getUsersEntity().findAll(getEmployeesEntity());
     }
 
-    /*public List<Visit> findAllVisit() {
+    public List<Visit> findAllVisit() {
 
-        return connection == null ? null : getVisitsEntity().findAll();
-    }*/
+        return connection == null ? null : getVisitsEntity().findAll(getUsersEntity(),getCustomersEntity());
+    }
 
     public Connection getConnection() {
         return connection;
@@ -128,11 +128,11 @@ public class CmDataStore {
         return usersEntity;
     }
 
-    /*private VisitsEntity getVisitsEntity() {
+    private VisitsEntity getVisitsEntity() {
         if(visitsEntity == null) {
             visitsEntity = new VisitsEntity();
             visitsEntity.setConnection(connection);
         }
         return visitsEntity;
-    }*/
+    }
 }

@@ -64,6 +64,12 @@ public class CmService {
 
     public List<User> findAllUsers() { return dataStore.findAllUser(); }
 
+    public List<Loan> findAllLoans() { return dataStore.findAllLoan(); }
 
+    public Loan findLoanById (int id) { return dataStore.findLoanById(id); }
+
+    public Visit findVisitById (int id) { return dataStore.findVisitById(id); }
+
+    public List<Visit> findAllVisits() { return dataStore.findAllVisit(); }
 
 }
