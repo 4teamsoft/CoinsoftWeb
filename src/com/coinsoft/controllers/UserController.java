@@ -58,18 +58,18 @@ public class UsersController extends javax.servlet.http.HttpServlet {
             // Create Action
             if(action.equals("create")) {
                 String name = request.getParameter("name");
-                Region region = service.createRegion(name);
-                List<Region> regions = service.findAllRegions();
-                request.setAttribute("regions", regions);
-                url = "listRegions.jsp";
+                User user = service.createUser(name);
+                List<User> users = service.findAllRegions();
+                request.setAttribute("users", users);
+                url = "listUser.jsp";
             }
             if(action.equals("update")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 String name = request.getParameter("name");
-                boolean isUpdated = service.updateRegion(id, name);
-                List<Region> regions = service.findAllRegions();
-                request.setAttribute("regions", regions);
-                url = "listRegions.jsp";
+                boolean isUpdated = service.updateUser(id, name);
+                List<User> users = service.findAllRegions();
+                request.setAttribute("users", users);
+                url = "listUsers.jsp";
             }
         }
 
