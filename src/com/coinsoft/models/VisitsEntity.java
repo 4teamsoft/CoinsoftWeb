@@ -12,4 +12,7 @@ public class VisitsEntity extends BaseEntity {
         setTableName("visits");
     }
 
+
+
+
 }

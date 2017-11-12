@@ -37,4 +37,14 @@ public class CmService {
 
 
 
+    public Customer findCustomerById (int id) {
+        return dataStore.findCustomerById(id);
+    }
+
+    public List<Customer> findAllCustomers() { return dataStore.findAllCustomer(); }
+
+
+
+
+
 }
