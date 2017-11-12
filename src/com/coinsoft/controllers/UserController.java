@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@javax.servlet.annotation.WebServlet(name = "RegionsController", urlPatterns = "/user")
+@javax.servlet.annotation.WebServlet(name = "UserController", urlPatterns = "/user")
 public class UsersController extends javax.servlet.http.HttpServlet {
     CmService service;
     String url;
