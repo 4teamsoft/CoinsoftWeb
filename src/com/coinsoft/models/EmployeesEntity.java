@@ -26,7 +26,7 @@ public class EmployeesEntity extends BaseEntity{
                     .executeQuery(getBaseStatement().concat(criteria));
             List<Employe> employees = new ArrayList<>();
             while (rs.next())
-                employees.add((Employe) Employe.from(rs));
+                employees.add(Employe.from(rs));
 
             return employees;
         } catch (SQLException e) {

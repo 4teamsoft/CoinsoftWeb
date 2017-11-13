@@ -114,7 +114,7 @@ public class Loan {
     public static Loan from(ResultSet rs, CustomersEntity customersEntity) {
         Loan loan = new Loan();
         try {
-            return loan.setId(rs.getInt	("id"))
+            return loan.setId(rs.getInt	("loan_id"))
                     .setCodeLoan(rs.getInt("code"))
                     .setDateStart(rs.getString("start_date"))
                     .setAmount(rs.getDouble("amount"))
