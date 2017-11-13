@@ -7,10 +7,12 @@ public class Customer extends Person {
 
     private int id;
     private String type;
+    private String status;
 
-    public Customer(String code, String dni, String name, String lastName, int age, String mail, String status, String type) {
-        super(code, dni, name, lastName, age, mail, status);
+    public Customer(String code, String dni, String name, String lastName, int age, String mail, String type, String status) {
+        super(code, dni, name, lastName, age, mail);
         this.type = type;
+        this.status = status;
     }
 
     public Customer() {
@@ -40,4 +42,21 @@ public class Customer extends Person {
         return id;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public Customer setType(String type) {
+        this.type = type;
+        return this;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public Customer setStatus(String status) {
+        this.status = status;
+        return this;
+    }
 }
