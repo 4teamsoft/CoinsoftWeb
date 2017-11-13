@@ -66,13 +66,15 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
                 String dni = request.getParameter("dni");
                 String name = request.getParameter("name");
                 String lastName = request.getParameter("last_name");
-                int age = request.getParameter("age");
+                Integer age = request.getIntHeader("age");
                 String mail = request.getParameter("mail");
-                String status = request.getParameter("name");
-                 //Customer customer = service.createCustomer(name);
-                 //List<Customer> assignments = service.findAllCustomers();
-                // request.setAttribute("auditTrail", customer);
-                url = "listCustomer.jsp";
+                String type = request.getParameter("type");
+                String status = request.getParameter("status");
+
+                Customer customer = service.createCustomer(code,dni,name,lastName,age,mail,type,status);
+                List<Customer> customers = service.findAllCustomers();
+                request.setAttribute("customers", customers);
+                url = "listCustomers.jsp";
             }
             if(action.equals("update")) {
                 int id = Integer.parseInt(request.getParameter("id"));

@@ -45,6 +45,8 @@ public class CmService {
         return dataStore.findAllCustomer();
     }
 
+    public Customer createCustomer(String code,String dni,String name,String lastName,int age,String main,String type,String status) { return dataStore.createCustomer(code,dni,name,lastName,age,main,type,status);}
+
 
     public Assignment findAssignmentById (int id) {
         return dataStore.findAssignmentById(id);
