@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.List;
 
 @javax.servlet.annotation.WebServlet(name = "UserController", urlPatterns = "/user")
-public class UsersController extends javax.servlet.http.HttpServlet {
+public class UserController extends javax.servlet.http.HttpServlet {
     CmService service;
     String url;
 
@@ -75,4 +75,3 @@ public class UsersController extends javax.servlet.http.HttpServlet {
 
         request.getRequestDispatcher(url).forward(request, response);
     }
-}
