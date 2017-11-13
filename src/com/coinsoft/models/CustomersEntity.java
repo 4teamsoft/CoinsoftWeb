@@ -94,7 +94,7 @@ public class CustomersEntity extends BaseEntity {
     }
 
     public boolean update(Customer customer) {
-        return update(customer.getCustomer_id(),customer.getCode(),customer.getDni(),customer.getName(), customer.getLastName(),
+        return update(customer.getId(),customer.getCode(),customer.getDni(),customer.getName(), customer.getLastName(),
                 customer.getAge(), customer.getMail(),customer.getStatus());
     }
 
@@ -106,7 +106,7 @@ public class CustomersEntity extends BaseEntity {
 
     public boolean erase(Customer customer) {
         return executeUpdate(String.format("DELETE FROM %s WHERE customer_id = %d",
-                getTableName(), customer.getCustomer_id()));
+                getTableName(), customer.getId()));
     }
 
 

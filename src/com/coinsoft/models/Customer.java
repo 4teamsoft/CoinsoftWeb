@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 public class Customer extends Person {
 
-    private int customer_id;
+    private int id;
     private String type;
 
     public Customer(String code, String dni, String name, String lastName, int age, String mail, String status, String type) {
@@ -35,8 +35,9 @@ public class Customer extends Person {
 
     }
 
-    public int getCustomer_id() {
-        return customer_id;
+
+    public int getId() {
+        return id;
     }
 
 }
