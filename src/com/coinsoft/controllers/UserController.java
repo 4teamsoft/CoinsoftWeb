@@ -13,7 +13,7 @@ public class UsersController extends javax.servlet.http.HttpServlet {
     CmService service;
     String url;
 
-    public UserController() {
+    public UsersController() {
         super();
         service = new CmService();
         url = "";

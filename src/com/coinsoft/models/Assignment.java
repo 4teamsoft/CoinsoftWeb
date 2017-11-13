@@ -12,11 +12,13 @@ public class Assignment {
     private String status;
     private Employe employe;
     private Employe manager;
+    private Employe admin;
 
     public Assignment() {
     }
 
-    public Assignment(int id, Date assignedFrom, Date assignedTo, String detail, String status, Employe employe, Employe manager) {
+    public Assignment(int id, Date assignedFrom, Date assignedTo, String detail,
+                      String status, Employe employe, Employe manager, Employe admin) {
         this.id = id;
         this.assignedFrom = assignedFrom;
         this.assignedTo = assignedTo;
@@ -24,6 +26,7 @@ public class Assignment {
         this.status = status;
         this.employe = employe;
         this.manager = manager;
+        this.manager = admin;
     }
 
     public int getId() {
@@ -89,16 +92,29 @@ public class Assignment {
         return this;
     }
 
+    public Employe getAdmin() {
+        return admin;
+    }
+
+    public Assignment setAdmin(Employe admin) {
+        this.admin = admin;
+        return this;
+    }
 
 
-    public static Assignment from(ResultSet rs) {
+
+    public static Assignment from(ResultSet rs, EmployeesEntity employeesEntity) {
         Assignment assignment=new Assignment();
                 try {
             return assignment.setId(rs.getInt("id"))
                     .setAssignedFrom(rs.getDate("assigned_from"))
                     .setAssignedTo(rs.getDate("assigned_to"))
                     .setDetail(rs.getString("detail"))
-                    .setStatus(rs.getString("status"));
+                    .setStatus(rs.getString("status"))
+                    .setEmploye(employeesEntity.findById(rs.getInt("employe_id")))
+                    .setEmploye(employeesEntity.findById(rs.getInt("manager_id")))
+                    .setEmploye(employeesEntity.findById(rs.getInt("admin_id")))
+                    ;
 
 
         } catch (SQLException e) {
