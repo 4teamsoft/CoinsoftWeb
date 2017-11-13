@@ -39,9 +39,11 @@ public class LoansEntity extends BaseEntity{
     }
 
 
+
     public List<Loan> findAll(CustomersEntity customersEntity) {
         return findByCriteria("", customersEntity);
     }
+
 
 
 

@@ -76,19 +76,29 @@ public class Quota {
         this.loan = loan;
         return this;
     }
-    public static Quota from(ResultSet rs, LoansEntity loansEntity) {
-        Quota quota = new Quota();
-        try {
+
+
+    public static Quota from(ResultSet rs, LoansEntity loansEntity){
+        Quota quota=new Quota();
+        try{
+
             return quota.setId(rs.getInt("id"))
                     .setCode(rs.getString("code"))
                     .setPaymentDate(rs.getString("payment_Date"))
                     .setAmount(rs.getDouble("amount"))
                     .setStatus(rs.getString("status"))
-                    .setLoan(loansEntity.findById(rs.getInt("loan_id"),loansEntity));
+                    .setLoan(loansEntity.findById(rs.getInt("loan_id"))
+                    );
 
-        } catch (SQLException e) {
+        } catch (SQLException e){
             e.printStackTrace();
         }
+
         return null;
     }
+
+
+
+
+
 }
