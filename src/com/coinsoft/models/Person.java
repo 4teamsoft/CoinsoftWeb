@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Person {
-    private int id;
+
     private String code;
     private String dni;
     private String name;
@@ -13,8 +13,8 @@ public class Person {
     private String mail;
     private String status;
 
-    public Person(int id, String code, String dni, String name, String lastName, int age, String mail, String status) {
-        this.id = id;
+    public Person(String code, String dni, String name, String lastName, int age, String mail, String status) {
+
         this.code = code;
         this.dni = dni;
         this.name = name;
@@ -27,14 +27,14 @@ public class Person {
     public Person() {
     }
 
-    public int getId() {
-        return id;
+    /*public int getId() {
+        return person_id;
     }
-
-    public Person setId(int id) {
-        this.id = id;
+*/
+    /*public Person setId(int id) {
+        this.person_id = id;
         return this;
-    }
+    }*/
 
     public String getCode() {
         return code;
@@ -102,7 +102,6 @@ public class Person {
     public static Person from(ResultSet rs) {
         try {
             return new Person(
-                    rs.getInt("id"),
                     rs.getString("code"),
                     rs.getString("dni"),
                     rs.getString("name"),

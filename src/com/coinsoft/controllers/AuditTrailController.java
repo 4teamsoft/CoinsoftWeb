@@ -1,13 +1,10 @@
 package com.coinsoft.controllers;
 
 import com.coinsoft.models.CmService;
-import com.coinsoft.models.AuditTrail;
-
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 
 @javax.servlet.annotation.WebServlet(name = "AssignmentController", urlPatterns = "/assignment")
@@ -34,7 +31,7 @@ public class AuditTrailController  extends javax.servlet.http.HttpServlet {
 
     private void processRequest(String method, HttpServletRequest request, HttpServletResponse response)  throws javax.servlet.ServletException, IOException {
         String action = request.getParameter("action");
-
+/*
         if(method.equals("GET")) {
             // Index Action
             if(action.equals("index")) {
@@ -78,7 +75,7 @@ public class AuditTrailController  extends javax.servlet.http.HttpServlet {
             }
         }
 
-        request.getRequestDispatcher(url).forward(request, response);
+        request.getRequestDispatcher(url).forward(request, response);*/
     }
 
 

@@ -36,9 +36,9 @@ public class CustomersEntity extends BaseEntity {
     }
 
 
-    public Customer findById(int id) {
+    public Customer findById(int customer_id) {
         return findByCriteria(
-                String.format("WHERE id = '%d'", id)).get(0);
+                String.format("WHERE customer_id = '%d'", customer_id)).get(0);
     }
 
     public Customer findByName(String name) {
@@ -60,11 +60,11 @@ public class CustomersEntity extends BaseEntity {
         return findByCriteria("");
     }
 
-
+/*
     public List<Customer> findAllWithManagement() {
         return findByCriteria("customer_id IN (SELECT DISTINCT customer_id FROM managements)");
-    }
-
+    }*/
+/*
     private int getMaxId() {
         String sql = "SELECT MAX(id) AS max_id FROM customers";
         try {
@@ -74,45 +74,39 @@ public class CustomersEntity extends BaseEntity {
             e.printStackTrace();
         }
         return 0;
-    }
+    }*/
 
 
     public Customer create(Customer customer) {
         return executeUpdate(String.format(
-                "INSERT INTO %s(id,code,dni, name, last_name, age , mail, status ) VALUES(%d,'%s','%s', '%s', '%s',%d,'%s','%s')", getTableName(), customer.getId(), customer.getCode(), customer.getDni(), customer.getName(), customer.getLastName(), customer.getAge(), customer.getMail(), customer.getStatus())) ? customer : null;
+                "INSERT INTO %s(code,dni, name, last_name, age , mail,type, status ) VALUES(%d,'%s','%s', '%s', '%s',%d,'%s','%s')", getTableName(), customer.getCode(), customer.getDni(), customer.getName(), customer.getLastName(), customer.getAge(), customer.getMail(), customer.getStatus())) ? customer : null;
     }
 
-    public Customer create(String code,String dni,String name, String lastName, int age,String mail, String status) {
-        return create(new Customer(getMaxId() + 1,code,dni, name, lastName, age, mail, status));
-    }
-
-    public Customer create(int id,String code,String dni,String name, String lastName, int age,String mail, String status) {
-        return create(new Customer(id,code,dni, name, lastName, age, mail, status));
+    public Customer create(String code,String dni,String name, String lastName, int age,String mail,String type, String status) {
+        return create(new Customer(code,dni, name, lastName, age, mail,type, status));
     }
 
     //id, code, dni, name, lastName, age, mail, status
-    public boolean update(int id,String code,String dni,String name, String lastName, int age,String mail, String status) {
+    public boolean update(int customer_id,String code,String dni,String name, String lastName, int age,String mail, String status) {
         return executeUpdate(String.format(
-                "UPDATE %s SET code = '%s',dni = '%s',name = '%s', last_name='%s', age=%d,mail = '%s', status='%s' WHERE id = %d",
-                getTableName(),code,dni, name, lastName, age,mail, status, id));
+                "UPDATE %s SET code = '%s',dni = '%s',name = '%s', last_name='%s', age=%d,mail = '%s', status='%s' WHERE customer_id = %d",
+                getTableName(),code,dni, name, lastName, age,mail, status, customer_id));
     }
 
     public boolean update(Customer customer) {
-        return update(customer.getId(),customer.getCode(),customer.getDni(),customer.getName(), customer.getLastName(),
+        return update(customer.getCustomer_id(),customer.getCode(),customer.getDni(),customer.getName(), customer.getLastName(),
                 customer.getAge(), customer.getMail(),customer.getStatus());
     }
 
 
-    public boolean erase(int id) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE id = %d",
-                getTableName(), id));
+    public boolean erase(int customer_id) {
+        return executeUpdate(String.format("DELETE FROM %s WHERE customer_id = %d",
+                getTableName(), customer_id));
     }
 
     public boolean erase(Customer customer) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE id = %d",
-                getTableName(), customer.getId()));
-
-        //mensaje de prueba :v
+        return executeUpdate(String.format("DELETE FROM %s WHERE customer_id = %d",
+                getTableName(), customer.getCustomer_id()));
     }
 
 

@@ -13,7 +13,7 @@ public class UserController extends javax.servlet.http.HttpServlet {
     CmService service;
     String url;
 
-    public UsersController() {
+    public UserController() {
         super();
         service = new CmService();
         url = "";
@@ -27,43 +27,42 @@ public class UserController extends javax.servlet.http.HttpServlet {
         processRequest("GET", request, response);
     }
 
-    private void processRequest(String method, HttpServletRequest request, HttpServletResponse response)  throws javax.servlet.ServletException, IOException {
+    private void processRequest(String method, HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         String action = request.getParameter("action");
 
-        if(method.equals("GET")) {
+        if (method.equals("GET")) {
             // Index Action
-            if(action.equals("index")) {
+            if (action.equals("index")) {
                 List<User> users = service.findAllUser();
                 request.setAttribute("users", users);
                 url = "listUser.jsp";
             }
-            if(action.equals("show")) {
+            if (action.equals("show")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 User user = service.findUserById(id);
                 request.setAttribute("users", user);
                 url = "showUser.jsp";
             }
-            if(action.equals("new")) {
+            if (action.equals("new")) {
                 url = "newUser.jsp";
             }
-            if(action.equals("edit")) {
+            if (action.equals("edit")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 User user = service.findUserById(id);
                 request.setAttribute("user", user);
                 url = "editUser.jsp";
             }
         }
-
-        if(method.equals("POST")) {
+        /*if (method.equals("POST")) {
             // Create Action
-            if(action.equals("create")) {
+            if (action.equals("create")) {
                 String name = request.getParameter("name");
                 User user = service.createUser(name);
                 List<User> users = service.findAllRegions();
                 request.setAttribute("users", users);
                 url = "listUser.jsp";
             }
-            if(action.equals("update")) {
+            if (action.equals("update")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 String name = request.getParameter("name");
                 boolean isUpdated = service.updateUser(id, name);
@@ -71,7 +70,8 @@ public class UserController extends javax.servlet.http.HttpServlet {
                 request.setAttribute("users", users);
                 url = "listUsers.jsp";
             }
-        }
+        }*/
 
         request.getRequestDispatcher(url).forward(request, response);
     }
+}
