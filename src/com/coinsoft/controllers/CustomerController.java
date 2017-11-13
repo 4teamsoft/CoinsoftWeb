@@ -62,7 +62,13 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
         if(method.equals("POST")) {
             // Create Action
             if(action.equals("create")) {
+                String code = request.getParameter("code");
+                String dni = request.getParameter("dni");
                 String name = request.getParameter("name");
+                String lastName = request.getParameter("last_name");
+                int age = request.getParameter("age");
+                String mail = request.getParameter("mail");
+                String status = request.getParameter("name");
                  //Customer customer = service.createCustomer(name);
                  //List<Customer> assignments = service.findAllCustomers();
                 // request.setAttribute("auditTrail", customer);
