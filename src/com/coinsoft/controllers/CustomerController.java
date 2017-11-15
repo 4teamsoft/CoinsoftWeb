@@ -81,9 +81,9 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
 
                 Customer customer = service.createCustomer(code,dni,name,lastName,age,mail,type,status);
 
-                /*List<Customer> customers = service.findAllCustomers();
-                request.setAttribute("customers", customers);*/
-                url = "index.jsp";
+                List<Customer> customers = service.findAllCustomers();
+                request.setAttribute("customers", customers);
+                url = "listCustomer.jsp";
             }
             if(action.equals("update")) {
                 int id = Integer.parseInt(request.getParameter("id"));

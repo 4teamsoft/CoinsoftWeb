@@ -6,12 +6,32 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-  <head>
-    <title>Hello</title>
-  </head>
-  <body>
-  Access here to enter the platform.
-  <p><a href="customers?action=new">Create Customer</a></p>
-  </body>
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Acceso a Plataforma</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div id="main" class="container">
+  <form name="loginform" id="loginform" action="#" method="post" class="wpl-track-me">
+    <p class="login-username">
+      <input type="text" name="log" id="user_login" class="input" placeholder="Usuario" value="" size="20" />
+    </p>
+    <p class="login-password">
+      <input type="password" name="pwd" id="user_pass" class="input" placeholder="Contraseña" value="" size="20" />
+    </p>
+    <p class="login-submit"><input type="submit" name="wp-submit" id="wp-submit" class="button-primary" value="Ingresar" />
+      <input type="hidden" name="redirect_to" value="#"/>
+    </p>
+  </form>
+</div>
+</body>
 </html>
+
+
+</body>
+</html>
+
