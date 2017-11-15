@@ -66,20 +66,37 @@ body {
 	height: 200px;
 	margin: 0 auto;	
 	outline: solid 10px rgba(0,0,0,0.10);
-	width: 250px;
+	width: 350px;
 	padding: 30px;
 }
 
+.chooisePlataform{
+	color: #4c4c4c;
+	font-size: 20px;
+	text-transform: uppercase;
+	text-transform: uppercase;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+}
+
 .login-username:before { 
-	content: "Acceso";
+	content: "Acceso de Administrador";
 	color: #4c4c4c;	
 	font-size: 20px;
 	text-transform: uppercase;
 	margin: 0;
 	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
-} 
- 
- .login-username label, .login-password label {
+}
+
+.login-username2:before {
+	content: "Acceso de Gestor";
+	color: #4c4c4c;
+	font-size: 20px;
+	text-transform: uppercase;
+	margin: 0;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+}
+
+.login-username label, .login-password label {
 	display: none;
 	text-indent: -9999px;
 }
@@ -166,10 +183,31 @@ body {
 	width: 100%;
 }
 
+.button-primary2 {
+	background-color: #394446;
+	border: solid 1px transparent;
+	box-sizing: border-box;
+	color: #fff;
+	cursor: pointer;
+	font:  14px/36px 'oswald';
+	height: 42px;
+	letter-spacing: 1px;
+	margin-top: -11px;
+	outline: none;
+	text-align: center;
+	text-transform: uppercase;
+	transition: background-color 0.5s;
+	width: 100%;
+}
+
 .button-primary:hover {
 	background-color: #469DB6;
-
 }
+
+.button-primary2:hover {
+	background-color: #617174s;
+}
+
 .login-remember { 
 	display: none;
 }
