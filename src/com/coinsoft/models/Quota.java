@@ -1,8 +1,5 @@
 package com.coinsoft.models;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 public class Quota {
     private int id;
     private String code;
@@ -77,7 +74,7 @@ public class Quota {
         return this;
     }
 
-
+/*
     public static Quota from(ResultSet rs, LoansEntity loansEntity){
         Quota quota=new Quota();
         try{
@@ -97,7 +94,7 @@ public class Quota {
         return null;
     }
 
-
+*/
 
 
 

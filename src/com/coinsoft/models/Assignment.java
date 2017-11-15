@@ -1,7 +1,5 @@
 package com.coinsoft.models;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Date;
 
 public class Assignment {
@@ -102,7 +100,7 @@ public class Assignment {
     }
 
 
-
+/*
     public static Assignment from(ResultSet rs, EmployeesEntity employeesEntity) {
         Assignment assignment=new Assignment();
                 try {
@@ -121,7 +119,7 @@ public class Assignment {
             e.printStackTrace();
         }
         return null;
-    }
+    }*/
 }
 
 

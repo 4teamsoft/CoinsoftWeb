@@ -1,13 +1,6 @@
 package com.coinsoft.controllers;
 
-import com.coinsoft.models.CmService;
-import com.coinsoft.models.User;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.List;
-
+/*
 @javax.servlet.annotation.WebServlet(name = "UserController", urlPatterns = "/user")
 public class UserController extends javax.servlet.http.HttpServlet {
     CmService service;
@@ -70,8 +63,7 @@ public class UserController extends javax.servlet.http.HttpServlet {
                 request.setAttribute("users", users);
                 url = "listUsers.jsp";
             }
-        }*/
+        }
 
         request.getRequestDispatcher(url).forward(request, response);
-    }
-}
+    }*/

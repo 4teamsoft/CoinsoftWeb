@@ -12,5 +12,6 @@
   </head>
   <body>
   Access here to enter the platform.
+  <p><a href="customers?action=new">Create Customer</a></p>
   </body>
 </html>

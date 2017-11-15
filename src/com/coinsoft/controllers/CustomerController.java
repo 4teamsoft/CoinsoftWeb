@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 
 
-@javax.servlet.annotation.WebServlet(name = "CustomerController", urlPatterns = "/customer")
+@javax.servlet.annotation.WebServlet(name = "CustomerController", urlPatterns = "/customers")
 
 public class CustomerController extends javax.servlet.http.HttpServlet {
 
@@ -51,6 +51,13 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
             if(action.equals("new")) {
                 url = "newCustomer.jsp";
             }
+
+            if(action.equals("list")) {
+                List<Customer> customers = service.findAllCustomers();
+                request.setAttribute("customers", customers);
+                url = "listCustomer.jsp";
+            }
+
             if(action.equals("edit")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 Customer customer = service.findCustomerById(id);
@@ -62,19 +69,21 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
         if(method.equals("POST")) {
             // Create Action
             if(action.equals("create")) {
+
                 String code = request.getParameter("code");
                 String dni = request.getParameter("dni");
                 String name = request.getParameter("name");
                 String lastName = request.getParameter("last_name");
-                Integer age = request.getIntHeader("age");
+                Integer age = Integer.parseInt(request.getParameter("age"));
                 String mail = request.getParameter("mail");
                 String type = request.getParameter("type");
                 String status = request.getParameter("status");
 
                 Customer customer = service.createCustomer(code,dni,name,lastName,age,mail,type,status);
-                List<Customer> customers = service.findAllCustomers();
-                request.setAttribute("customers", customers);
-                url = "listCustomers.jsp";
+
+                /*List<Customer> customers = service.findAllCustomers();
+                request.setAttribute("customers", customers);*/
+                url = "index.jsp";
             }
             if(action.equals("update")) {
                 int id = Integer.parseInt(request.getParameter("id"));

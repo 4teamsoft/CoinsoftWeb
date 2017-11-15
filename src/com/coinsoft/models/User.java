@@ -1,8 +1,5 @@
 package com.coinsoft.models;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 public class User {
     private int id;
     private String user;
@@ -76,7 +73,7 @@ public class User {
         this.employe = employe;
         return this;
     }
-
+/*
     public static User from(ResultSet rs, EmployeesEntity employeesEntity){
         User user=new User();
         try{
@@ -93,5 +90,5 @@ public class User {
             }
 
         return null;
-    }
+    }*/
 }

@@ -1,7 +1,5 @@
 package com.coinsoft.models;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Date;
 
 public class Visit {
@@ -99,7 +97,7 @@ public class Visit {
         this.customer = customer;
         return this;
     }
-
+/*
     public static Visit from(ResultSet rs, UsersEntity usersEntity, CustomersEntity customersEntity) {
         Visit visit = new Visit();
         try {
@@ -116,6 +114,6 @@ public class Visit {
             e.printStackTrace();
         }
         return null;
-    }
+    }*/
 }
 

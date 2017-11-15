@@ -1,10 +1,6 @@
 package com.coinsoft.models;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class EmployeesEntity extends BaseEntity{
 
@@ -18,7 +14,7 @@ public class EmployeesEntity extends BaseEntity{
         super(connection, tableName);
     }
 
-
+/*
     public List<Employe> findByCriteria(String criteria) {
         try {
             ResultSet rs = getConnection()
@@ -34,9 +30,9 @@ public class EmployeesEntity extends BaseEntity{
         }
         return null;
 
-    }
+    }*/
 
-
+/*
     public Employe findById(int id) {
         return findByCriteria(
                 String.format("WHERE id = '%d'", id)).get(0);
@@ -117,6 +113,6 @@ public class EmployeesEntity extends BaseEntity{
 
     }
 
-
+*/
 
 }

@@ -8,6 +8,8 @@ import java.util.List;
 
 public class CustomersEntity extends BaseEntity {
 
+    private String setSecondTableName = "people";
+
     public CustomersEntity() {
         super();
         setTableName("customers");
@@ -57,16 +59,16 @@ public class CustomersEntity extends BaseEntity {
     }
 
     public List<Customer> findAll() {
-        return findByCriteria("");
+        return findByCriteria("c INNER JOIN people p ON c.person_id=p.person_id");
     }
 
 /*
     public List<Customer> findAllWithManagement() {
         return findByCriteria("customer_id IN (SELECT DISTINCT customer_id FROM managements)");
     }*/
-/*
+
     private int getMaxId() {
-        String sql = "SELECT MAX(id) AS max_id FROM customers";
+        String sql = "SELECT MAX(person_id) AS max_id FROM people";
         try {
             ResultSet resultSet = getConnection().createStatement().executeQuery(sql);
             return resultSet.next() ? resultSet.getInt("max_id") : 0;
@@ -74,15 +76,24 @@ public class CustomersEntity extends BaseEntity {
             e.printStackTrace();
         }
         return 0;
-    }*/
-
-
-    public Customer create(Customer customer) {
-        return executeUpdate(String.format(
-                "INSERT INTO %s(code,dni, name, last_name, age , mail,type, status ) VALUES(%d,'%s','%s', '%s', '%s',%d,'%s','%s')", getTableName(), customer.getCode(), customer.getDni(), customer.getName(), customer.getLastName(), customer.getAge(), customer.getMail(), customer.getStatus())) ? customer : null;
     }
 
-    public Customer create(String code,String dni,String name, String lastName, int age,String mail,String type, String status) {
+
+
+    public Customer create(Customer customer){
+
+        executeUpdate(String.format("INSERT INTO customers(type) VALUES('%s');",customer.getType()));
+        executeUpdate(String.format("INSERT INTO people(name) VALUES('%s');",customer.getName()));
+
+        return null;
+    }
+
+   /* public Customer create(Customer customer) {
+        return executeUpdate(String.format(
+                "INSERT INTO %s(code,dni, name, last_name, age , mail) VALUES('%s','%s','%s','%s',%d,'%s')", getTableName(), customer.getCode(), customer.getDni(), customer.getName(), customer.getLastName(), customer.getAge(), customer.getMail(), customer.getType(), customer.getStatus(), getMaxId())) ? customer : null;
+    }*/
+
+    public Customer create(String code, String dni, String name, String lastName, int age, String mail, String type, String status) {
         return create(new Customer(code,dni, name, lastName, age, mail,type, status));
     }
 
@@ -92,22 +103,22 @@ public class CustomersEntity extends BaseEntity {
                 "UPDATE %s SET code = '%s',dni = '%s',name = '%s', last_name='%s', age=%d,mail = '%s', status='%s' WHERE customer_id = %d",
                 getTableName(),code,dni, name, lastName, age,mail, status, customer_id));
     }
-
+/*
     public boolean update(Customer customer) {
         return update(customer.getId(),customer.getCode(),customer.getDni(),customer.getName(), customer.getLastName(),
                 customer.getAge(), customer.getMail(),customer.getStatus());
     }
-
+*/
 
     public boolean erase(int customer_id) {
         return executeUpdate(String.format("DELETE FROM %s WHERE customer_id = %d",
                 getTableName(), customer_id));
     }
-
+/*
     public boolean erase(Customer customer) {
         return executeUpdate(String.format("DELETE FROM %s WHERE customer_id = %d",
                 getTableName(), customer.getId()));
-    }
+    }*/
 
 
 }
