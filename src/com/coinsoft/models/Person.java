@@ -16,7 +16,6 @@ public class Person {
 
 
     public Person(String code, String dni, String name, String lastName, int age, String mail) {
-
         this.code = code;
         this.dni = dni;
         this.name = name;
@@ -32,7 +31,7 @@ public class Person {
         this.person_id = id;
         return this;
     }*/
-/*
+
     public String getCode() {
         return code;
     }
@@ -50,7 +49,7 @@ public class Person {
         this.dni = dni;
         return this;
     }
-*/
+
     public String getName() {
         return name;
     }

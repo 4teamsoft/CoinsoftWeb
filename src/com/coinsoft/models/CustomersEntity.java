@@ -68,6 +68,7 @@ public class CustomersEntity extends BaseEntity {
     }*/
 
     private int getMaxId() {
+
         String sql = "SELECT MAX(person_id) AS max_id FROM people";
         try {
             ResultSet resultSet = getConnection().createStatement().executeQuery(sql);
@@ -82,8 +83,8 @@ public class CustomersEntity extends BaseEntity {
 
     public Customer create(Customer customer){
 
-        executeUpdate(String.format("INSERT INTO customers(type) VALUES('%s');",customer.getType()));
-        executeUpdate(String.format("INSERT INTO people(name) VALUES('%s');",customer.getName()));
+        executeUpdate(String.format("INSERT INTO people(code,dni,name,last_name,age,mail) VALUES('%s','%s','%s','%s',%d,'%s');",customer.getCode(),customer.getDni(),customer.getName(),customer.getLastName(),customer.getAge(),customer.getMail()));
+        executeUpdate(String.format("INSERT INTO customers(type,status,person_id) VALUES('%s','%s',%d);",customer.getType(),customer.getStatus(),getMaxId()));
 
         return null;
     }
@@ -93,8 +94,8 @@ public class CustomersEntity extends BaseEntity {
                 "INSERT INTO %s(code,dni, name, last_name, age , mail) VALUES('%s','%s','%s','%s',%d,'%s')", getTableName(), customer.getCode(), customer.getDni(), customer.getName(), customer.getLastName(), customer.getAge(), customer.getMail(), customer.getType(), customer.getStatus(), getMaxId())) ? customer : null;
     }*/
 
-    public Customer create(String code, String dni, String name, String lastName, int age, String mail, String type, String status) {
-        return create(new Customer(code,dni, name, lastName, age, mail,type, status));
+    public Customer create(String code, String dni, String name, String lastName, int age, String mail, String type,String status) {
+        return create(new Customer(code,dni, name, lastName, age, mail,type,status));
     }
 
     //id, code, dni, name, lastName, age, mail, status

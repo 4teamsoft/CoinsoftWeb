@@ -17,6 +17,7 @@ public class Customer extends Person {
         this.status = status;
     }
 
+
     public static Customer from(ResultSet rs) {
         try {
             return new Customer(

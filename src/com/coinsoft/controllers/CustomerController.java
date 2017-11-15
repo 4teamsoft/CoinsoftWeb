@@ -73,11 +73,11 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
                 String code = request.getParameter("code");
                 String dni = request.getParameter("dni");
                 String name = request.getParameter("name");
-                String lastName = request.getParameter("last_name");
+                String lastName = request.getParameter("lastName");
                 Integer age = Integer.parseInt(request.getParameter("age"));
                 String mail = request.getParameter("mail");
                 String type = request.getParameter("type");
-                String status = request.getParameter("status");
+                String status = "1";
 
                 Customer customer = service.createCustomer(code,dni,name,lastName,age,mail,type,status);
 
