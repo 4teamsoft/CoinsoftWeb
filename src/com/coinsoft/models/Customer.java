@@ -8,6 +8,8 @@ public class Customer extends Person {
     private int id;
     private String type;
     private String status;
+    private int personId;
+
 
     public Customer(String code, String dni, String name, String lastName, int age, String mail, String type, String status) {
         super(code, dni, name, lastName, age, mail);
@@ -15,8 +17,6 @@ public class Customer extends Person {
         this.status = status;
     }
 
-    public Customer() {
-    }
 
     public static Customer from(ResultSet rs) {
         try {
@@ -37,10 +37,10 @@ public class Customer extends Person {
 
     }
 
-
+/*
     public int getId() {
         return id;
-    }
+    }*/
 
     public String getType() {
         return type;
@@ -57,6 +57,15 @@ public class Customer extends Person {
 
     public Customer setStatus(String status) {
         this.status = status;
+        return this;
+    }
+
+    public int getPersonId() {
+        return personId;
+    }
+
+    public Customer setPersonId(int personId) {
+        this.personId = personId;
         return this;
     }
 }

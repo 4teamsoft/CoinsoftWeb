@@ -1,12 +1,5 @@
 package com.coinsoft.controllers;
-import com.coinsoft.models.CmService;
-import com.coinsoft.models.Assignment;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.List;
-
+/*
 @javax.servlet.annotation.WebServlet(name = "AssignmentController", urlPatterns = "/assignment")
 public class AssignmentController  extends javax.servlet.http.HttpServlet {
 
@@ -83,4 +76,4 @@ public class AssignmentController  extends javax.servlet.http.HttpServlet {
 
 
 
-}
+}*/

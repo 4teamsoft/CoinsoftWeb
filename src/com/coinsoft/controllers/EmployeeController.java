@@ -1,13 +1,6 @@
 package com.coinsoft.controllers;
 
-import  com.coinsoft.models.CmService;
-import com.coinsoft.models.Employe;
-
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.List;
+import com.coinsoft.models.CmService;
 
 
 @javax.servlet.annotation.WebServlet(name = "EmployeeController", urlPatterns = "/employe")
@@ -22,7 +15,7 @@ public class EmployeeController extends javax.servlet.http.HttpServlet {
         service = new CmService();
         url = "";
     }
-
+/*
 
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         processRequest("POST", request, response);
@@ -30,8 +23,8 @@ public class EmployeeController extends javax.servlet.http.HttpServlet {
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         processRequest("GET", request, response);
-    }
-
+    }*/
+/*
     private void processRequest(String method, HttpServletRequest request, HttpServletResponse response)  throws javax.servlet.ServletException, IOException {
         String action = request.getParameter("action");
 
@@ -79,17 +72,7 @@ public class EmployeeController extends javax.servlet.http.HttpServlet {
         }
 
         request.getRequestDispatcher(url).forward(request, response);
-    }
-
-
-
-
-
-
-
-
-
-
+    }*/
 
 
 

@@ -1,8 +1,5 @@
 package com.coinsoft.models;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 public class Employe extends Person {
     private Employe manager;
     private Employe admin;
@@ -10,6 +7,17 @@ public class Employe extends Person {
     public Employe() {
     }
 
+/*
+    public Employe(int id, String code, String dni, String name, String lastName, int age, String mail, String status) {
+        super(id, code, dni, name, lastName, age, mail, status);
+
+    }
+
+    public Employe(int id, String code, String dni, String name, String lastName, int age, String mail, String status, Employe manager, Employe admin) {
+        super(id, code, dni, name, lastName, age, mail, status);
+        this.setManager(manager);
+        this.setAdmin(admin);
+    }*/
     public Employe(String code, String dni, String name, String last_name, int age, String mail, String status, Employe manager, Employe admin) {
         this.manager = manager;
         this.admin = admin;
@@ -24,6 +32,7 @@ public class Employe extends Person {
         this.manager = manager;
         this.admin = admin;
     }
+
 
     public Employe getManager() {
         return manager;
@@ -42,7 +51,7 @@ public class Employe extends Person {
         this.admin = admin;
         return this;
     }
-
+/*
 
     public static Employe from(ResultSet rs, EmployeesEntity employeesEntity) {
         try {
@@ -62,7 +71,7 @@ public class Employe extends Person {
         }
         return null;
 
-    }
+    }*/
 
 
 

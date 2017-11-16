@@ -49,5 +49,4 @@ public class BaseEntity {
         }
         return false;
     }
-
 }

@@ -1,26 +1,21 @@
 package com.coinsoft.models;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
+/*
 public class UsersEntity extends BaseEntity {
     public UsersEntity(Connection connection, String tableName) {
         super(connection, tableName);
     }
-
+/*
     public UsersEntity() {
         super();
         setTableName("users");
-    }
-
+    }*/
+/*
     public User findById(int id, EmployeesEntity employeesEntity) {
         return findByCriteria(
                 String.format("WHERE id = %d", id), employeesEntity).get(0);
-    }
-
+    }*/
+/*
     public List<User> findByCriteria(String criteria, EmployeesEntity employeesEntity) {
         try {
             ResultSet rs = getConnection()
@@ -39,17 +34,17 @@ public class UsersEntity extends BaseEntity {
         return null;
 
     }
-
-
+*/
+/*
     public User findByUser(String user, EmployeesEntity employeesEntity) {
         return findByCriteria(
                 String.format("WHERE user = '%s'", user), employeesEntity).get(0);
-    }
-
+    }*/
+/*
     public List<User> findAll(EmployeesEntity employeesEntity) {
         return findByCriteria("", employeesEntity);
-    }
-
+    }*/
+/*
     public boolean create(User user) {
         return executeUpdate(String.format(
                 "INSERT INTO %s(id, user, password, type , status, employe_id) VALUES(%d,'%s', '%s', %d, '%s',%d)",
@@ -92,4 +87,4 @@ public class UsersEntity extends BaseEntity {
     }
 
 
-}
+}*/

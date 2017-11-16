@@ -6,11 +6,22 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-  <head>
-    <title>Hello</title>
-  </head>
-  <body>
-  Access here to enter the platform.
-  </body>
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Acceso a Plataforma Administrativa</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div id="main" class="container">
+  <form name="loginform" id="loginform" class="wpl-track-me">
+    <span class="chooisePlataform">Acceso a Plataforma</span>
+    <input type="button" class="button-primary2" value="Administrador" onclick="location.href='customers?action=index';" style="margin-top: 30px;"/>
+    <input type="button" class="button-primary2" value="Gestor" onclick="location.href='1.html';" style="margin-top: 30px;"/>
+  </form>
+</div>
+</body>
 </html>
+

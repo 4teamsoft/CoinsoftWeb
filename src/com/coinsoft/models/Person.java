@@ -3,18 +3,19 @@ package com.coinsoft.models;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 public class Person {
 
     private int id;
     private String code;
     private String dni;
     private String name;
-    private String lastName;
+   private String lastName;
     private int age;
     private String mail;
 
-    public Person(String code, String dni, String name, String lastName, int age, String mail) {
 
+    public Person(String code, String dni, String name, String lastName, int age, String mail) {
         this.code = code;
         this.dni = dni;
         this.name = name;
@@ -22,7 +23,6 @@ public class Person {
         this.age = age;
         this.mail = mail;
     }
-
     public Person() {
     }
 
@@ -85,6 +85,7 @@ public class Person {
         this.mail = mail;
         return this;
     }
+
 
     public static Person from(ResultSet rs) {
         try {
