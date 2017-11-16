@@ -10,6 +10,7 @@ public class CmDataStore {
     private CustomersEntity customersEntity;
     private EmployeesEntity employeesEntity;
     private LoansEntity loansEntity;
+    private PeopleEntity peopleEntity;
     /*private UsersEntity usersEntity;*/
     private VisitsEntity visitsEntity;
 
@@ -104,6 +105,14 @@ public class CmDataStore {
         return customersEntity;
     }
 
+    private PeopleEntity getPeopleEntity(){
+        if(peopleEntity == null){
+            peopleEntity = new PeopleEntity();
+            peopleEntity.setConnection(connection);
+        }
+        return peopleEntity;
+    }
+
     private EmployeesEntity getEmployeesEntity() {
         if(employeesEntity == null) {
             employeesEntity = new EmployeesEntity();
@@ -146,11 +155,8 @@ public class CmDataStore {
 
     public Customer createCustomer(String code, String dni, String name, String lastName, int age, String mail, String type,String status) {
         if(connection == null)return null;
-        Person person = return get1233
-
-        return connection == null ?
-                null :
-                getCustomersEntity().create(code,dni,name,lastName,age,mail,type,status);
+        Person person = getPeopleEntity().create(code,dni,name,lastName,age,mail);
+        return getCustomersEntity().create(type,status,person);
     }
 
 

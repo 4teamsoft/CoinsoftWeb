@@ -78,22 +78,22 @@ public class CustomersEntity extends BaseEntity {
     }
 
 
-
+/*
     public Customer create(Customer customer){
 
         executeUpdate(String.format("INSERT INTO people(code,dni,name,last_name,age,mail) VALUES('%s','%s','%s','%s',%d,'%s');",customer.getCode(),customer.getDni(),customer.getName(),customer.getLastName(),customer.getAge(),customer.getMail()));
         executeUpdate(String.format("INSERT INTO customers(type,status,person_id) VALUES('%s','%s',%d);",customer.getType(),customer.getStatus(),getMaxId()));
 
         return null;
-    }
-
-   /* public Customer create(Customer customer) {
-        return executeUpdate(String.format(
-                "INSERT INTO %s(code,dni, name, last_name, age , mail) VALUES('%s','%s','%s','%s',%d,'%s')", getTableName(), customer.getCode(), customer.getDni(), customer.getName(), customer.getLastName(), customer.getAge(), customer.getMail(), customer.getType(), customer.getStatus(), getMaxId())) ? customer : null;
     }*/
 
-    public Customer create(String code, String dni, String name, String lastName, int age, String mail, String type,String status) {
-        return create(new Customer(code,dni, name, lastName, age, mail,type,status));
+    public Customer create(Customer customer) {
+        return executeUpdate(String.format(
+                "INSERT INTO %s(type,status) VALUES('%s','%s')", getTableName(),customer.getType(),customer.getStatus())) ? customer : null;
+    }
+
+    public Customer create(String type, String status, Person person) {
+        return create(new Customer(person.getCode(),person.getDni(),person.getName(),person.getLastName(),person.getAge(),person.getMail(),type,status));
     }
 
     //id, code, dni, name, lastName, age, mail, status
@@ -113,6 +113,7 @@ public class CustomersEntity extends BaseEntity {
         return executeUpdate(String.format("DELETE FROM %s WHERE customer_id = %d",
                 getTableName(), customer_id));
     }
+
 /*
     public boolean erase(Customer customer) {
         return executeUpdate(String.format("DELETE FROM %s WHERE customer_id = %d",

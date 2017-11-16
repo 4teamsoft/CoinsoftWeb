@@ -27,11 +27,6 @@ public class Person {
     }
 
 
-    /*public Person setId(int id) {
-        this.person_id = id;
-        return this;
-    }*/
-
     public String getCode() {
         return code;
     }
