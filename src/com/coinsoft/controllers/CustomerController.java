@@ -32,43 +32,43 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
         processRequest("GET", request, response);
     }
 
-    private void processRequest(String method, HttpServletRequest request, HttpServletResponse response)  throws javax.servlet.ServletException, IOException {
+    private void processRequest(String method, HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         String action = request.getParameter("action");
 
-        if(method.equals("GET")) {
+        if (method.equals("GET")) {
             // Index Action
-            if(action.equals("index")) {
+            if (action.equals("index")) {
                 /*List<Customer> customers = service.findAllCustomers();
                   request.setAttribute("customers", customers);*/
                 url = "accessAdmin.jsp";
             }
-            if(action.equals("show")) {
+            if (action.equals("show")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 Customer customer = service.findCustomerById(id);
-                   request.setAttribute("auditTrail",customer);
+                request.setAttribute("auditTrail", customer);
                 url = "showCustomer.jsp";
             }
-            if(action.equals("new")) {
+            if (action.equals("new")) {
                 url = "newCustomer.jsp";
             }
 
-            if(action.equals("list")) {
+            if (action.equals("list")) {
                 List<Customer> customers = service.findAllCustomers();
                 request.setAttribute("customers", customers);
                 url = "listCustomer.jsp";
             }
 
-            if(action.equals("edit")) {
+            if (action.equals("edit")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 Customer customer = service.findCustomerById(id);
-                  request.setAttribute("auditTrail", customer);
+                request.setAttribute("auditTrail", customer);
                 url = "editCustomer.jsp";
             }
         }
 
-        if(method.equals("POST")) {
+        if (method.equals("POST")) {
             // Create Action
-            if(action.equals("create")) {
+            if (action.equals("create")) {
 
                 String code = request.getParameter("code");
                 String dni = request.getParameter("dni");
@@ -79,16 +79,13 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
                 String type = request.getParameter("type");
                 String status = "1";
 
-                Customer customer = service.createCustomer(code,dni,name,lastName,age,mail,type,status);
+                Customer customer = service.createCustomer(code, dni, name, lastName, age, mail, type, status);
 
                 List<Customer> customers = service.findAllCustomers();
                 request.setAttribute("customers", customers);
                 url = "listCustomer.jsp";
 
-
-
-
-
-
-
+            }
+        }
+    }
 }
