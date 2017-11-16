@@ -4,6 +4,8 @@ public class Employe extends Person {
     private Employe manager;
     private Employe admin;
 
+    public Employe() {
+    }
 
 /*
     public Employe(int id, String code, String dni, String name, String lastName, int age, String mail, String status) {
@@ -16,6 +18,21 @@ public class Employe extends Person {
         this.setManager(manager);
         this.setAdmin(admin);
     }*/
+    public Employe(String code, String dni, String name, String last_name, int age, String mail, String status, Employe manager, Employe admin) {
+        this.manager = manager;
+        this.admin = admin;
+    }
+
+    public Employe(String code, String dni, String name, String lastName, int age, String mail) {
+        super(code, dni, name, lastName, age, mail);
+    }
+
+    public Employe(String code, String dni, String name, String lastName, int age, String mail, Employe manager, Employe admin) {
+        super(code, dni, name, lastName, age, mail);
+        this.manager = manager;
+        this.admin = admin;
+    }
+
 
     public Employe getManager() {
         return manager;
@@ -39,7 +56,6 @@ public class Employe extends Person {
     public static Employe from(ResultSet rs, EmployeesEntity employeesEntity) {
         try {
             return new Employe(
-                    rs.getInt("id"),
                     rs.getString("code"),
                     rs.getString("dni"),
                     rs.getString("name"),
