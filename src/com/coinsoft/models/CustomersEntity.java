@@ -8,8 +8,6 @@ import java.util.List;
 
 public class CustomersEntity extends BaseEntity {
 
-    private String setSecondTableName = "people";
-
     public CustomersEntity() {
         super();
         setTableName("customers");
