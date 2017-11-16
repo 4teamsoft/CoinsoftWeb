@@ -146,7 +146,7 @@ public class CmDataStore {
 
     public Customer createCustomer(String code, String dni, String name, String lastName, int age, String mail, String type,String status) {
         if(connection == null)return null;
-        Person person = return get123
+        Person person = return get1233
 
         return connection == null ?
                 null :
