@@ -135,23 +135,3 @@ public class CmDataStore {
         }
         return visitsEntity;
     }
-
-
-
-    /*public Customer createCustomer(String code, String dni, String name, String lastName, int age, String mail, String type,String status) {
-        return connection == null ?
-                null :
-                getCustomersEntity().create(code,dni,name,lastName,age,mail,type,status);
-    }*/
-
-    public Customer createCustomer(String code, String dni, String name, String lastName, int age, String mail, String type,String status) {
-        if(connection == null)return null;
-        Person person = return get1233
-
-        return connection == null ?
-                null :
-                getCustomersEntity().create(code,dni,name,lastName,age,mail,type,status);
-    }
-
-
-}
