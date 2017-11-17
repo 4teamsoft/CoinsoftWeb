@@ -2,29 +2,21 @@ package com.coinsoft.controllers;
 /*
 @javax.servlet.annotation.WebServlet(name = "AssignmentController", urlPatterns = "/assignment")
 public class AssignmentController  extends javax.servlet.http.HttpServlet {
-
-
     CmService service;
     String url;
-
     public AssignmentController() {
         super();
         service = new CmService();
         url = "";
     }
-
-
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         processRequest("POST", request, response);
     }
-
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         processRequest("GET", request, response);
     }
-
     private void processRequest(String method, HttpServletRequest request, HttpServletResponse response)  throws javax.servlet.ServletException, IOException {
         String action = request.getParameter("action");
-
         if(method.equals("GET")) {
             // Index Action
             if(action.equals("index")) {
@@ -48,7 +40,6 @@ public class AssignmentController  extends javax.servlet.http.HttpServlet {
                 url = "editAssignment.jsp";
             }
         }
-
         if(method.equals("POST")) {
             // Create Action
             if(action.equals("create")) {
@@ -67,13 +58,6 @@ public class AssignmentController  extends javax.servlet.http.HttpServlet {
                 url = "listAssignment.jsp";
             }
         }
-
         request.getRequestDispatcher(url).forward(request, response);
     }
-
-
-
-
-
-
 }*/

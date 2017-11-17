@@ -54,19 +54,14 @@ public class CmService {
 
     public Customer createCustomer(String code,String dni,String name,String lastName,int age,String main,String type,String status) { return dataStore.createCustomer(code,dni,name,lastName,age,main,type,status);}
 
-
-    public Customer createCustomer(String code, String dni, String name, String lastName, int age, String mail, String type,String status) {
-        return dataStore.createCustomer(code, dni, name, lastName, age, mail, type,status);
-    }
-/*
-
-    public Assignment findAssignmentById (int id) {
-        return dataStore.findAssignmentById(id);
-    }
-/*
-    public Employe findEmployeById (int id) {
-        return dataStore.findEmployeById(id);
-    }*/
+    /*
+        public Assignment findAssignmentById (int id) {
+            return dataStore.findAssignmentById(id);
+        }
+    /*
+        public Employe findEmployeById (int id) {
+            return dataStore.findEmployeById(id);
+        }*/
 /*
     public List<Assignment> findAllAssignments() { return dataStore.findAllAssignment(); }
 /**//*

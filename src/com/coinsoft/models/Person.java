@@ -10,7 +10,7 @@ public class Person {
     private String code;
     private String dni;
     private String name;
-   private String lastName;
+    private String lastName;
     private int age;
     private String mail;
 
@@ -26,11 +26,6 @@ public class Person {
     public Person() {
     }
 
-
-    /*public Person setId(int id) {
-        this.person_id = id;
-        return this;
-    }*/
 
     public String getCode() {
         return code;

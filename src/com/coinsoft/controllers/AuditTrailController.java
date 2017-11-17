@@ -55,7 +55,6 @@ public class AuditTrailController  extends javax.servlet.http.HttpServlet {
                 url = "editAuditTrail.jsp";
             }
         }
-
         if(method.equals("POST")) {
             // Create Action
             if(action.equals("create")) {
@@ -74,7 +73,6 @@ public class AuditTrailController  extends javax.servlet.http.HttpServlet {
                 url = "listAuditTrail.jsp";
             }
         }
-
         request.getRequestDispatcher(url).forward(request, response);*/
     }
 

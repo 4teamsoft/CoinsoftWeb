@@ -1,6 +1,6 @@
 package com.coinsoft.actions;
 
-import com.opensymphony.xwork2.ActionSupport;
+        import com.opensymphony.xwork2.ActionSupport;
 
 public class EmployeAction extends ActionSupport{
     private String username;

@@ -7,17 +7,15 @@ public class Employe extends Person {
     public Employe() {
     }
 
-/*
-    public Employe(int id, String code, String dni, String name, String lastName, int age, String mail, String status) {
-        super(id, code, dni, name, lastName, age, mail, status);
-
-    }
-
-    public Employe(int id, String code, String dni, String name, String lastName, int age, String mail, String status, Employe manager, Employe admin) {
-        super(id, code, dni, name, lastName, age, mail, status);
-        this.setManager(manager);
-        this.setAdmin(admin);
-    }*/
+    /*
+        public Employe(int id, String code, String dni, String name, String lastName, int age, String mail, String status) {
+            super(id, code, dni, name, lastName, age, mail, status);
+        }
+        public Employe(int id, String code, String dni, String name, String lastName, int age, String mail, String status, Employe manager, Employe admin) {
+            super(id, code, dni, name, lastName, age, mail, status);
+            this.setManager(manager);
+            this.setAdmin(admin);
+        }*/
     public Employe(String code, String dni, String name, String last_name, int age, String mail, String status, Employe manager, Employe admin) {
         this.manager = manager;
         this.admin = admin;
@@ -52,7 +50,6 @@ public class Employe extends Person {
         return this;
     }
 /*
-
     public static Employe from(ResultSet rs, EmployeesEntity employeesEntity) {
         try {
             return new Employe(
@@ -70,7 +67,6 @@ public class Employe extends Person {
             e.printStackTrace();
         }
         return null;
-
     }*/
 
 

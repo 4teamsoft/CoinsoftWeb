@@ -5,24 +5,19 @@ package com.coinsoft.controllers;
 public class UserController extends javax.servlet.http.HttpServlet {
     CmService service;
     String url;
-
     public UserController() {
         super();
         service = new CmService();
         url = "";
     }
-
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         processRequest("POST", request, response);
     }
-
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         processRequest("GET", request, response);
     }
-
     private void processRequest(String method, HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         String action = request.getParameter("action");
-
         if (method.equals("GET")) {
             // Index Action
             if (action.equals("index")) {
@@ -64,6 +59,5 @@ public class UserController extends javax.servlet.http.HttpServlet {
                 url = "listUsers.jsp";
             }
         }
-
         request.getRequestDispatcher(url).forward(request, response);
     }*/
