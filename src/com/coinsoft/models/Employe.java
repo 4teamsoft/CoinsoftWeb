@@ -18,6 +18,8 @@ public class Employe extends Person {
     }
 
     public Employe() {
+
+        aads
     }
 
     public Date getStartDate() {
