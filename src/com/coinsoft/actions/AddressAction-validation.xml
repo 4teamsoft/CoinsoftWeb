@@ -1,0 +1,122 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+<validators>
+
+
+    <field name="department">
+        <field-validator type="requiredstring">
+            <message>>A value is required in department</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[-_a-zA-Z0-9.]+$</param>
+            <message>UserName must include only Alphabet characters and number</message>
+        </field-validator>
+    </field>
+
+
+    <field name="province">
+        <field-validator type="requiredstring">
+            <message>>A value is required in province</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[-_a-zA-Z0-9.]+$</param>
+            <message>Province must include only Alphabet characters and number</message>
+        </field-validator>
+    </field>
+
+
+    <field name="district">
+        <field-validator type="requiredstring">
+            <message>>A value is required in district</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[-_a-zA-Z0-9.]+$</param>
+            <message>District must include only Alphabet characters and number</message>
+        </field-validator>
+    </field>
+
+    <field name="nameStreet">
+        <field-validator type="requiredstring">
+            <message>>A value is required in name street</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[-_a-zA-Z0-9.]+$</param>
+            <message>Name street must include only Alphabet characters and number</message>
+        </field-validator>
+    </field>
+
+    <field name="numberDoor">
+        <field-validator type="requiredstring">
+            <message>>A value is required in number door</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[0-9]*$</param>
+            <message>number Door must include only number.</message>
+        </field-validator>
+    </field>
+
+    <field name="numberDepartment">
+        <field-validator type="requiredstring">
+            <message>A value is required in number department</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[0-9]*$</param>
+            <message>Number department must include only number.</message>
+        </field-validator>
+    </field>
+
+    <field name="block">
+        <field-validator type="regex">
+            <param name="regexExpression">^[-_a-zA-Z0-9.]+$</param>
+            <message>block must include only Alphabet characters and number</message>
+        </field-validator>
+    </field>
+
+
+    <field name="allotment">
+        <field-validator type="regex">
+            <param name="regexExpression">^[-_a-zA-Z0-9.]+$</param>
+            <message>allotment department must include only number.</message>
+        </field-validator>
+    </field>
+
+
+    <field name="reference">
+        <field-validator type="regex">
+            <param name="regexExpression">^[-_a-zA-Z0-9.]+$</param>
+            <message>reference must include only number.</message>
+        </field-validator>
+    </field>
+
+
+    <field name="status">
+        <field-validator type="requiredstring">
+            <message>>A value is required in status</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[-_a-zA-Z0-9.]+$</param>
+            <message>status must include only Alphabet characters and number</message>
+        </field-validator>
+    </field>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</validators>
