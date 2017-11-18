@@ -21,6 +21,5 @@
             <result name="input">CreateEmploye.jsp</result>
         </action>
 
-
     </package>
 </struts>
