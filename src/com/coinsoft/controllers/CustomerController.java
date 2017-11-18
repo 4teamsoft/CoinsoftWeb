@@ -87,5 +87,8 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
 
             }
         }
+
+        request.getRequestDispatcher(url).forward(request, response);
+
     }
 }
