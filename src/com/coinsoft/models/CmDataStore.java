@@ -154,10 +154,10 @@ public class CmDataStore {
                 getCustomersEntity().create(code,dni,name,lastName,age,mail,type,status);
     }*/
 
-    public Customer createCustomer(String code, String dni, String name, String lastName, int age, String mail, String type,String status) {
+    public Customer createCustomer(String code, String dni, String name, String lastName, int age, String mail,String personStatus, String type,String status) {
         if(connection == null)return null;
-        Person person = getPeopleEntity().create(code,dni,name,lastName,age,mail);
-        return getCustomersEntity().create(type,status,person);
+        Person person = getPeopleEntity().create(code,dni,name,lastName,age,mail,personStatus);
+        return getCustomersEntity().create(status,person);
     }
 
 
