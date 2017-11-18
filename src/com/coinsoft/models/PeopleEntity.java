@@ -36,11 +36,11 @@ public class PeopleEntity extends BaseEntity{
 
     public Person create(Person person) {
         return executeUpdate(String.format(
-                "INSERT INTO %s(code,dni, name, last_name, age , mail,person_satus) VALUES('%s','%s','%s','%s',%d,'%s','%s')", getTableName(),person.getCode(),person.getDni(),person.getName(),person.getLastName(),person.getAge(),person.getMail(),person.getPersonStatus())) ? person : null;
+                "INSERT INTO %s(code,dni, name, last_name, age , mail) VALUES('%s','%s','%s','%s',%d,'%s')", getTableName(),person.getCode(),person.getDni(),person.getName(),person.getLastName(),person.getAge(),person.getMail())) ? person : null;
     }
 
-    public Person create(String code, String dni, String name, String lastName, int age, String mail,String personStatus) {
-        return create(new Person(code,dni, name, lastName, age, mail,personStatus));
+    public Person create(String code, String dni, String name, String lastName, int age, String mail) {
+        return create(new Person(code,dni, name, lastName, age, mail));
     }
 
 

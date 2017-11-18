@@ -11,8 +11,8 @@ public class Employe extends Person {
     private Date endDate;
     private String employeStatus;
 
-    public Employe(String code, String dni, String name, String lastName, int age, String mail,String personStatus, Date startDate, Date endDate, String employeStatus) {
-        super(code, dni, name, lastName, age, mail,personStatus);
+    public Employe(String code, String dni, String name, String lastName, int age, String mail, Date startDate, Date endDate, String employeStatus) {
+        super(code, dni, name, lastName, age, mail);
         this.startDate = startDate;
         this.endDate = endDate;
         this.employeStatus = employeStatus;
@@ -68,7 +68,6 @@ public class Employe extends Person {
                     rs.getString("last_name"),
                     rs.getInt("age"),
                     rs.getString("mail"),
-                    rs.getString("person_status"),
                     rs.getDate("startDate"),
                     rs.getDate("endDate"),
                     rs.getString("employeStatus")

@@ -13,17 +13,17 @@ public class Person {
     private String lastName;
     private int age;
     private String mail;
-    private String personStatus;
 
 
-    public Person(String code, String dni, String name, String lastName, int age, String mail,String personStatus) {
+
+    public Person(String code, String dni, String name, String lastName, int age, String mail) {
         this.code = code;
         this.dni = dni;
         this.name = name;
         this.lastName = lastName;
         this.age = age;
         this.mail = mail;
-        this.setPersonStatus(personStatus);
+
     }
     public Person() {
     }
@@ -86,13 +86,6 @@ public class Person {
         return this;
     }
 
-    public String getPersonStatus() {
-        return personStatus;
-    }
-
-    public void setPersonStatus(String personStatus) {
-        this.personStatus = personStatus;
-    }
 
     public static Person from(ResultSet rs) {
         try {
@@ -102,8 +95,7 @@ public class Person {
                     rs.getString("name"),
                     rs.getString("last_name"),
                     rs.getInt("age"),
-                    rs.getString("mail"),
-                    rs.getString("person_status")
+                    rs.getString("mail")
             );
         } catch (SQLException e) {
             e.printStackTrace();
