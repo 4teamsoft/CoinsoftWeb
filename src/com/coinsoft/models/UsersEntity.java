@@ -1,10 +1,13 @@
 package com.coinsoft.models;
 
-/*
-public class UsersEntity extends BaseEntity {
+
+public class UsersEntity {
+    /*
     public UsersEntity(Connection connection, String tableName) {
         super(connection, tableName);
     }
+
+
 /*
     public UsersEntity() {
         super();
@@ -85,6 +88,6 @@ public class UsersEntity extends BaseEntity {
     public User findById(int user_id) {
         return null;
     }
+*/
 
-
-}*/
+}
