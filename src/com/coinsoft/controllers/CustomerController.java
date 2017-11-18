@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 
 
-@javax.servlet.annotation.WebServlet(name = "CustomerController", urlPatterns = "/customers")
+@javax.servlet.annotation.WebServlet(name = "CustomerController", urlPatterns = "/customer")
 
 public class CustomerController extends javax.servlet.http.HttpServlet {
 
@@ -32,63 +32,68 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
         processRequest("GET", request, response);
     }
 
-    private void processRequest(String method, HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException {
+    private void processRequest(String method, HttpServletRequest request, HttpServletResponse response)  throws javax.servlet.ServletException, IOException {
         String action = request.getParameter("action");
 
-        if (method.equals("GET")) {
+        if(method.equals("GET")) {
             // Index Action
-            if (action.equals("index")) {
-                /*List<Customer> customers = service.findAllCustomers();
-                  request.setAttribute("customers", customers);*/
-                url = "accessUser.jsp";
-            }
-            if (action.equals("show")) {
-                int id = Integer.parseInt(request.getParameter("id"));
-                Customer customer = service.findCustomerById(id);
-                request.setAttribute("auditTrail", customer);
-                url = "showCustomer.jsp";
-            }
-            if (action.equals("new")) {
-                url = "newCustomer.jsp";
-            }
-
-            if (action.equals("list")) {
+            if(action.equals("index")) {
                 List<Customer> customers = service.findAllCustomers();
-                request.setAttribute("customers", customers);
+                  request.setAttribute("customers", customers);
                 url = "listCustomer.jsp";
             }
-
-            if (action.equals("edit")) {
+            if(action.equals("show")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 Customer customer = service.findCustomerById(id);
-                request.setAttribute("auditTrail", customer);
+                   request.setAttribute("auditTrail",customer);
+                url = "showCustomer.jsp";
+            }
+            if(action.equals("new")) {
+                url = "newCustomer.jsp";
+            }
+            if(action.equals("edit")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+                Customer customer = service.findCustomerById(id);
+                  request.setAttribute("auditTrail", customer);
                 url = "editCustomer.jsp";
             }
         }
 
-        if (method.equals("POST")) {
+        if(method.equals("POST")) {
             // Create Action
-            if (action.equals("create")) {
-
+            if(action.equals("create")) {
                 String code = request.getParameter("code");
                 String dni = request.getParameter("dni");
                 String name = request.getParameter("name");
-                String lastName = request.getParameter("lastName");
-                Integer age = Integer.parseInt(request.getParameter("age"));
+                String lastName = request.getParameter("last_name");
+                Integer age = request.getIntHeader("age");
                 String mail = request.getParameter("mail");
                 String type = request.getParameter("type");
-                String status = "1";
+                String status = request.getParameter("status");
 
-                Customer customer = service.createCustomer(code, dni, name, lastName, age, mail, type, status);
-
+                Customer customer = service.createCustomer(code,dni,name,lastName,age,mail,type,status);
                 List<Customer> customers = service.findAllCustomers();
                 request.setAttribute("customers", customers);
-                url = "listCustomer.jsp";
+                url = "listCustomers.jsp";
+            }
 
+
+            if(action.equals("update")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+                String name = request.getParameter("name");
+                 // boolean isUpdated = service.updateCustomer(id, name);
+                List<Customer> customers = service.findAllCustomers();
+                 request.setAttribute("customer", customers);
+                url = "listCustomer.jsp";
             }
         }
 
         request.getRequestDispatcher(url).forward(request, response);
-
     }
+
+//
+
+
+
+
 }

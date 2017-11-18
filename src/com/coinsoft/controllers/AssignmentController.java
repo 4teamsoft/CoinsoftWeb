@@ -44,7 +44,7 @@ public class AssignmentController  extends javax.servlet.http.HttpServlet {
             // Create Action
             if(action.equals("create")) {
                 String name = request.getParameter("name");
-               // Assignment address = service.createAssignment(name);
+               // Assignment assignment = service.createAssignment(name);
                 List<Assignment> assignments = service.findAllAssignments();
                request.setAttribute("assignment", assignments);
                 url = "listAssignment.jsp";
