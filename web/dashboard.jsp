@@ -76,28 +76,20 @@
                         <div class="card">
 
                             <div class="header">
-                                <h4 class="title">Email Statistics</h4>
-                                <p class="category">Last Campaign Performance</p>
+                                <h4 class="title">Estadisticas Generales</h4>
+                                <p class="category">Conteo actual disponible</p>
                             </div>
                             <div class="content">
-                                <div id="chartPreferences" class="ct-chart ct-perfect-fourth"><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-pie" style="width: 100%; height: 100%;"><g class="ct-series ct-series-a"><path d="M94.432,208.154A117.5,117.5,0,1,0,174.867,5L174.867,122.5Z" class="ct-slice-pie" ct:value="62"></path></g><g class="ct-series ct-series-b"><path d="M131.612,13.251A117.5,117.5,0,0,0,94.732,208.434L174.867,122.5Z" class="ct-slice-pie" ct:value="32"></path></g><g class="ct-series ct-series-c"><path d="M174.867,5A117.5,117.5,0,0,0,131.231,13.403L174.867,122.5Z" class="ct-slice-pie" ct:value="6"></path></g><g><text dx="229.49103724710665" dy="144.12731747022482" text-anchor="middle" class="ct-label">62%</text><text dx="117.15729272086139" dy="111.49134776808874" text-anchor="middle" class="ct-label">32%</text><text dx="163.8580164692605" dy="64.79062401968955" text-anchor="middle" class="ct-label">6%</text></g></svg></div>
 
-                                <div class="footer">
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Open
-                                        <i class="fa fa-circle text-danger"></i> Bounce
-                                        <i class="fa fa-circle text-warning"></i> Unsubscribe
-                                    </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="fa fa-clock-o"></i> Campaign sent 2 days ago
-                                    </div>
-                                </div>
+                                <i class="fa fa-user-circle-o" aria-hidden="true"></i> Gestores Disponibles <b>(2)</b><br>
+                                        <i class="fa fa-user" aria-hidden="true"></i> Clientes Actuales <b>(5)</b><br>
+                                        <i class="fa fa-usd" aria-hidden="true"></i> Prestamos Activos <b>(3)</b><br>
+
                             </div>
                         </div>
                     </div>
 
-
+<!--
                     <div class="col-md-8">
                         <div class="card">
                             <div class="header">
@@ -119,7 +111,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
