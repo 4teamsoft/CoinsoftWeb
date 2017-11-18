@@ -34,6 +34,10 @@ public class UserController extends javax.servlet.http.HttpServlet {
             if (action.equals("access")) {
                 url = "accessUser.jsp";
             }
+
+            if (action.equals("index")) {
+                url = "dashboard.jsp";
+            }
             /*if (action.equals("show")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 User user = service.findUserById(id);
