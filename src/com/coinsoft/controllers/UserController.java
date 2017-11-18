@@ -34,7 +34,7 @@ public class UserController extends javax.servlet.http.HttpServlet {
             if (action.equals("access")) {
                 url = "accessUser.jsp";
             }
-
+/*
             if (action.equals("index")) {
                 int countCustomers = service.countCustomers();
                 request.setAttribute("countCustomers",countCustomers);

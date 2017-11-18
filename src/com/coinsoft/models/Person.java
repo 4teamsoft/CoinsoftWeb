@@ -6,26 +6,31 @@ import java.sql.SQLException;
 
 public class Person {
 
-    private int id;
+    private int PersonId;
     private String code;
     private String dni;
     private String name;
     private String lastName;
     private int age;
     private String mail;
+    private String personStatus;
 
 
-    public Person(String code, String dni, String name, String lastName, int age, String mail) {
+    public Person(String code, String dni, String name, String lastName, int age, String mail,String personStatus) {
         this.code = code;
         this.dni = dni;
         this.name = name;
         this.lastName = lastName;
         this.age = age;
         this.mail = mail;
+        this.setPersonStatus(personStatus);
     }
     public Person() {
     }
 
+    public int getPersonId() {
+        return PersonId;
+    }
 
     public String getCode() {
         return code;
@@ -81,6 +86,13 @@ public class Person {
         return this;
     }
 
+    public String getPersonStatus() {
+        return personStatus;
+    }
+
+    public void setPersonStatus(String personStatus) {
+        this.personStatus = personStatus;
+    }
 
     public static Person from(ResultSet rs) {
         try {
@@ -90,7 +102,8 @@ public class Person {
                     rs.getString("name"),
                     rs.getString("last_name"),
                     rs.getInt("age"),
-                    rs.getString("mail")
+                    rs.getString("mail"),
+                    rs.getString("person_status")
             );
         } catch (SQLException e) {
             e.printStackTrace();
@@ -99,7 +112,6 @@ public class Person {
 
     }
 
-    public int getId() {
-        return id;
-    }
+
+
 }
