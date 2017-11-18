@@ -40,7 +40,7 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
             if (action.equals("index")) {
                 /*List<Customer> customers = service.findAllCustomers();
                   request.setAttribute("customers", customers);*/
-                url = "accessAdmin.jsp";
+                url = "accessUser.jsp";
             }
             if (action.equals("show")) {
                 int id = Integer.parseInt(request.getParameter("id"));
