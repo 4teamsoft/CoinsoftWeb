@@ -36,6 +36,8 @@ public class UserController extends javax.servlet.http.HttpServlet {
             }
 
             if (action.equals("index")) {
+                int countCustomers = service.countCustomers();
+                request.setAttribute("countCustomers",countCustomers);
                 url = "dashboard.jsp";
             }
             /*if (action.equals("show")) {

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%--
   Created by IntelliJ IDEA.
   User: J0hns
@@ -81,9 +82,9 @@
                             </div>
                             <div class="content">
 
-                                <i class="fa fa-user-circle-o" aria-hidden="true"></i> Gestores Disponibles <b>(2)</b><br>
-                                        <i class="fa fa-user" aria-hidden="true"></i> Clientes Actuales <b>(5)</b><br>
-                                        <i class="fa fa-usd" aria-hidden="true"></i> Prestamos Activos <b>(3)</b><br>
+                                <i class="fa fa-user-circle-o" aria-hidden="true"></i> Gestores Disponibles <b>(Sin contar)</b><br>
+                                        <i class="fa fa-user" aria-hidden="true"></i> Clientes Actuales <b>(<c:out value="${countCustomers}"/>)</b><br>
+                                        <i class="fa fa-usd" aria-hidden="true"></i> Prestamos Activos <Sin contar>(3)</b><br>
 
                             </div>
                         </div>

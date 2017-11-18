@@ -52,6 +52,10 @@ public class CmService {
         return dataStore.findAllCustomer();
     }
 
+    public int countCustomers() {
+        return dataStore.countCustomers();
+    }
+
     public Customer createCustomer(String code,String dni,String name,String lastName,int age,String main,String type,String status) { return dataStore.createCustomer(code,dni,name,lastName,age,main,type,status);}
 
     /*

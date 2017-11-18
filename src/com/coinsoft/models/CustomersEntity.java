@@ -65,17 +65,33 @@ public class CustomersEntity extends BaseEntity {
         return findByCriteria("customer_id IN (SELECT DISTINCT customer_id FROM managements)");
     }*/
 
-    private int getMaxId() {
+    public int countCustomers() {
 
-        String sql = "SELECT MAX(person_id) AS max_id FROM people";
+        String query="SELECT count(*) From customers";
+        int count=0;
         try {
-            ResultSet resultSet = getConnection().createStatement().executeQuery(sql);
-            return resultSet.next() ? resultSet.getInt("max_id") : 0;
+            ResultSet rs = getConnection().createStatement().executeQuery(query);
+            while(rs.next())
+                count=rs.getInt(1);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return 0;
+        return count;
     }
+
+
+    /*private int getMaxId() {
+
+        String query="SELECT count(*) From customers";
+        int count=0;
+        try {
+            ResultSet rs = getConnection().createStatement().executeQuery(query);
+            while(rs.next())
+                count=rs.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }*/
 
 
 /*

@@ -30,6 +30,11 @@ public class CmDataStore {
         if(connection == null) return null;
         return getCustomersEntity().findById(id);
     }
+
+    public int countCustomers() {
+        if(connection == null) return 0;
+        return getCustomersEntity().countCustomers();
+    }
 /*
     public Employe findEmployeById(int id) {
         if(connection == null) return null;
