@@ -16,6 +16,14 @@ public class User extends Employe{
     public User() {
     }
 
+    public User(String user, String password, String type, String status, int employeId) {
+        this.user = user;
+        this.password = password;
+        this.type = type;
+        this.status = status;
+        this.employeId = employeId;
+    }
+
     public User(String code, String dni, String name, String lastName, int age, String mail, Date startDate, Date endDate, String employeStatus, String user, String password, String type, String status, int employeId) {
         super(code, dni, name, lastName, age, mail, startDate, endDate, employeStatus);
 

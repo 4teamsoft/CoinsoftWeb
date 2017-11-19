@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class Person {
 
-    private int PersonId;
+    private int personId;
     private String code;
     private String dni;
     private String name;
@@ -29,8 +29,13 @@ public class Person {
     }
 
     public int getPersonId() {
-        return PersonId;
+        return personId;
     }
+
+    /*public Person setPersonId (int personId){
+        this.personId = personId;
+        return this;
+    }*/
 
     public String getCode() {
         return code;
@@ -90,6 +95,7 @@ public class Person {
     public static Person from(ResultSet rs) {
         try {
             return new Person(
+                   // rs.getInt("personId"),
                     rs.getString("code"),
                     rs.getString("dni"),
                     rs.getString("name"),

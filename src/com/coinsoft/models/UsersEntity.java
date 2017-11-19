@@ -41,4 +41,15 @@ public class UsersEntity extends BaseEntity {
         return findByCriteria(
                 String.format("WHERE user = '%s' and pwd = '%s'", user,pwd )).get(0);
     }
+
+    public User create(User user) {
+        return executeUpdate(String.format(
+                "INSERT INTO %s(user, password, type, status, employeId) VALUES('%s','%s','%s','%s',%d)", getTableName(),user.getUser(),
+                user.getPassword(),user.getType(),user.getStatus())) ? user : null;
+    }
+
+    public User create(String user, String password, String type, String status, int employedId) {
+        return create(new User(user, password, type, status, employedId));
+    }
+
 }
