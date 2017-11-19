@@ -12,13 +12,28 @@
         </action>
 
         <action name="user" class="com.coinsoft.actions.UserAction">
-            <result name="success">validationAccess.jsp</result>
-            <result name="input">login.jsp</result>
+            <result name="success">dashboard.jsp</result>
+            <result name="input">accessUser.jsp</result>
         </action>
 
         <action name="employe" class="com.coinsoft.actions.EmployeAction">
             <result name="success">EmployeSuccess.jsp</result>
             <result name="input">CreateEmploye.jsp</result>
+        </action>
+
+        <action name="visit" class="com.coinsoft.actions.VisitAction">
+            <result name="success">listVisit.jsp</result>
+            <result name="input">createVisit.jsp</result>
+        </action>
+
+        <action name="quota" class="com.coinsoft.actions.QuotaAction">
+            <result name="success">listQuota.jsp</result>
+            <result name="input">createQuota.jsp</result>
+        </action>
+
+        <action name="loan" class="com.coinsoft.actions.LoanAction">
+            <result name="success">listLoan.jsp</result>
+            <result name="input">CreateLoan.jsp</result>
         </action>
 
     </package>
