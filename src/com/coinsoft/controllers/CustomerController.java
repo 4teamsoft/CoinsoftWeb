@@ -72,7 +72,7 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
                 Customer customer = service.createCustomer(code,dni,name,lastName,age,mail);
                 List<Customer> customers = service.findAllCustomers();
                 request.setAttribute("customers", customers);
-                url = "listCustomers.jsp";
+                url = "listCustomer.jsp";
             }
 
 
