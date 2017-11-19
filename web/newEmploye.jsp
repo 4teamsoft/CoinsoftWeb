@@ -36,7 +36,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Cliente/Nuevo</a>
+                    <a class="navbar-brand" href="#">Trabajador/Nuevo</a>
                 </div>
                 <div class="collapse navbar-collapse">
 
@@ -74,7 +74,7 @@
                     <div class="col-md-9">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Datos del Cliente</h4>
+                                <h4 class="title">Datos del Trabajador</h4>
                             </div>
                             <div class="content">
                                 <form action="customers" method="post">
@@ -84,13 +84,13 @@
                                             <div class="col-md-5">
                                                 <div class="form-group">
                                                     <label>Codigo</label>
-                                                    <input class="form-control" placeholder="Ejm: C10001" name="code" value="${customer.code}" type="text">
+                                                    <input class="form-control" placeholder="Ejm: C10001" name="code" value="${employe.code}" type="text">
                                                 </div>
                                             </div>
                                             <div class="col-md-5">
                                                 <div class="form-group">
                                                     <label>DNI</label>
-                                                    <input class="form-control" name="dni" value="${customer.dni}" type="text">
+                                                    <input class="form-control" name="dni" value="${employe.dni}" type="text">
                                                 </div>
                                             </div>
                                         </div>
@@ -99,13 +99,13 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Nombres</label>
-                                                    <input class="form-control" type="text" name="name" value="${customer.name}">
+                                                    <input class="form-control" type="text" name="name" value="${employe.name}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Apellidos</label>
-                                                    <input class="form-control" type="text" name="lastName" value="${customer.lastName}">
+                                                    <input class="form-control" type="text" name="lastName" value="${employe.lastName}">
                                                 </div>
                                             </div>
                                         </div>
@@ -114,13 +114,13 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Edad</label>
-                                                    <input class="form-control" type="text" name="age" value="${customer.age}">
+                                                    <input class="form-control" type="text" name="age" value="${employe.age}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Correo</label>
-                                                    <input class="form-control" type="text" name="mail" value="${customer.mail}">
+                                                    <input class="form-control" type="text" name="mail" value="${employe.mail}">
                                                 </div>
                                             </div>
                                         </div>
@@ -128,17 +128,20 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label>Tipo</label>
-                                                    <select name="type" class="form-control" name="type" value="${customer.type}">
-                                                        <option value="0">Puntual</option>
-                                                        <option value="1">Moroso</option>
-                                                        <option value="2">Mal Pagador</option>
-                                                    </select>
+                                                    <label>Edad</label>
+                                                    <input class="form-control" type="text" name="age" value="${employe.age}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Correo</label>
+                                                    <input class="form-control" type="text" name="mail" value="${employe.mail}">
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <button type="submit" class="btn btn-info btn-fill pull-right">Crear Nuevo Cliente</button>
+
+                                        <button type="submit" class="btn btn-info btn-fill pull-right">Crear Nuevo Trabajador</button>
                                         <div class="clearfix"></div>
                                     </fieldset>
                                 </form>
@@ -153,10 +156,10 @@
 
 
                             <label for="name">Nombre</label>
-                            <input type="text" name="name" id="name" value="${customer.name}"/>
+                            <input type="text" name="name" id="name" value="${employe.name}"/>
 
                             <label for="type">Tipo</label>
-                            <input type="text" name="type" id="type" value="${customer.type}"/>
+                            <input type="text" name="type" id="type" value="${employe.type}"/>
 
                             <input type="submit"/>
 
