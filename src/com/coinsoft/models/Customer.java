@@ -13,7 +13,6 @@ public class Customer extends Person {
         this.id = id;
         this.status = status;
     }
-
     public Customer(){
 
     }

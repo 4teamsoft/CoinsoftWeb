@@ -1,0 +1,57 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="paymentDate">
+        <field-validator type="requiredstring">
+            <message>A value is required in payment date</message>
+        </field-validator>
+
+        <field-validator type="regex">
+            <param name="regexExpression">^[-_a-zA-Z0-9.]+$</param>
+            <message>payment date must include only Alphabet characters and number</message>
+        </field-validator>
+    </field>
+
+    <field name="amount">
+        <field-validator type="requiredstring">
+            <message>A value is required in amount</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[0-9.]*$</param>
+            <message>amount date must include only Alphabet characters and number</message>
+        </field-validator>
+    </field>
+
+    <field name="customer">
+        <field-validator type="requiredstring">
+            <message>A value is required in amount</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[-_a-zA-Z0-9.]+$</param>
+            <message>amount date must include only Alphabet characters and number</message>
+        </field-validator>
+    </field>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</validators>
