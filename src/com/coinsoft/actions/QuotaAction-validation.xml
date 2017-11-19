@@ -1,8 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 
-<!DOCTYPE struts PUBLIC
-        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
-        "http://struts.apache.org/dtds/struts-2.5.dtd">
 
-<struts>
-</struts>
+<validators>
+    <field name="code">
+        <field-validator type="requiredstring">
+            <message>A value is required in Username</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[-_a-zA-Z0-9]+$</param>
+            <message>UserName must include only Alphabet characters and number.</message>
+        </field-validator>
+    </field>
+
+    <field name="paymentDate">
+        <field-validator type="requiredstring">
+            <message>A value is required in Username</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[-_a-zA-Z0-9./]+$</param>
+            <message>UserName must include only Alphabet characters and number.</message>
+        </field-validator>
+    </field>
+
+    <field name="type">
+        <field-validator type="requiredstring">
+            <message>A value is required in Username</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[0-9]*$</param>
+            <message>UserName must include only Alphabet characters and number.</message>
+        </field-validator>
+    </field>
+
+    <field name="amount">
+        <field-validator type="requiredstring">
+            <message>A value is required in Username</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[0-9.]*$</param>
+            <message>UserName must include only Alphabet characters and number.</message>
+        </field-validator>
+    </field>
+</validators>
