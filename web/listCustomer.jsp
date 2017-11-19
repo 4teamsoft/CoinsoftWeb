@@ -47,7 +47,7 @@
 
         <div class="content">
             <div class="container-fluid">
-                <a href="customers?action=new" class="btn btn-info btn-fill" style="margin-bottom: 10px;">Nuevo Cliente</a>
+                <a href="customer?action=new" class="btn btn-info btn-fill" style="margin-bottom: 10px;">Nuevo Cliente</a>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">

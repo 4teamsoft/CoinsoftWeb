@@ -6,7 +6,7 @@ import java.util.List;
 public class CmDataStore {
 
     private Connection connection;
-    private AssignmentsEntity assignmentsEntity;
+    /*private AssignmentsEntity assignmentsEntity;*/
     private CustomersEntity customersEntity;
     private EmployeesEntity employeesEntity;
     private LoansEntity loansEntity;
@@ -34,6 +34,11 @@ public class CmDataStore {
     public int countCustomers() {
         if(connection == null) return 0;
         return getCustomersEntity().countCustomers();
+    }
+
+    public int countUser(String user,String pwd) {
+        if(connection == null) return 0;
+        return getUsersEntity().countUser(user,pwd);
     }
 
     public User findUserWithLogin(String user,String pwd) {
@@ -96,13 +101,13 @@ public class CmDataStore {
         this.connection = connection;
     }
 
-    private AssignmentsEntity getAssignmentsEntity() {
+    /*private AssignmentsEntity getAssignmentsEntity() {
         if(assignmentsEntity == null) {
             assignmentsEntity = new AssignmentsEntity();
             assignmentsEntity.setConnection(connection);
         }
         return assignmentsEntity;
-    }
+    }*/
 
     private CustomersEntity getCustomersEntity() {
         if(customersEntity == null) {
@@ -160,10 +165,10 @@ public class CmDataStore {
                 getCustomersEntity().create(code,dni,name,lastName,age,mail,type,status);
     }*/
 
-    public Customer createCustomer(String code, String dni, String name, String lastName, int age, String mail,String status) {
+    public Customer createCustomer(String code, String dni, String name, String lastName, int age, String mail) {
         if(connection == null)return null;
         Person person = getPeopleEntity().create(code,dni,name,lastName,age,mail);
-        return getCustomersEntity().create(status,person);
+        return getCustomersEntity().create(person);
     }
 
 

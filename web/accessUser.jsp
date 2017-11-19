@@ -20,7 +20,8 @@
           <input type="password" name="pwd" id="pwd" class="input" placeholder="Contraseña" value="" size="20" />
         </p>
         <p class="login-submit">
-          <a href="customers?action=new" class="btn btn-info btn-fill" style="margin-bottom: 10px;">Ingresar</a>
+          <!--<a href="users?action=index" class="button-primary" style="margin-bottom: 10px;">Ingresar</a>-->
+          <input type="submit" class="button-primary" value="Ingresar" />
         </p>
      </fieldset>
   </form>

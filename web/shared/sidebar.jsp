@@ -27,7 +27,7 @@
                 </a>
             </li>
             <li>
-                <a href="customers?action=list">
+                <a href="customer?action=list">
                     <i class="fa fa-user" aria-hidden="true"></i>
                     <p>Clientes</p>
                 </a>

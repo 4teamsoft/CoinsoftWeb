@@ -77,7 +77,7 @@
                                 <h4 class="title">Datos del Cliente</h4>
                             </div>
                             <div class="content">
-                                <form action="customers" method="post">
+                                <form action="customer" method="post">
                                     <fieldset>
                                             <input type="hidden" name="action" value="create"/>
                                         <div class="row">
@@ -125,18 +125,18 @@
                                             </div>
                                         </div>
 
-                                        <div class="row">
+                                        <!--<div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Tipo</label>
-                                                    <select name="type" class="form-control" name="type" value="${customer.type}">
+                                                    <select name="type" class="form-control" name="type" value="">
                                                         <option value="0">Puntual</option>
                                                         <option value="1">Moroso</option>
                                                         <option value="2">Mal Pagador</option>
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>-->
 
                                         <button type="submit" class="btn btn-info btn-fill pull-right">Crear Nuevo Cliente</button>
                                         <div class="clearfix"></div>

@@ -47,6 +47,11 @@ public class CmService {
         return dataStore.countCustomers();
     }
 
+
+    public int countUser(String user,String pwd) {
+        return dataStore.countUser(user,pwd);
+    }
+
     public Customer findCustomerById(int id) {
         return dataStore.findCustomerById(id);
     }
@@ -64,8 +69,8 @@ public class CmService {
     }
 
     public Customer createCustomer(String code,String dni,String name,String lastName,
-     int age,String main,String type,String status) {
-        return dataStore.createCustomer(code,dni,name,lastName,age,main,status);
+     int age,String mail) {
+        return dataStore.createCustomer(code,dni,name,lastName,age,mail);
 
     }
 

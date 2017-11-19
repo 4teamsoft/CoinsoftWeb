@@ -57,7 +57,7 @@ public class CustomersEntity extends BaseEntity {
     }
 
     public List<Customer> findAll() {
-        return findByCriteria("c INNER JOIN people p ON c.person_id=p.person_id");
+        return findByCriteria("c INNER JOIN people p ON c.customers_id=p.person_id");
     }
 
 /*
@@ -103,11 +103,11 @@ public class CustomersEntity extends BaseEntity {
 
     public Customer create(Customer customer) {
         return executeUpdate(String.format(
-                "INSERT INTO %s(type,status) VALUES('%s','%s')", getTableName(),customer.getStatus())) ? customer : null;
+                "INSERT INTO %s(customers_id,status) VALUES(%d,'1')", getTableName(),customer.getPersonId())) ? customer : null;
     }
 
-    public Customer create(String status, Person person) {
-        return create(new Customer(person.getCode(),person.getDni(),person.getName(),person.getLastName(),person.getAge(),person.getMail(),status));
+    public Customer create(Person person) {
+        return create(new Customer(person.getCode(),person.getDni(),person.getName(),person.getLastName(),person.getAge(),person.getMail()));
     }
 
     //id, code, dni, name, lastName, age, mail, status

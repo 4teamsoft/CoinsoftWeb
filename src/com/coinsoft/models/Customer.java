@@ -8,7 +8,7 @@ public class Customer extends Person {
     private int id;
     private String status;
 
-    public Customer(String code, String dni, String name, String lastName, int age, String mail, String status) {
+    public Customer(String code, String dni, String name, String lastName, int age, String mail) {
         super(code, dni, name, lastName, age, mail);
         this.id = id;
         this.status = status;
@@ -27,8 +27,7 @@ public class Customer extends Person {
                     rs.getString("name"),
                     rs.getString("last_name"),
                     rs.getInt("age"),
-                    rs.getString("mail"),
-                    rs.getString("status")
+                    rs.getString("mail")
             );
         } catch (SQLException e) {
             e.printStackTrace();

@@ -37,7 +37,7 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
 
         if(method.equals("GET")) {
             // Index Action
-            if(action.equals("index")) {
+            if(action.equals("list")) {
                 List<Customer> customers = service.findAllCustomers();
                   request.setAttribute("customers", customers);
                 url = "listCustomer.jsp";
@@ -65,13 +65,11 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
                 String code = request.getParameter("code");
                 String dni = request.getParameter("dni");
                 String name = request.getParameter("name");
-                String lastName = request.getParameter("last_name");
-                Integer age = request.getIntHeader("age");
+                String lastName = request.getParameter("lastName");
+                Integer age = Integer.parseInt(request.getParameter("age"));
                 String mail = request.getParameter("mail");
-                String type = request.getParameter("type");
-                String status = request.getParameter("status");
 
-                Customer customer = service.createCustomer(code,dni,name,lastName,age,mail,type,status);
+                Customer customer = service.createCustomer(code,dni,name,lastName,age,mail);
                 List<Customer> customers = service.findAllCustomers();
                 request.setAttribute("customers", customers);
                 url = "listCustomers.jsp";

@@ -41,4 +41,19 @@ public class UsersEntity extends BaseEntity {
         return findByCriteria(
                 String.format("WHERE user = '%s' and pwd = '%s'", user,pwd )).get(0);
     }
+
+    public int countUser(String user,String pwd) {
+
+        String query="SELECT count(*) From users WHERE user='" + user + "' and pwd='" + pwd + "'";
+        int count1=0;
+        try {
+            ResultSet rs = getConnection().createStatement().executeQuery(query);
+            while(rs.next())
+                count1=rs.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count1;
+    }
+
 }
