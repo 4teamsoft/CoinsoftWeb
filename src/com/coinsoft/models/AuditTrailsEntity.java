@@ -51,8 +51,16 @@ public class AuditTrailsEntity extends BaseEntity {
         return findByCriteria(String.format("WHERE status = '%s'", "1"));
     }
 
-
-
+    private int getMaxId() {
+        String sql = "SELECT MAX(id) AS max_id FROM audit_trails";
+        try {
+            ResultSet resultSet = getConnection().createStatement().executeQuery(sql);
+            return resultSet.next() ? resultSet.getInt("max_id") : 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 
     public AuditTrail create(AuditTrail auditTrail) {
         return executeUpdate(String.format(
@@ -63,6 +71,9 @@ public class AuditTrailsEntity extends BaseEntity {
         )) ? auditTrail : null;
     }
 
+    public AuditTrail create(String type,Date dateTime,String affectedTable, String detail, String status) {
+        return create(new AuditTrail(getMaxId() + 1, type, dateTime, affectedTable, detail, status));
+    }
 
     public AuditTrail create(int id, String type, Date dateTime, String affectedTable,String detail, String status) {
         return create(new AuditTrail(id,type,dateTime, affectedTable, detail,status));
