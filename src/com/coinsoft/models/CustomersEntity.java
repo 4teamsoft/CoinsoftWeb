@@ -107,7 +107,7 @@ public class CustomersEntity extends BaseEntity {
     }
 
     public Customer create(String status, Person person) {
-        return create(new Customer(person.getCode(),person.getDni(),person.getName(),person.getLastName(),person.getAge(),person.getMail(),person.getPersonStatus(),person.getPersonId(),status));   //DUDA
+        return create(new Customer(person.getCode(),person.getDni(),person.getName(),person.getLastName(),person.getAge(),person.getMail(),person.getPersonId(),status));   //DUDA
     }
 
     //id, code, dni, name, lastName, age, mail, status

@@ -8,8 +8,8 @@ public class Customer extends Person {
     private int id;
     private String status;
 
-    public Customer(String code, String dni, String name, String lastName, int age, String mail, String personStatus,int id, String status) {
-        super(code, dni, name, lastName, age, mail,personStatus);
+    public Customer(String code, String dni, String name, String lastName, int age, String mail,int id, String status) {
+        super(code, dni, name, lastName, age, mail);
         this.id = id;
         this.status = status;
     }
@@ -28,7 +28,6 @@ public class Customer extends Person {
                     rs.getString("last_name"),
                     rs.getInt("age"),
                     rs.getString("mail"),
-                    rs.getString("person_status"),
                     rs.getInt("id"),
                     rs.getString("status")
             );
