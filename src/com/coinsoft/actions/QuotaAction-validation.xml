@@ -5,41 +5,41 @@
 <validators>
     <field name="code">
         <field-validator type="requiredstring">
-            <message>A value is required in Username</message>
+            <message>A value is required in Code</message>
         </field-validator>
         <field-validator type="regex">
             <param name="regexExpression">^[-_a-zA-Z0-9]+$</param>
-            <message>UserName must include only Alphabet characters and number.</message>
+            <message>Code must include only Alphabet characters and number.</message>
         </field-validator>
     </field>
 
     <field name="paymentDate">
         <field-validator type="requiredstring">
-            <message>A value is required in Username</message>
+            <message>A value is required in PaymentDate</message>
         </field-validator>
         <field-validator type="regex">
             <param name="regexExpression">^[-_a-zA-Z0-9./]+$</param>
-            <message>UserName must include only Alphabet characters and number.</message>
+            <message>PaymentDate must include only Alphabet characters and number.</message>
         </field-validator>
     </field>
 
     <field name="type">
         <field-validator type="requiredstring">
-            <message>A value is required in Username</message>
+            <message>A value is required in Type</message>
         </field-validator>
         <field-validator type="regex">
             <param name="regexExpression">^[0-9]*$</param>
-            <message>UserName must include only Alphabet characters and number.</message>
+            <message>Type must include only number.</message>
         </field-validator>
     </field>
 
     <field name="amount">
         <field-validator type="requiredstring">
-            <message>A value is required in Username</message>
+            <message>A value is required in Amount</message>
         </field-validator>
         <field-validator type="regex">
             <param name="regexExpression">^[0-9.]*$</param>
-            <message>UserName must include only Alphabet characters and number.</message>
+            <message>Amount must include only number.</message>
         </field-validator>
     </field>
 </validators>
