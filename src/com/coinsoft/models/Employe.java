@@ -11,57 +11,44 @@ public class Employe extends Person {
     private Date endDate;
     private String employeStatus;
 
-    public Employe(String code, String dni, String name, String lastName, int age, String mail, Date startDate, Date endDate, String employeStatus) {
-        super(code, dni, name, lastName, age, mail);
+    public Employe(int personId,String code, String dni, String name, String lastName, int age, String mail, Date startDate, Date endDate, String employeStatus) {
+        super(personId,code, dni, name, lastName, age, mail);
+        this.id=personId;
         this.startDate = startDate;
         this.endDate = endDate;
         this.employeStatus = employeStatus;
     }
 
     public Employe() {
-
     }
 
 
-    public int getId() {
-        return id;
-    }
-
-    public Employe setId(int id) {
-        this.id = id;
-        return this;
-    }
+    public int getId() { return id; }
+    //public Employe setId(int id) { this.id = id; return this; }
 
     public Date getStartDate() {
         return startDate;
     }
 
-    public Employe setStartDate(Date startDate) {
-        this.startDate = startDate;
-        return this;
-    }
+    public Employe setStartDate(Date startDate) { this.startDate = startDate; return this; }
 
     public Date getEndDate() {
         return endDate;
     }
 
-    public Employe setEndDate(Date endDate) {
-        this.endDate = endDate;
-        return this;
-    }
+    public Employe setEndDate(Date endDate) { this.endDate = endDate; return this; }
 
     public String getEmployeStatus() {
         return employeStatus;
     }
 
-    public Employe setEmployeStatus(String employeStatus) {
-        this.employeStatus = employeStatus;
-        return this;
-    }
+    public Employe setEmployeStatus(String employeStatus) { this.employeStatus = employeStatus; return this; }
+
 
     public static Employe from(ResultSet rs) {
         try {
             return new Employe(
+                    rs.getInt(Person.from(rs).getPersonId()),
                     rs.getString("code"),
                     rs.getString("dni"),
                     rs.getString("name"),
@@ -76,7 +63,8 @@ public class Employe extends Person {
             e.printStackTrace();
         }
         return null;
-
     }
+
+
 
 }

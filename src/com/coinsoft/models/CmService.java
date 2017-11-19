@@ -17,7 +17,7 @@ public class CmService {
             InitialContext context = new InitialContext();
             dataStore = new CmDataStore();
             connection = ((DataSource) context
-                    .lookup("jdbc/MySQLDataSourceCm"))
+                    .lookup("jdbc/MySQLDataSourceLocal"))
                     .getConnection();
             dataStore.setConnection(connection);
         } catch (NamingException e) {
