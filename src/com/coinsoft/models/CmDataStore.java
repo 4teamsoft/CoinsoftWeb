@@ -163,6 +163,8 @@ public class CmDataStore {
         return connection == null ?
                 null :
                 getCustomersEntity().create(code,dni,name,lastName,age,mail,type,status);
+
+                //123
     }*/
 
     public Customer createCustomer(String code, String dni, String name, String lastName, int age, String mail) {
