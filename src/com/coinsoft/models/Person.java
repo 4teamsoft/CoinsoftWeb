@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class Person {
 
-    private int PersonId;
+    private int personId;
     private String code;
     private String dni;
     private String name;
@@ -29,7 +29,7 @@ public class Person {
     }
 
     public int getPersonId() {
-        return PersonId;
+        return personId;
     }
 
     public String getCode() {
