@@ -18,7 +18,7 @@
 <div id="main" class="container">
   <form name="loginform" id="loginform" class="wpl-track-me">
     <span class="chooisePlataform">Acceso a Plataforma</span>
-    <input type="button" class="button-primary2" value="Administrador" onclick="location.href='user?action=access';" style="margin-top: 30px;"/>
+    <input type="button" class="button-primary2" value="Administrador" onclick="location.href='users?action=access';" style="margin-top: 30px;"/>
     <!--<input type="button" class="button-primary2" value="Gestor" onclick="location.href='1.html';" style="margin-top: 30px;"/> -->
   </form>
 </div>

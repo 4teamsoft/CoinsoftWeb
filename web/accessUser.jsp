@@ -10,16 +10,19 @@
 </head>
 <body>
 <div id="main" class="container">
-  <form name="loginform" id="loginform" action="#" method="post" class="wpl-track-me">
-    <p class="login-username">
-      <input type="text" name="user" id="user_login" class="input" placeholder="Usuario" value="" size="20" />
-    </p>
-    <p class="login-password">
-      <input type="password" name="pwd" id="user_pass" class="input" placeholder="Contraseña" value="" size="20" />
-    </p>
-    <p class="login-submit"><input type="submit" name="wp-submit" id="wp-submit" class="button-primary" value="Ingresar" />
-      <input type="hidden" name="redirect_to" value="#"/>
-    </p>
+  <form name="loginform" id="loginform" action="users" method="post" class="wpl-track-me">
+    <fieldset>
+      <input type="hidden" name="action" value="index"/>
+        <p class="login-username">
+          <input type="text" name="user" id="user" class="input" placeholder="Usuario" value="" size="20" />
+        </p>
+        <p class="login-password">
+          <input type="password" name="pwd" id="pwd" class="input" placeholder="Contraseña" value="" size="20" />
+        </p>
+        <p class="login-submit">
+          <input type="submit" class="button-primary" value="Ingresar" />
+        </p>
+     </fieldset>
   </form>
 </div>
 </body>

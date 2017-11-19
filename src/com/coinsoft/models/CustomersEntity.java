@@ -103,11 +103,11 @@ public class CustomersEntity extends BaseEntity {
 
     public Customer create(Customer customer) {
         return executeUpdate(String.format(
-                "INSERT INTO %s(status) VALUES('%s')", getTableName(),customer.getStatus())) ? customer : null;
+                "INSERT INTO %s(type,status) VALUES('%s','%s')", getTableName(),customer.getStatus())) ? customer : null;
     }
 
     public Customer create(String status, Person person) {
-        return create(new Customer(person.getCode(),person.getDni(),person.getName(),person.getLastName(),person.getAge(),person.getMail(),person.getPersonId(),status));   //DUDA
+        return create(new Customer(person.getCode(),person.getDni(),person.getName(),person.getLastName(),person.getAge(),person.getMail(),status));
     }
 
     //id, code, dni, name, lastName, age, mail, status
@@ -128,19 +128,11 @@ public class CustomersEntity extends BaseEntity {
                 getTableName(), customer_id));
     }
 
-
-
-    public boolean erase(String code) {
-        return executeUpdate(String.format("UPDATE %s SET status= '%s' WHERE code = '%s' ",
-                getTableName(), "0",code));
-    }
-
+/*
     public boolean erase(Customer customer) {
-        return executeUpdate(String.format("UPDATE %s SET status= '%s' WHERE code = '%s' ",
-                getTableName(), "0", customer.getCode() ));
-    }
-
-
+        return executeUpdate(String.format("DELETE FROM %s WHERE customer_id = %d",
+                getTableName(), customer.getId()));
+    }*/
 
 
 }

@@ -51,4 +51,49 @@ public class User extends Employe{
         return null;
 
     }
+
+    public String getUser() {
+        return user;
+    }
+
+    public User setUser(String user) {
+        this.user = user;
+        return this;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public User setPassword(String password) {
+        this.password = password;
+        return this;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public User setType(String type) {
+        this.type = type;
+        return this;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public User setStatus(String status) {
+        this.status = status;
+        return this;
+    }
+
+    public int getEmployeId() {
+        return employeId;
+    }
+
+    public User setEmployeId(int employeId) {
+        this.employeId = employeId;
+        return this;
+    }
 }

@@ -1,6 +1,7 @@
 package com.coinsoft.controllers;
 
 import  com.coinsoft.models.CmService;
+import com.coinsoft.models.User;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@javax.servlet.annotation.WebServlet(name = "UserController", urlPatterns = "/user")
+@javax.servlet.annotation.WebServlet(name = "UserController", urlPatterns = "/users")
 public class UserController extends javax.servlet.http.HttpServlet {
     CmService service;
     String url;
@@ -32,14 +33,9 @@ public class UserController extends javax.servlet.http.HttpServlet {
         if (method.equals("GET")) {
 
             if (action.equals("access")) {
-                url = "accessUser.jsp";
+                    url = "accessUser.jsp";
             }
-/*
-            if (action.equals("index")) {
-                int countCustomers = service.countCustomers();
-                request.setAttribute("countCustomers",countCustomers);
-                url = "dashboard.jsp";
-            }
+
             /*if (action.equals("show")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 User user = service.findUserById(id);
@@ -56,9 +52,27 @@ public class UserController extends javax.servlet.http.HttpServlet {
                 url = "editUser.jsp";
             }*/
         }
-        /*if (method.equals("POST")) {
-            // Create Action
-            if (action.equals("create")) {
+        if (method.equals("POST")) {
+
+            if (action.equals("index")) {
+
+                String user = request.getParameter("user");
+                String pwd = request.getParameter("pwd");
+                int countCustomers = service.countCustomers();
+
+                User users = service.findUserWithLogin(user,pwd);
+                request.setAttribute("users", users);
+                request.setAttribute("countCustomers",countCustomers);
+
+                if(users.getStatus() == null){
+                    url = "accessUser.jsp";
+                }
+                else{
+                    url = "dashboard.jsp";
+                }
+
+            }
+            /*if (action.equals("create")) {
                 String name = request.getParameter("name");
                 User user = service.createUser(name);
                 List<User> users = service.findAllRegions();
@@ -72,8 +86,8 @@ public class UserController extends javax.servlet.http.HttpServlet {
                 List<User> users = service.findAllRegions();
                 request.setAttribute("users", users);
                 url = "listUsers.jsp";
-            }
-        }*/
+            }*/
+        }
         request.getRequestDispatcher(url).forward(request, response);
     }
 }
