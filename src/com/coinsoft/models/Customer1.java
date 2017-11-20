@@ -35,7 +35,10 @@ public class Customer1 extends Person1 {
     public static Customer1 from(ResultSet rs) {
         try {
             return new Customer1(
-                    rs.getInt("person_id"),
+                    rs.getInt(String.valueOf(Person1.from(rs).setPersonId(rs.getInt("person_id")))),
+                    //rs.getInt(Person1.from(rs.getInt("aa"))),
+                    //rs.getInt(Person1.from(rs).setPersonId(rs.getInt("")) ),
+                    //rs.getInt("person_id"),
                     rs.getString("code"),
                     rs.getString("dni"),
                     rs.getString("name"),
