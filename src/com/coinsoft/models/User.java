@@ -24,8 +24,8 @@ public class User extends Employe{
         this.employeId = employeId;
     }
 
-    public User(String code, String dni, String name, String lastName, int age, String mail, Date startDate, Date endDate, String employeStatus, String user, String password, String type, String status, int employeId) {
-        super(code, dni, name, lastName, age, mail, startDate, endDate, employeStatus);
+    public User(int personId,String code, String dni, String name, String lastName, int age, String mail,String personStatus,Date startDate, Date endDate, String employeStatus, String user, String password, String type, String status, int employeId) {
+        super(personId,code, dni, name, lastName, age, mail,personStatus, startDate, endDate, employeStatus);
 
         this.user = user;
         this.password = password;
@@ -37,12 +37,14 @@ public class User extends Employe{
     public static User from(ResultSet rs) {
         try {
             return new User(
+                    rs.getInt("person_id"),
                     rs.getString("code"),
                     rs.getString("dni"),
                     rs.getString("name"),
                     rs.getString("last_name"),
                     rs.getInt("age"),
                     rs.getString("mail"),
+                    rs.getString("personStatus"),
                     rs.getDate("startDate"),
                     rs.getDate("endDate"),
                     rs.getString("employeStatus"),

@@ -8,8 +8,8 @@ public class Customer extends Person {
     private int id;
     private String status;
 
-    public Customer(int personId,String code, String dni, String name, String lastName, int age, String mail, String status) {
-        super(personId,code, dni, name, lastName, age, mail);
+    public Customer(int personId,String code, String dni, String name, String lastName, int age, String mail, String personStatus,String status) {
+        super(personId,code, dni, name, lastName, age, mail,personStatus);
         this.id = personId;
         this.status = status;
     }
@@ -17,9 +17,7 @@ public class Customer extends Person {
     public Customer(){
     }
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
     //public Customer setId(int id) { this.id = id; return this; }
 
     public String getStatus() {
@@ -38,6 +36,7 @@ public class Customer extends Person {
                     rs.getString("last_name"),
                     rs.getInt("age"),
                     rs.getString("mail"),
+                    rs.getString("person_status"),
                     rs.getString("status")
             );
         } catch (SQLException e) {

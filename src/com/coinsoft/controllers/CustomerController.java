@@ -69,9 +69,10 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
                 Integer age = request.getIntHeader("age");
                 String mail = request.getParameter("mail");
                 String type = request.getParameter("type");
+                String personStatus = request.getParameter("person_status");
                 String status = request.getParameter("status");
 
-                Customer customer = service.createCustomer(code,dni,name,lastName,age,mail,type,status);
+                Customer customer = service.createCustomer(code,dni,name,lastName,age,mail,type,personStatus,status);
                 List<Customer> customers = service.findAllCustomers();
                 request.setAttribute("customers", customers);
                 url = "listCustomers.jsp";

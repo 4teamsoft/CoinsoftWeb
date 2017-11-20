@@ -23,10 +23,12 @@ public class Person {
         this.lastName = lastName;
         this.age = age;
         this.mail = mail;
-        this.setPersonStatus(personStatus);
+        this.personStatus=personStatus;
     }
     public Person() {
     }
+
+    //public int getPersonId(int person_id) { }
 
     public int getPersonId() {
         return personId;
@@ -72,13 +74,13 @@ public class Person {
 
     public String getPersonStatus() { return personStatus; }
 
-    public void setPersonStatus(String personStatus) { this.personStatus = personStatus; }
+    public Person setPersonStatus(String personStatus) { this.personStatus = personStatus; return this;}
 
 
     public static Person from(ResultSet rs) {
         try {
             return new Person(
-                    rs.getInt("personId"),
+                    rs.getInt("person_id"),
                     rs.getString("code"),
                     rs.getString("dni"),
                     rs.getString("name"),

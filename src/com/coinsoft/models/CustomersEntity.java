@@ -107,21 +107,21 @@ public class CustomersEntity extends BaseEntity {
     }
 
     public Customer create(String status, Person person) {
-        return create(new Customer(person.getCode(),person.getDni(),person.getName(),person.getLastName(),person.getAge(),person.getMail(),status));
+        return create(new Customer(person.getPersonId(),person.getCode(),person.getDni(),person.getName(),person.getLastName(),person.getAge(),person.getMail(),person.getPersonStatus(),status));
     }
 
     //id, code, dni, name, lastName, age, mail, status
-    public boolean update(int customer_id,String code,String dni,String name, String lastName, int age,String mail, String status) {
+    public boolean update(int id,String code,String dni,String name, String lastName, int age,String mail,String personStatus, String status) {
         return executeUpdate(String.format(
-                "UPDATE %s SET code = '%s',dni = '%s',name = '%s', last_name='%s', age=%d,mail = '%s', status='%s' WHERE customer_id = %d",
-                getTableName(),code,dni, name, lastName, age,mail, status, customer_id));
+                "UPDATE %s SET code = '%s',dni = '%s',name = '%s', last_name='%s', age=%d,mail = '%s', status='%s' WHERE id = %d",
+                getTableName(),code,dni, name, lastName, age,mail, status, id));
     }
-/*
+
     public boolean update(Customer customer) {
         return update(customer.getId(),customer.getCode(),customer.getDni(),customer.getName(), customer.getLastName(),
-                customer.getAge(), customer.getMail(),customer.getStatus());
+                customer.getAge(), customer.getMail(),customer.getPersonStatus(),customer.getStatus());
     }
-*/
+
 
     public boolean erase(int customer_id) {
         return executeUpdate(String.format("DELETE FROM %s WHERE customer_id = %d",

@@ -64,8 +64,8 @@ public class CmService {
     }
 
     public Customer createCustomer(String code,String dni,String name,String lastName,
-     int age,String main,String type,String status) {
-        return dataStore.createCustomer(code,dni,name,lastName,age,main,status);
+     int age,String main,String type,String personStatus,String status) {
+        return dataStore.createCustomer(code,dni,name,lastName,age,main,personStatus,status);
 
     }
 
