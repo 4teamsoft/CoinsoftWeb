@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="zadmin_coinsoft@linux.zmproject.com" uuid="3b120d00-ad5f-45a7-b30a-245ee20c8b0d">
+    <data-source source="LOCAL" name="zadmin_coinsoft@linux.zmproject.com" uuid="4a861ddd-9d0b-4f4d-b348-6df5506e4f11">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
