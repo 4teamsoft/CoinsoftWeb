@@ -73,10 +73,10 @@ public class PeopleEntity extends BaseEntity{
 
 
 
-
+/*
     //1
     public Person create(String code, String dni, String name, String lastName, int age, String mail,String status) {
-        return create(getMaxId()+1,code,dni, name, lastName, age, mail,status);
+        return create(code,dni, name, lastName, age, mail,status);
     }
 
     //2
@@ -86,11 +86,22 @@ public class PeopleEntity extends BaseEntity{
 
     //3
     public Person create(Person person) {
+
         return executeUpdate(String.format(
                 "INSERT INTO %s(id,code,dni,name,last_name,age,mail,status) VALUES(%d,'%s','%s','%s','%s',%d,'%s','1')",
                 getTableName(),person.getId(),person.getCode(),person.getDni(),person.getName(),person.getLastName(),person.getAge(),person.getMail())) ? person : null;
     }
+*/
 
+
+    public int create(Person person) {
+
+        int id = getMaxId() + 1;
+
+        executeUpdate(String.format("INSERT INTO %s(id,code,dni,name,last_name,age,mail,status) VALUES(%d,'%s','%s','%s','%s',%d,'%s','1')", getTableName(), id, person.getCode(), person.getDni(), person.getName(), person.getLastName(), person.getAge(), person.getMail()));
+
+        return id;
+    }
 
 
 
@@ -115,8 +126,8 @@ public class PeopleEntity extends BaseEntity{
         return executeUpdate(String.format("UPDATE %s SET status='%s' WHERE id = %d",
                 getTableName(),'0', person.getId()));
     }
-
-
-
-
+/*
+    public int create(String code, String dni, String name, String lastName, int age, String mail, String status) {
+        return create(code,dni, name, lastName, age, mail,status);
+    }*/
 }

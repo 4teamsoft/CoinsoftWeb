@@ -7,8 +7,6 @@ public class Customer extends Person {
 
     private int id;
 
-
-
     public Customer(int id,String code, String dni, String name, String lastName, int age, String mail,String status) {
         super(id,code, dni, name, lastName, age, mail,status);
         this.id=id;

@@ -58,7 +58,7 @@ public class UserController extends javax.servlet.http.HttpServlet {
             }*/
         }
         if (method.equals("POST")) {
-
+/*
             if (action.equals("index")) {
 
                 String user = request.getParameter("user");
@@ -78,7 +78,7 @@ public class UserController extends javax.servlet.http.HttpServlet {
                     url = "dashboard.jsp";
                 }
 
-            }
+            }*/
             /*if (action.equals("create")) {
                 String name = request.getParameter("name");
                 User user = service.createUser(name);

@@ -32,7 +32,7 @@ public class CmDataStore {
         if(connection == null) return 0;
         return getCustomersEntity().countCustomers();
     }
-
+/*
     public int countUser(String user,String pwd) {
         if(connection == null) return 0;
         return getUsersEntity().countUser(user,pwd);
@@ -42,7 +42,7 @@ public class CmDataStore {
         if(connection == null) return null;
         return getUsersEntity().findUserWithLogin(user,pwd,employeesEntity);
     }
-
+*/
 /*
     public Employe findEmployeById(int id) {
         if(connection == null) return null;
@@ -108,23 +108,24 @@ public class CmDataStore {
         return connection == null ? null : getCustomersEntity().findAll();
     }
 
-
+/*
     public Person createPerson(String code, String dni, String name, String lastName, int age, String mail, String status){
         return connection == null ?
                 null :
                 getPeopleEntity().create(code,dni,name,lastName,age,mail,status);
     }
+*/
 
 
-
-    public Customer createCustomer(int id, String code, String dni, String name, String lastName, int age,
-                                     String mail, String status) {
+    public Customer createCustomer(int id, String code, String dni, String name, String lastName, int age, String mail, String status) {
 
         if (connection == null) return null;
-        //PeopleEntity peopleEntity=new PeopleEntity();
-        Person person=createPerson(code,dni,name,lastName,age,mail,status);
-        //Person person=getPeopleEntity().create(code,dni,name,lastName,age,mail,status);
-        return getCustomersEntity().create(person.getId(),code,dni,name,lastName,age,mail,status/*,peopleEntity*/);
+
+        Person person = new Person(id,code,dni, name, lastName, age, mail,status);
+
+        int personID = getPeopleEntity().create(person);
+
+        return getCustomersEntity().create(personID,code,dni,name,lastName,age,mail,status);
     }
 
 /*
