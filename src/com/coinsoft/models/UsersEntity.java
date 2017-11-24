@@ -19,15 +19,16 @@ public class UsersEntity extends BaseEntity {
     }
 
 
-    public List<User> findByCriteria(String criteria) {
+    public List<User> findByCriteria(String criteria, EmployeesEntity employeesEntity) {
         try {
             ResultSet rs = getConnection()
                     .createStatement()
-                    .executeQuery(getBaseStatement().concat(criteria));
+                    .executeQuery(
+                            getBaseStatement()
+                                    .concat(criteria));
             List<User> users = new ArrayList<>();
-            while (rs.next()) {
-                users.add(User.from(rs));
-            }
+            while(rs.next())
+                users.add(User.from(rs, employeesEntity));
 
             return users;
         } catch (SQLException e) {
@@ -37,10 +38,11 @@ public class UsersEntity extends BaseEntity {
 
     }
 
-    public User findUserWithLogin(String user,String pwd) {
+    public User findUserWithLogin(String user,String pwd,EmployeesEntity employeesEntity) {
         return findByCriteria(
-                String.format("WHERE user = '%s' and pwd = '%s'", user,pwd )).get(0);
+                String.format("WHERE user = '%s' and pwd = '%s'", user,pwd ),employeesEntity).get(0);
     }
+
 
     public int countUser(String user,String pwd) {
 

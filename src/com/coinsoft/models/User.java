@@ -4,26 +4,34 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class User extends Employe{
+public class User {
 
+    private int id;
     private String user;
     private String password;
     private String type;
     private String status;
-    private int employeId;
+    private Employe employe;
 
 
     public User() {
     }
 
-    public User(int id,String code, String dni, String name, String lastName, int age, String mail,String status, Date startDate, Date endDate, String employeStatus, String user, String password, String type, String statusU, int employeId) {
-        super(id,code, dni, name, lastName, age, mail,status, startDate, endDate, employeStatus);
-
+    public User(int id, String user, String password, String type, String status, Employe employe) {
+        this.id = id;
         this.user = user;
         this.password = password;
         this.type = type;
         this.status = status;
-        this.employeId = employeId;
+        this.employe = employe;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public User setId(int id) {
+        this.id = id; return this;
     }
 
     public String getUser() {
@@ -62,42 +70,33 @@ public class User extends Employe{
         return this;
     }
 
-    public int getEmployeId() {
-        return employeId;
+    public Employe getEmploye() {
+        return employe;
     }
 
-    public User setEmployeId(int employeId) {
-        this.employeId = employeId;
-        return this;
+    public User setEmploye(Employe employe) {
+        this.employe = employe; return this;
     }
 
-    public static User from(ResultSet rs) {
+
+    public static User from(ResultSet rs, EmployeesEntity employeesEntity) {
+        User user = new User();
         try {
-            return new User(
-                    rs.getInt("id"),
-                    rs.getString("code"),
-                    rs.getString("dni"),
-                    rs.getString("name"),
-                    rs.getString("last_name"),
-                    rs.getInt("age"),
-                    rs.getString("mail"),
-                    rs.getString("status"),
-                    rs.getDate("startDate"),
-                    rs.getDate("endDate"),
-                    rs.getString("employeStatus"),
-                    rs.getString("user"),
-                    rs.getString("password"),
-                    rs.getString("type"),
-                    rs.getString("status"),
-                    rs.getInt("employeId")
+            return user.setId(rs.getInt("id"))
+                    .setUser(rs.getString("user"))
+                    .setPassword(rs.getString("password"))
+                    .setType(rs.getString("type"))
+                    .setStatus(rs.getString("status"))
+                    .setEmploye(employeesEntity.findById(rs.getInt("employe_id")));
 
-            );
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
-
     }
+
+
+
 
 
 }

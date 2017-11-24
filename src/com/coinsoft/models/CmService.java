@@ -58,8 +58,8 @@ public class CmService {
 
 
 
-    public User findUserWithLogin(String user,String pwd) {
-        return dataStore.findUserWithLogin(user,pwd);
+    public User findUserWithLogin(String user,String pwd,EmployeesEntity employeesEntity) {
+        return dataStore.findUserWithLogin(user,pwd,employeesEntity);
     }
 
 

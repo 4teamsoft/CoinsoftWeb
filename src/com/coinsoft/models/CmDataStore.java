@@ -38,9 +38,9 @@ public class CmDataStore {
         return getUsersEntity().countUser(user,pwd);
     }
 
-    public User findUserWithLogin(String user,String pwd) {
+    public User findUserWithLogin(String user,String pwd,EmployeesEntity employeesEntity ) {
         if(connection == null) return null;
-        return getUsersEntity().findUserWithLogin(user,pwd);
+        return getUsersEntity().findUserWithLogin(user,pwd,employeesEntity);
     }
 
 /*
