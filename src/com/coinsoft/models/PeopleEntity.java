@@ -118,7 +118,7 @@ public class PeopleEntity extends BaseEntity{
 
 
     public boolean erase(int id) {
-        return executeUpdate(String.format("UPDATE %s SET status='%s' WHERE id = %d",
+        return executeUpdate(String.format("UPDATE 1%s SET status='%s' WHERE id = %d",
                 getTableName(),'0', id));
     }
 
