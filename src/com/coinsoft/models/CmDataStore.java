@@ -6,7 +6,7 @@ import java.util.List;
 public class CmDataStore {
 
     private Connection connection;
-    /*private AssignmentsEntity assignmentsEntity;*/
+
     private CustomersEntity customersEntity;
     private EmployeesEntity employeesEntity;
     private LoansEntity loansEntity;
@@ -14,18 +14,15 @@ public class CmDataStore {
     private UsersEntity usersEntity;
     private VisitsEntity visitsEntity;
 
+
+
     public CmDataStore(Connection connection) {
         this.connection = connection;
     }
 
     public CmDataStore() {
     }
-    /*
-        public Assignment findAssignmentById(int id) {
-            if(connection == null) return null;
-            return getAssignmentsEntity().findById(id);
-        }
-    */
+
     public Customer findCustomerById(int id) {
         if(connection == null) return null;
         return getCustomersEntity().findById(id);
@@ -71,10 +68,7 @@ public class CmDataStore {
         return connection == null ? null: getAssignmentsEntity().findAll();
     }*/
 
-    public List<Customer> findAllCustomer() {
 
-        return connection == null ? null : getCustomersEntity().findAll();
-    }
     /*
         public List<Employe> findAllEmploye() {
             return connection == null ? null: getEmployeesEntity().findAll();
@@ -108,6 +102,47 @@ public class CmDataStore {
         }
         return assignmentsEntity;
     }*/
+
+    public List<Customer> findAllCustomer() {
+
+        return connection == null ? null : getCustomersEntity().findAll();
+    }
+
+
+    public Person createPerson(String code, String dni, String name, String lastName, int age, String mail, String status){
+        return connection == null ?
+                null :
+                getPeopleEntity().create(code,dni,name,lastName,age,mail,status);
+    }
+
+
+
+    public Customer createCustomer(int id, String code, String dni, String name, String lastName, int age,
+                                     String mail, String status) {
+
+        if (connection == null) return null;
+        //PeopleEntity peopleEntity=new PeopleEntity();
+        Person person=createPerson(code,dni,name,lastName,age,mail,status);
+        //Person person=getPeopleEntity().create(code,dni,name,lastName,age,mail,status);
+        return getCustomersEntity().create(person.getId(),code,dni,name,lastName,age,mail,status/*,peopleEntity*/);
+    }
+
+/*
+public List<Customer> findAllCustomers() {
+        return dataStore.findAllCustomer();
+    }
+
+
+
+    public Customer createCustomer(int id, String code, String dni, String name, String lastName, int age,
+                                     String mail, String status) {
+        return dataStore.createCustomer(id,code,dni,name,lastName,age,mail,status);
+    }
+ */
+
+
+
+
 
     private CustomersEntity getCustomersEntity() {
         if(customersEntity == null) {
@@ -159,17 +194,30 @@ public class CmDataStore {
 
 
 
+
     /*public Customer createCustomer(String code, String dni, String name, String lastName, int age, String mail, String type,String status) {
         return connection == null ?
                 null :
                 getCustomersEntity().create(code,dni,name,lastName,age,mail,type,status);
     }*/
 
+
+    /*
     public Customer createCustomer(String code, String dni, String name, String lastName, int age, String mail) {
         if(connection == null)return null;
         Person person = getPeopleEntity().create(code,dni,name,lastName,age,mail);
         return getCustomersEntity().create(person);
     }
+
+
+*/
+
+
+
+
+
+
+
 
 
 }

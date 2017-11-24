@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="zadmin_coinsoft@linux.zmproject.com" uuid="4a861ddd-9d0b-4f4d-b348-6df5506e4f11">
+    <data-source source="LOCAL" name="Hr@localhost" uuid="b74e0dd7-edda-4bf1-8c09-3933d67ee5d8">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://linux.zmproject.com:3306/zadmin_coinsoft</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/Hr</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

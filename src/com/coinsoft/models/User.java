@@ -16,40 +16,14 @@ public class User extends Employe{
     public User() {
     }
 
-    public User(String code, String dni, String name, String lastName, int age, String mail, Date startDate, Date endDate, String employeStatus, String user, String password, String type, String status, int employeId) {
-        super(code, dni, name, lastName, age, mail, startDate, endDate, employeStatus);
+    public User(int id,String code, String dni, String name, String lastName, int age, String mail,String status, Date startDate, Date endDate, String employeStatus, String user, String password, String type, String statusU, int employeId) {
+        super(id,code, dni, name, lastName, age, mail,status, startDate, endDate, employeStatus);
 
         this.user = user;
         this.password = password;
         this.type = type;
         this.status = status;
         this.employeId = employeId;
-    }
-
-    public static User from(ResultSet rs) {
-        try {
-            return new User(
-                    rs.getString("code"),
-                    rs.getString("dni"),
-                    rs.getString("name"),
-                    rs.getString("last_name"),
-                    rs.getInt("age"),
-                    rs.getString("mail"),
-                    rs.getDate("startDate"),
-                    rs.getDate("endDate"),
-                    rs.getString("employeStatus"),
-                    rs.getString("user"),
-                    rs.getString("password"),
-                    rs.getString("type"),
-                    rs.getString("status"),
-                    rs.getInt("employeId")
-
-            );
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-
     }
 
     public String getUser() {
@@ -96,4 +70,34 @@ public class User extends Employe{
         this.employeId = employeId;
         return this;
     }
+
+    public static User from(ResultSet rs) {
+        try {
+            return new User(
+                    rs.getInt("id"),
+                    rs.getString("code"),
+                    rs.getString("dni"),
+                    rs.getString("name"),
+                    rs.getString("last_name"),
+                    rs.getInt("age"),
+                    rs.getString("mail"),
+                    rs.getString("status"),
+                    rs.getDate("startDate"),
+                    rs.getDate("endDate"),
+                    rs.getString("employeStatus"),
+                    rs.getString("user"),
+                    rs.getString("password"),
+                    rs.getString("type"),
+                    rs.getString("status"),
+                    rs.getInt("employeId")
+
+            );
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+
+    }
+
+
 }

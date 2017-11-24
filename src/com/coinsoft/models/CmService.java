@@ -17,7 +17,7 @@ public class CmService {
             InitialContext context = new InitialContext();
             dataStore = new CmDataStore();
             connection = ((DataSource) context
-                    .lookup("jdbc/MySQLDataSourceCm"))
+                    .lookup("jdbc/MySQLDataSource"))
                     .getConnection();
             dataStore.setConnection(connection);
         } catch (NamingException e) {
@@ -64,21 +64,50 @@ public class CmService {
 
 
 
-    public List<Customer> findAllCustomers() {
-        return dataStore.findAllCustomer();
-    }
 
+
+
+    /*
     public Customer createCustomer(String code,String dni,String name,String lastName,
      int age,String mail) {
         return dataStore.createCustomer(code,dni,name,lastName,age,mail);
 
     }
 
-    /*
-        public Assignment findAssignmentById (int id) {
-            return dataStore.findAssignmentById(id);
-        }
-    /*
+
+
+
+
+    */
+
+/*
+
+    public Customer1 createCustomer1(int personId, String code, String dni, String name, String lastName, int age,
+                                     String mail, String personStatus, String status) {
+        return dataStore.createCustomer(personId,code,dni,name,lastName,age,mail,personStatus,status);
+
+    }
+
+
+
+
+*/
+
+    public List<Customer> findAllCustomers() {
+        return dataStore.findAllCustomer();
+    }
+
+    public Customer createCustomer(int id, String code, String dni, String name, String lastName, int age,
+                                     String mail, String status) {
+        return dataStore.createCustomer(id,code,dni,name,lastName,age,mail,status);
+    }
+
+
+
+
+
+
+/*
         public Employe findEmployeById (int id) {
             return dataStore.findEmployeById(id);
         }*/
@@ -96,6 +125,15 @@ public class CmService {
     public List<Loan> findAllLoans() { return dataStore.findAllLoan(); }
 
     public Loan findLoanById (int id) { return dataStore.findLoanById(id); }
+
+
+
+
+
+
+
+
+
 /*
     public Visit findVisitById (int id) { return dataStore.findVisitById(id); }*/
 /*

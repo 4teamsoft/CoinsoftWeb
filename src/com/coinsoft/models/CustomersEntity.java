@@ -36,9 +36,9 @@ public class CustomersEntity extends BaseEntity {
     }
 
 
-    public Customer findById(int customer_id) {
+    public Customer findById(int id) {
         return findByCriteria(
-                String.format("WHERE customer_id = '%d'", customer_id)).get(0);
+                String.format("WHERE id = '%d'", id)).get(0);
     }
 
     public Customer findByName(String name) {
@@ -57,8 +57,10 @@ public class CustomersEntity extends BaseEntity {
     }
 
     public List<Customer> findAll() {
-        return findByCriteria("c INNER JOIN people p ON c.customers_id=p.person_id");
+        return findByCriteria("c INNER JOIN people p ON c.id=p.id");
     }
+    //c INNER JOIN people p ON c.id=p.id
+
 
 /*
     public List<Customer> findAllWithManagement() {
@@ -80,59 +82,35 @@ public class CustomersEntity extends BaseEntity {
     }
 
 
-    /*private int getMaxId() {
 
-        String query="SELECT count(*) From customers";
-        int count=0;
-        try {
-            ResultSet rs = getConnection().createStatement().executeQuery(query);
-            while(rs.next())
-                count=rs.getInt(1);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }*/
-
-
-/*
-    public Customer create(Customer customer){
-        executeUpdate(String.format("INSERT INTO people(code,dni,name,last_name,age,mail) VALUES('%s','%s','%s','%s',%d,'%s');",customer.getCode(),customer.getDni(),customer.getName(),customer.getLastName(),customer.getAge(),customer.getMail()));
-        executeUpdate(String.format("INSERT INTO customers(type,status,person_id) VALUES('%s','%s',%d);",customer.getType(),customer.getStatus(),getMaxId()));
-        return null;
-    }*/
-
-    public Customer create(Customer customer) {
-        return executeUpdate(String.format(
-                "INSERT INTO %s(customers_id,status) VALUES(%d,'1')", getTableName(),customer.getPersonId())) ? customer : null;
-    }
-
+    /*
     public Customer create(Person person) {
         return create(new Customer(person.getCode(),person.getDni(),person.getName(),person.getLastName(),person.getAge(),person.getMail()));
     }
-
-    //id, code, dni, name, lastName, age, mail, status
-    public boolean update(int customer_id,String code,String dni,String name, String lastName, int age,String mail, String status) {
-        return executeUpdate(String.format(
-                "UPDATE %s SET code = '%s',dni = '%s',name = '%s', last_name='%s', age=%d,mail = '%s', status='%s' WHERE customer_id = %d",
-                getTableName(),code,dni, name, lastName, age,mail, status, customer_id));
-    }
-/*
-    public boolean update(Customer customer) {
-        return update(customer.getId(),customer.getCode(),customer.getDni(),customer.getName(), customer.getLastName(),
-                customer.getAge(), customer.getMail(),customer.getStatus());
-    }
-*/
-
-    public boolean erase(int customer_id) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE customer_id = %d",
-                getTableName(), customer_id));
+    */
+    public boolean erase(int id) {
+        return executeUpdate(String.format("UPDATE %s SET status='%s' WHERE id = %d",
+                getTableName(),'0', id));
     }
 
-/*
     public boolean erase(Customer customer) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE customer_id = %d",
-                getTableName(), customer.getId()));
-    }*/
+        return executeUpdate(String.format("UPDATE %s SET status='%s' WHERE id = %d",
+                getTableName(),'0', customer.getId()));
+    }
+
+    //2
+    public Customer create(Customer customer) {
+        //PeopleEntity p=new PeopleEntity();
+       // p.create(customer.getCode(),customer.getDni(),customer.getName(),customer.getLastName()
+        //       ,customer.getAge(),customer.getMail(),customer.getStatus());
+       return executeUpdate(String.format(
+                "INSERT INTO %s(id) VALUES(%d)", getTableName(), customer.getId())) ? customer : null;
+    }
+    //1
+    public Customer create(int id,String code, String dni, String name, String lastName, int age, String mail, String status/*,PeopleEntity peopleEntity*/) {
+        //Person person=peopleEntity.create(id,code, dni, name, lastName, age, mail, status);
+        return create(new Customer(id,code,dni, name, lastName, age, mail,status));
 
 
+    }
 }

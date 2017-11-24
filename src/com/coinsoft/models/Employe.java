@@ -9,28 +9,19 @@ public class Employe extends Person {
     private int id;
     private Date startDate;
     private Date endDate;
-    private String employeStatus;
 
-    public Employe(String code, String dni, String name, String lastName, int age, String mail, Date startDate, Date endDate, String employeStatus) {
-        super(code, dni, name, lastName, age, mail);
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.employeStatus = employeStatus;
+
+    public Employe(int id,String code, String dni, String name, String lastName, int age, String mail,String status, java.util.Date startDate, java.util.Date endDate) {
+        super(id,code, dni, name, lastName, age, mail,status);
+        this.id=id;
+        this.startDate = (Date)startDate;
+        this.endDate = (Date)endDate;
     }
 
     public Employe() {
 
     }
 
-
-    public int getId() {
-        return id;
-    }
-
-    public Employe setId(int id) {
-        this.id = id;
-        return this;
-    }
 
     public Date getStartDate() {
         return startDate;
@@ -50,27 +41,20 @@ public class Employe extends Person {
         return this;
     }
 
-    public String getEmployeStatus() {
-        return employeStatus;
-    }
-
-    public Employe setEmployeStatus(String employeStatus) {
-        this.employeStatus = employeStatus;
-        return this;
-    }
 
     public static Employe from(ResultSet rs) {
         try {
             return new Employe(
+                    rs.getInt("id"),
                     rs.getString("code"),
                     rs.getString("dni"),
                     rs.getString("name"),
                     rs.getString("last_name"),
                     rs.getInt("age"),
                     rs.getString("mail"),
+                    rs.getString("status"),
                     rs.getDate("startDate"),
-                    rs.getDate("endDate"),
-                    rs.getString("employeStatus")
+                    rs.getDate("endDate")
             );
         } catch (SQLException e) {
             e.printStackTrace();

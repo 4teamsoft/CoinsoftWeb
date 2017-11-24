@@ -6,12 +6,12 @@ import java.sql.SQLException;
 public class Customer extends Person {
 
     private int id;
-    private String status;
 
-    public Customer(String code, String dni, String name, String lastName, int age, String mail) {
-        super(code, dni, name, lastName, age, mail);
-        this.id = id;
-        this.status = status;
+
+
+    public Customer(int id,String code, String dni, String name, String lastName, int age, String mail,String status) {
+        super(id,code, dni, name, lastName, age, mail,status);
+        this.id=id;
     }
 
     public Customer(){
@@ -19,15 +19,17 @@ public class Customer extends Person {
     }
 
 
-    public static Customer from(ResultSet rs) {
+    public static Customer from(ResultSet rs ) {
         try {
             return new Customer(
+                    rs.getInt("id"),
                     rs.getString("code"),
                     rs.getString("dni"),
                     rs.getString("name"),
                     rs.getString("last_name"),
                     rs.getInt("age"),
-                    rs.getString("mail")
+                    rs.getString("mail"),
+                    rs.getString("status")
             );
         } catch (SQLException e) {
             e.printStackTrace();
@@ -36,21 +38,6 @@ public class Customer extends Person {
 
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public Customer setId(int id) {
-        this.id = id;
-        return this;
-    }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public Customer setStatus(String status) {
-        this.status = status;
-        return this;
-    }
 }
