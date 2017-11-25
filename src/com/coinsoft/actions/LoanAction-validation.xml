@@ -5,11 +5,11 @@
 <validators>
     <field name="codeLoan">
         <field-validator type="requiredstring">
-            <message>A value is required in code loan</message>
+            <message>A value is required in Code Loan</message>
         </field-validator>
         <field-validator type="regex">
             <param name="regexExpression">^[0-9]*$</param>
-            <message>code loan must include only Alphabet number.</message>
+            <message>Code Loan must include only number.</message>
         </field-validator>
     </field>
 
@@ -41,6 +41,36 @@
         <field-validator type="regex">
             <param name="regexExpression">^[0-9]*$</param>
             <message>number quota must include only number</message>
+        </field-validator>
+    </field>
+
+    <field name="day">
+        <field-validator type="requiredstring">
+            <message>A value is required in number Day</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[0-9]*$</param>
+            <message>Day quota must include only number</message>
+        </field-validator>
+    </field>
+
+    <field name="type">
+        <field-validator type="requiredstring">
+            <message>A value is required in Type</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[0-9]*$</param>
+            <message>Type must include only number.</message>
+        </field-validator>
+    </field>
+
+    <field name="status">
+        <field-validator type="requiredstring">
+            <message>>A value is required in status</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[-_a-zA-Z0-9.]+$</param>
+            <message>status must include only Alphabet characters and number</message>
         </field-validator>
     </field>
 
