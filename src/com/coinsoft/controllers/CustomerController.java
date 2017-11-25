@@ -1,6 +1,6 @@
 package com.coinsoft.controllers;
 
-import  com.coinsoft.models.CmService;
+import com.coinsoft.models.CmService;
 import com.coinsoft.models.Customer;
 
 import javax.servlet.http.HttpServletRequest;
@@ -71,7 +71,9 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
                 String mail = request.getParameter("mail");
                 String status="1";
 
+
                 Customer customer = service.createCustomer( id,code,dni,name,lastName,age,mail,status);
+
 
                 List<Customer> customers = service.findAllCustomers();
                 request.setAttribute("customers", customers);

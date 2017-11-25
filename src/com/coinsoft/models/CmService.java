@@ -5,6 +5,8 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 
 public class CmService {
@@ -42,11 +44,11 @@ public class CmService {
     public void setDataStore(CmDataStore dataStore) {
         this.dataStore = dataStore;
     }
-
+/*
     public int countCustomers() {
         return dataStore.countCustomers();
     }
-
+*/
 /*
     public int countUser(String user,String pwd) {
         return dataStore.countUser(user,pwd);
@@ -96,6 +98,11 @@ public class CmService {
 
     public Customer createCustomer(int id,String code,String dni,String name,String lastName,int age,String mail, String status)
     { return dataStore.createCustomer(id,code,dni,name,lastName,age,mail,status); }
+
+    public Employe createEmploye(int id, String code, String dni, String name, String lastName, int age,
+                                   String mail, String status, String startDate) {
+      return dataStore.createEmploye(id,code,dni,name,lastName,age,mail,status,startDate);
+    }
 
 
 

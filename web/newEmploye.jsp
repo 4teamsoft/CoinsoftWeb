@@ -77,7 +77,7 @@
                                 <h4 class="title">Datos del Trabajador</h4>
                             </div>
                             <div class="content">
-                                <form action="customers" method="post">
+                                <form action="employe" method="post">
                                     <fieldset>
                                         <input type="hidden" name="action" value="create"/>
                                         <div class="row">
@@ -128,14 +128,8 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label>Edad</label>
-                                                    <input class="form-control" type="text" name="age" value="${employe.age}">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Correo</label>
-                                                    <input class="form-control" type="text" name="mail" value="${employe.mail}">
+                                                    <label>Fecha de Ingreso</label>
+                                                    <input class="form-control" type="date" min="2000-01-02" name="startDate" value="${employe.startDate}">
                                                 </div>
                                             </div>
                                         </div>
@@ -148,23 +142,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!--
-                    <form action="customers" method="post">
-                        <fieldset>
-                            <input type="hidden" name="action" value="create"/>
-
-
-                            <label for="name">Nombre</label>
-                            <input type="text" name="name" id="name" value="${employe.name}"/>
-
-                            <label for="type">Tipo</label>
-                            <input type="text" name="type" id="type" value="${employe.type}"/>
-
-                            <input type="submit"/>
-
-                        </fieldset>
-                    </form>-->
                 </div>
             </div>
         </div>

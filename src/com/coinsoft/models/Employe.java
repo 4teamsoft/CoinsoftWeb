@@ -7,30 +7,17 @@ import java.sql.SQLException;
 public class Employe extends Person {
 
     private int id;
-    private Date startDate;
+    private String startDate;
     private Date endDate;
 
 
-    public Employe(int id,String code, String dni, String name, String lastName, int age, String mail,String status, java.util.Date startDate, java.util.Date endDate) {
+    public Employe(int id,String code, String dni, String name, String lastName, int age, String mail,String status, String startDate, Date endDate) {
         super(id,code, dni, name, lastName, age, mail,status);
         this.id=id;
-        this.startDate = (Date)startDate;
-        this.endDate = (Date)endDate;
-    }
-
-    public Employe() {
-
-    }
-
-
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public Employe setStartDate(Date startDate) {
         this.startDate = startDate;
-        return this;
+        this.endDate = endDate;
     }
+
 
     public Date getEndDate() {
         return endDate;
@@ -53,7 +40,7 @@ public class Employe extends Person {
                     rs.getInt("age"),
                     rs.getString("mail"),
                     rs.getString("status"),
-                    rs.getDate("startDate"),
+                    rs.getString("startDate"),
                     rs.getDate("endDate")
             );
         } catch (SQLException e) {
@@ -63,4 +50,11 @@ public class Employe extends Person {
 
     }
 
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
 }

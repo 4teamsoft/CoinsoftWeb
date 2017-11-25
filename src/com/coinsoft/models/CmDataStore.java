@@ -150,6 +150,17 @@ public class CmDataStore {
         return getCustomersEntity().create(personID,code,dni,name,lastName,age,mail,status);
     }
 
+    public Employe createEmploye(int id, String code, String dni, String name, String lastName, int age, String mail, String status,String startDate){
+
+        if (connection == null) return null;
+
+        Person person = new Person(id,code,dni, name, lastName, age, mail,status);
+
+        int personID = getPeopleEntity().create(person);
+
+        return getEmployeesEntity().create(personID,code,dni,name,lastName,age,mail,status,startDate);
+    }
+
 
 
     public boolean updatePerson(int id,String code,String dni,String name, String lastName, int age,String mail, String status) {
@@ -174,78 +185,6 @@ public class CmDataStore {
         return updateCustomer(customer.getId(),customer.getCode(),customer.getDni(),customer.getName(), customer.getLastName(),
                 customer.getAge(), customer.getMail(),customer.getStatus());
     }
-
-
-
-
-
-
-
-/*
-    public Person updatePerson(int id,String code,String dni,String name, String lastName, int age,String mail, String status ) {
-        return connection == null ?
-                null :
-                getPeopleEntity().update(id,code,dni,name,lastName,age,mail,status);
-    }
-/*
-    public Person updatePerson(Person person)
-    {
-        return updatePerson(person.getId(),person.getCode(),person.getDni(),person.getName(), person.getLastName(),
-            person.getAge(), person.getMail(),person.getStatus());
-    }
-
-   */
-/*
-    public Customer updateCustomer(int id,String code,String dni,String name, String lastName, int age,String mail, String status ) {
-        if(connection == null) return null;
-        Person person = updatePerson(id,code,dni,name,lastName,age,mail,status);
-        return getCustomersEntity().update(person.getId(),code,dni,name,lastName,age,mail,status);
-    }
-*/
-
-
-
-     /*public Customer createCustomer(String code, String dni, String name, String lastName, int age, String mail, String type,String status) {
-        return connection == null ?
-                null :
-                getCustomersEntity().create(code,dni,name,lastName,age,mail,type,status);
-    }*/
-
-
-    /*
-    public Customer createCustomer(String code, String dni, String name, String lastName, int age, String mail) {
-        if(connection == null)return null;
-        Person person = getPeopleEntity().create(code,dni,name,lastName,age,mail);
-        return getCustomersEntity().create(person);
-    }
-
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-/*
-public List<Customer> findAllCustomers() {
-        return dataStore.findAllCustomer();
-    }
-
-
-
-    public Customer createCustomer(int id, String code, String dni, String name, String lastName, int age,
-                                     String mail, String status) {
-        return dataStore.createCustomer(id,code,dni,name,lastName,age,mail,status);
-    }
- */
-
-
 
 
 

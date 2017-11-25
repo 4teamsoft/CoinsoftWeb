@@ -3,6 +3,8 @@ package com.coinsoft.models;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -11,7 +13,7 @@ public class EmployeesEntity extends BaseEntity{
 
     public EmployeesEntity() {
         super();
-        setTableName("employees");
+        setTableName("Employes");
 
     }
 
@@ -66,15 +68,15 @@ public class EmployeesEntity extends BaseEntity{
     */
 
 
-    //int id,String code, String dni, String name, String lastName, int age, String mail,String status, Date startDate, Date endDate
-    public Employe create(Employe employe) {
-        return executeUpdate(String.format(
-                "INSERT INTO %s(id,code,dni, name, last_name, age , mail, status, start_date, end_date ) " +
-                        "VALUES(%d,'%s','%s', '%s', '%s',%d,'%s','%s','%s','%s')",
-                getTableName(), employe.getId(), employe.getCode(), employe.getDni(), employe.getName(), employe.getLastName(),
-                employe.getAge(), employe.getMail(), employe.getStatus() ,employe.getStartDate(), employe.getEndDate())) ? employe : null;
+    public Employe create(int personID, String code, String dni, String name, String lastName, int age, String mail, String status,String startDate) {
+        return create(new Employe(personID,code,dni,name,lastName,age,mail,status,startDate,null));
     }
 
+    public Employe create(Employe employe) {
+        return executeUpdate("INSERT INTO Employes(id,start_date) VALUES("+ employe.getId() +",'"+ employe.getStartDate() +"')")? employe : null ;
+    }
+
+    /*
     public Employe create(int id,String code,String dni,String name, String lastName, int age,String mail, String status,Date startDate,Date endDate) {
         return create(new Employe(id,code,dni, name, lastName, age, mail, status,startDate,endDate));
     }
@@ -98,5 +100,5 @@ public class EmployeesEntity extends BaseEntity{
                 getTableName(), employe.getId()));
     }
 
-
+*/
 }
