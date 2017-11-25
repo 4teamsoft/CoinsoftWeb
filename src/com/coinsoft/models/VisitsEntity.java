@@ -1,18 +1,25 @@
 package com.coinsoft.models;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class VisitsEntity extends BaseEntity {
-    public VisitsEntity(Connection connection, String tableName) {
-        super(connection, tableName);
+public class VisitsEntity extends BaseEntity{
+
+    public VisitsEntity(){
+        super();
+        setTableName("visits");
+
     }
-/*
-    public Visit findById(int id, UsersEntity usersEntity, CustomersEntity customersEntity) {
+
+    public Visit findById(int id, EmployeesEntity employeesEntity,CustomersEntity customersEntity) {
         return findByCriteria(
-                String.format("WHERE id = %d", id), usersEntity,customersEntity).get(0);
-    }*/
-/*
-    public List<Visit> findByCriteria(String criteria, UsersEntity usersEntity, CustomersEntity customersEntity) {
+                String.format("WHERE id = %d", id),employeesEntity,customersEntity).get(0);
+    }
+
+    public List<Visit> findByCriteria(String criteria,EmployeesEntity employeesEntity,CustomersEntity customersEntity) {
         try {
             ResultSet rs = getConnection()
                     .createStatement()
@@ -21,7 +28,7 @@ public class VisitsEntity extends BaseEntity {
                                     .concat(criteria));
             List<Visit> visits = new ArrayList<>();
             while(rs.next())
-                visits.add(Visit.from(rs, usersEntity,customersEntity));
+                visits.add(Visit.from(rs,employeesEntity,customersEntity));
 
             return visits;
         } catch (SQLException e) {
@@ -29,13 +36,11 @@ public class VisitsEntity extends BaseEntity {
         }
         return null;
 
-    }*/
-
-    public VisitsEntity() {
     }
-/*
-    public List<Visit> findAll(UsersEntity usersEntity, CustomersEntity customersEntity) {
-        return findByCriteria("", usersEntity,customersEntity);
-    }*/
+
+    public List<Visit> findAll(EmployeesEntity employeesEntity,CustomersEntity customersEntity) {
+        return findByCriteria("",employeesEntity,customersEntity);
+    }
+
 
 }

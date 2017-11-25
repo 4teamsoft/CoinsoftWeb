@@ -1,28 +1,30 @@
 package com.coinsoft.models;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 
 public class Visit {
     private int id;
     private String type;
-    private Date dateTime;
+    private String dateTime;
     private int result;
     private int actionCode;
     private String status;
-    private User user;
+    private Employe employe;
     private Customer customer;
 
     public Visit() {
     }
 
-    public Visit(int id, String type, Date dateTime, int result, int actionCode, String status, User user, Customer customer) {
+    public Visit(int id, String type, String dateTime, int result, int actionCode, String status, Employe employe, Customer customer) {
         this.id = id;
         this.type = type;
         this.dateTime = dateTime;
         this.result = result;
         this.actionCode = actionCode;
         this.status = status;
-        this.user = user;
+        this.employe = employe;
         this.customer = customer;
     }
 
@@ -44,11 +46,11 @@ public class Visit {
         return this;
     }
 
-    public Date getDateTime() {
+    public String getDateTime() {
         return dateTime;
     }
 
-    public Visit setDateTime(Date dateTime) {
+    public Visit setDateTime(String dateTime) {
         this.dateTime = dateTime;
         return this;
     }
@@ -80,12 +82,12 @@ public class Visit {
         return this;
     }
 
-    public User getUser() {
-        return user;
+    public Employe getEmploye() {
+        return employe;
     }
 
-    public Visit setUser(User user) {
-        this.user = user;
+    public Visit setEmploye(Employe employe) {
+        this.employe = employe;
         return this;
     }
 
@@ -97,23 +99,23 @@ public class Visit {
         this.customer = customer;
         return this;
     }
-/*
-    public static Visit from(ResultSet rs, UsersEntity usersEntity, CustomersEntity customersEntity) {
+
+    public static Visit from(ResultSet rs, EmployeesEntity employeesEntity,CustomersEntity customersEntity) {
         Visit visit = new Visit();
         try {
             return visit.setId(rs.getInt("id"))
                     .setType(rs.getString("type"))
-                    .setDateTime(rs.getDate("date_time"))
+                    .setDateTime(rs.getString("date_time"))
                     .setResult(rs.getInt("result"))
                     .setActionCode(rs.getInt("action_code"))
                     .setStatus(rs.getString("status"))
-                    .setUser(usersEntity.findById(rs.getInt("user_id")))
+                    .setEmploye(employeesEntity.findById(rs.getInt("employe_id")))
                     .setCustomer(customersEntity.findById(rs.getInt("customer_id")));
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
-    }*/
+    }
 }
 
