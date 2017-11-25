@@ -1,0 +1,30 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+
+<validators>
+
+    <field name="number">
+        <field-validator type="requiredstring">
+            <message>A value is required in number</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[0-9]*$</param>
+            <message>the field number must include only numbers</message>
+        </field-validator>
+    </field>
+
+    <field name="type">
+        <field-validator type="requiredstring">
+            <message>You must select a type</message>
+        </field-validator>
+    </field>
+
+    <field name="operator">
+        <field-validator type="requiredstring">
+            <message>You must select a operator</message>
+        </field-validator>
+    </field>
+
+
+</validators>
