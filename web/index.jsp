@@ -5,23 +5,24 @@
   Time: 06:58 PM
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html >
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Acceso a Plataforma Administrativa</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <title>Login Access</title>
 </head>
 <body>
-<div id="main" class="container">
-  <form name="loginform" id="loginform" class="wpl-track-me">
-    <span class="chooisePlataform">Acceso a Plataforma</span>
-    <input type="button" class="button-primary2" value="Administrador" onclick="location.href='users?action=access';" style="margin-top: 30px;"/>
-    <!--<input type="button" class="button-primary2" value="Gestor" onclick="location.href='1.html';" style="margin-top: 30px;"/> -->
-  </form>
-</div>
+<h1>Product Information</h1>
+<s:form action="user">
+
+  <s:label for="username" value="UserName"/>
+  <s:textfield id="username" name="username"/>
+
+  <s:label for="password" value="Password"/>
+  <s:textfield id="password" name="password"/>
+
+  <s:submit value="Save"/>
+
+</s:form>
 </body>
 </html>
-
