@@ -132,6 +132,12 @@
                                                     <input class="form-control" type="date" min="2000-01-02" name="startDate" value="${employe.startDate}">
                                                 </div>
                                             </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Fecha de Final</label>
+                                                    <input class="form-control" type="date" min="2000-01-02" name="endtDate" value="${employe.endDate}">
+                                                </div>
+                                            </div>
                                         </div>
 
 

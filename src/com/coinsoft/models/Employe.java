@@ -8,24 +8,14 @@ public class Employe extends Person {
 
     private int id;
     private String startDate;
-    private Date endDate;
+    private String endDate;
 
 
-    public Employe(int id,String code, String dni, String name, String lastName, int age, String mail,String status, String startDate, Date endDate) {
+    public Employe(int id,String code, String dni, String name, String lastName, int age, String mail,String status, String startDate, String endDate) {
         super(id,code, dni, name, lastName, age, mail,status);
         this.id=id;
         this.startDate = startDate;
         this.endDate = endDate;
-    }
-
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public Employe setEndDate(Date endDate) {
-        this.endDate = endDate;
-        return this;
     }
 
 
@@ -41,7 +31,7 @@ public class Employe extends Person {
                     rs.getString("mail"),
                     rs.getString("status"),
                     rs.getString("startDate"),
-                    rs.getDate("endDate")
+                    rs.getString("endDate")
             );
         } catch (SQLException e) {
             e.printStackTrace();
@@ -54,7 +44,17 @@ public class Employe extends Person {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
+    public Employe setStartDate(String startDate) {
         this.startDate = startDate;
+        return this;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public Employe setEndDate(String endDate) {
+        this.endDate = endDate;
+        return this;
     }
 }

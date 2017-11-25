@@ -150,7 +150,7 @@ public class CmDataStore {
         return getCustomersEntity().create(personID,code,dni,name,lastName,age,mail,status);
     }
 
-    public Employe createEmploye(int id, String code, String dni, String name, String lastName, int age, String mail, String status,String startDate){
+    public Employe createEmploye(int id, String code, String dni, String name, String lastName, int age, String mail, String status,String startDate,String endtDate){
 
         if (connection == null) return null;
 
@@ -158,7 +158,7 @@ public class CmDataStore {
 
         int personID = getPeopleEntity().create(person);
 
-        return getEmployeesEntity().create(personID,code,dni,name,lastName,age,mail,status,startDate);
+        return getEmployeesEntity().create(personID,code,dni,name,lastName,age,mail,status,startDate,endtDate);
     }
 
 

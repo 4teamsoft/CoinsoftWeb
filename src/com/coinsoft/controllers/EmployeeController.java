@@ -32,8 +32,8 @@ public class EmployeeController extends javax.servlet.http.HttpServlet {
     private void processRequest(String method, HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException{
         String action = request.getParameter("action");
 
-        /*if(method.equals("GET")) {
-            // Index Action
+        if(method.equals("GET")) {
+            /*// Index Action
             if(action.equals("index")) {
                 List<Employe> employes = service.findAllEmployes();
                 request.setAttribute("employes", employes);
@@ -53,9 +53,9 @@ public class EmployeeController extends javax.servlet.http.HttpServlet {
                Employe employe = service.findEmployeById(id);
                 request.setAttribute("employee", employe);
                 url = "editEmployee.jsp";
-            }
+            }*/
         }
-        */
+
 
         if(method.equals("POST")) {
 
@@ -70,8 +70,10 @@ public class EmployeeController extends javax.servlet.http.HttpServlet {
                 String mail = request.getParameter("mail");
                 String status="1";
                 String startDate = request.getParameter("startDate");
+                String endtDate = request.getParameter("endtDate");
 
-                Employe employe = service.createEmploye(id,code,dni,name,lastName,age,mail,status,startDate);
+
+                Employe employe = service.createEmploye(id,code,dni,name,lastName,age,mail,status,startDate,endtDate);
 
                 //List<Employe> employes = service.findAllEmployes();
                 //request.setAttribute("employee", employes);

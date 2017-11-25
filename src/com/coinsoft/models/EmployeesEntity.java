@@ -68,12 +68,14 @@ public class EmployeesEntity extends BaseEntity{
     */
 
 
-    public Employe create(int personID, String code, String dni, String name, String lastName, int age, String mail, String status,String startDate) {
-        return create(new Employe(personID,code,dni,name,lastName,age,mail,status,startDate,null));
+    public Employe create(int personID, String code, String dni, String name, String lastName, int age, String mail, String status,String startDate,String endtDate) {
+        return create(new Employe(personID,code,dni,name,lastName,age,mail,status,startDate,endtDate));
     }
 
     public Employe create(Employe employe) {
-        return executeUpdate("INSERT INTO Employes(id,start_date) VALUES("+ employe.getId() +",'"+ employe.getStartDate() +"')")? employe : null ;
+        return executeUpdate(String.format(
+                "INSERT INTO %s(id,start_date,end_date,employe_status) VALUES(%d,'%s','%s','1')", getTableName(), employe.getId(),employe.getStartDate(),employe.getEndDate())) ? employe : null;
+
     }
 
     /*
