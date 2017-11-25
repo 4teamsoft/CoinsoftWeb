@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.List;
 
 
-@javax.servlet.annotation.WebServlet(name = "CustomerController", urlPatterns = "/customer")
+@javax.servlet.annotation.WebServlet(name = "CustomerController", urlPatterns = "/customers")
 
 public class CustomerController extends javax.servlet.http.HttpServlet {
 
@@ -39,12 +39,12 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
             if(action.equals("list")) {
                 List<Customer> customers = service.findAllCustomers();
                   request.setAttribute("customers", customers);
-                url = "listCustomer.jsp";
+                url = "listCustomers.jsp";
             }
             if(action.equals("show")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 Customer customer = service.findCustomerById(id);
-                   request.setAttribute("auditTrail",customer);
+                   request.setAttribute("customer",customer);
                 url = "showCustomer.jsp";
             }
             if(action.equals("new")) {
@@ -53,7 +53,7 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
             if(action.equals("edit")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 Customer customer = service.findCustomerById(id);
-                  request.setAttribute("auditTrail", customer);
+                request.setAttribute("customer", customer);
                 url = "editCustomer.jsp";
             }
         }
@@ -80,14 +80,36 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
 
 
             if(action.equals("update")) {
-                int id = Integer.parseInt(request.getParameter("id"));
+                int id = Integer.parseInt(request.getParameter("id"));;
+                String code = request.getParameter("code");
+                String dni = request.getParameter("dni");
                 String name = request.getParameter("name");
-                 // boolean isUpdated = service.updateCustomer(id, name);
+                String lastName = request.getParameter("lastName");
+                Integer age = Integer.parseInt(request.getParameter("age"));
+                String mail = request.getParameter("mail");
+                String status="1";
+                boolean isUpdated = service.updateCustomer(id, code,dni,name,lastName,age,mail,status);
                 List<Customer> customers = service.findAllCustomers();
-                 request.setAttribute("customer", customers);
-                url = "listCustomer.jsp";
+                request.setAttribute("customers", customers);
+                url = "listCustomers.jsp";
+
+
             }
         }
+
+
+        /*
+
+        if(action.equals("update")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+                String name = request.getParameter("name");
+                boolean isUpdated = service.updateRegion(id, name);
+                List<Region> regions = service.findAllRegions();
+                request.setAttribute("regions", regions);
+                url = "listRegions.jsp";
+            }
+         */
+
 
         request.getRequestDispatcher(url).forward(request, response);
     }

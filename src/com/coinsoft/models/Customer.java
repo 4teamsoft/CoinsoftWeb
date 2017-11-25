@@ -12,9 +12,7 @@ public class Customer extends Person {
         this.id=id;
     }
 
-    public Customer(){
-
-    }
+    public Customer(){ }
 
 
     public static Customer from(ResultSet rs ) {

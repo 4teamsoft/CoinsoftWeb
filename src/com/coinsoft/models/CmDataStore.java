@@ -23,15 +23,9 @@ public class CmDataStore {
     public CmDataStore() {
     }
 
-    public Customer findCustomerById(int id) {
-        if(connection == null) return null;
-        return getCustomersEntity().findById(id);
-    }
 
-    public int countCustomers() {
-        if(connection == null) return 0;
-        return getCustomersEntity().countCustomers();
-    }
+
+
 /*
     public int countUser(String user,String pwd) {
         if(connection == null) return 0;
@@ -103,9 +97,37 @@ public class CmDataStore {
         return assignmentsEntity;
     }*/
 
+
+    public Person findPersonById(int id) {
+        if(connection == null) return null;
+        return getPeopleEntity().findById(id);
+    }
+
+
+    public Customer findCustomerById(int id) {
+        if(connection == null) return null;
+        Person person = findPersonById(id);
+        Customer customer=getCustomersEntity().findById(id);
+        Customer customer1=new Customer(person.getId(),person.getCode(),person.getDni(),person.getName(),
+                person.getLastName(),person.getAge(),person.getMail(),person.getStatus());
+        return customer1;
+    }
+
+    public int countCustomers() {
+        if(connection == null) return 0;
+        return getCustomersEntity().countCustomers();
+    }
+
+
+
     public List<Customer> findAllCustomer() {
 
         return connection == null ? null : getCustomersEntity().findAll();
+    }
+
+    public List<Person> findAllPerson() {
+
+        return connection == null ? null : getPeopleEntity().findAll();
     }
 
 /*
@@ -127,6 +149,88 @@ public class CmDataStore {
 
         return getCustomersEntity().create(personID,code,dni,name,lastName,age,mail,status);
     }
+
+
+
+    public boolean updatePerson(int id,String code,String dni,String name, String lastName, int age,String mail, String status) {
+        return connection == null ?
+                false :
+                getPeopleEntity().update(id,code,dni,name,lastName,age,mail,status);
+    }
+
+    public boolean updatePerson(Person person) {
+        return updatePerson(person.getId(),person.getCode(),person.getDni(),person.getName(), person.getLastName(),
+                person.getAge(), person.getMail(),person.getStatus());
+    }
+
+
+    public boolean updateCustomer(int id,String code,String dni,String name, String lastName, int age,String mail, String status) {
+            if (connection == null) return false;
+          boolean person=updatePerson(id,code,dni,name,lastName,age,mail,status);
+          return   getCustomersEntity().update(id,code,dni,name,lastName,age,mail,status);
+    }
+
+    public boolean updateCustomer(Customer customer) {
+        return updateCustomer(customer.getId(),customer.getCode(),customer.getDni(),customer.getName(), customer.getLastName(),
+                customer.getAge(), customer.getMail(),customer.getStatus());
+    }
+
+
+
+
+
+
+
+/*
+    public Person updatePerson(int id,String code,String dni,String name, String lastName, int age,String mail, String status ) {
+        return connection == null ?
+                null :
+                getPeopleEntity().update(id,code,dni,name,lastName,age,mail,status);
+    }
+/*
+    public Person updatePerson(Person person)
+    {
+        return updatePerson(person.getId(),person.getCode(),person.getDni(),person.getName(), person.getLastName(),
+            person.getAge(), person.getMail(),person.getStatus());
+    }
+
+   */
+/*
+    public Customer updateCustomer(int id,String code,String dni,String name, String lastName, int age,String mail, String status ) {
+        if(connection == null) return null;
+        Person person = updatePerson(id,code,dni,name,lastName,age,mail,status);
+        return getCustomersEntity().update(person.getId(),code,dni,name,lastName,age,mail,status);
+    }
+*/
+
+
+
+     /*public Customer createCustomer(String code, String dni, String name, String lastName, int age, String mail, String type,String status) {
+        return connection == null ?
+                null :
+                getCustomersEntity().create(code,dni,name,lastName,age,mail,type,status);
+    }*/
+
+
+    /*
+    public Customer createCustomer(String code, String dni, String name, String lastName, int age, String mail) {
+        if(connection == null)return null;
+        Person person = getPeopleEntity().create(code,dni,name,lastName,age,mail);
+        return getCustomersEntity().create(person);
+    }
+
+
+*/
+
+
+
+
+
+
+
+
+
+
 
 /*
 public List<Customer> findAllCustomers() {
@@ -192,32 +296,6 @@ public List<Customer> findAllCustomers() {
         }
         return visitsEntity;
     }
-
-
-
-
-    /*public Customer createCustomer(String code, String dni, String name, String lastName, int age, String mail, String type,String status) {
-        return connection == null ?
-                null :
-                getCustomersEntity().create(code,dni,name,lastName,age,mail,type,status);
-    }*/
-
-
-    /*
-    public Customer createCustomer(String code, String dni, String name, String lastName, int age, String mail) {
-        if(connection == null)return null;
-        Person person = getPeopleEntity().create(code,dni,name,lastName,age,mail);
-        return getCustomersEntity().create(person);
-    }
-
-
-*/
-
-
-
-
-
-
 
 
 

@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: J0hns
-  Date: 13/11/2017
-  Time: 01:48
+  User: HP
+  Date: 24/11/2017
+  Time: 07:23 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"  %>
@@ -79,7 +79,9 @@
                             <div class="content">
                                 <form action="customers" method="post">
                                     <fieldset>
-                                            <input type="hidden" name="action" value="create"/>
+                                        <input type="hidden" name="action" value="update"/>
+                                        <input type="hidden" name="id" value="${customer.id}">
+
                                         <div class="row">
                                             <div class="col-md-5">
                                                 <div class="form-group">
@@ -138,7 +140,7 @@
                                             </div>
                                         </div>-->
 
-                                        <button type="submit" class="btn btn-info btn-fill pull-right">Crear Nuevo Cliente</button>
+                                        <button type="submit" class="btn btn-info btn-fill pull-right">Actualizar Datos</button>
                                         <div class="clearfix"></div>
                                     </fieldset>
                                 </form>
@@ -146,22 +148,6 @@
                         </div>
                     </div>
 
-<!--
-                    <form action="customers" method="post">
-                        <fieldset>
-                            <input type="hidden" name="action" value="create"/>
-
-
-                            <label for="name">Nombre</label>
-                            <input type="text" name="name" id="name" value="${customer.name}"/>
-
-                            <label for="type">Tipo</label>
-                            <input type="text" name="type" id="type" value="${customer.type}"/>
-
-                            <input type="submit"/>
-
-                        </fieldset>
-                    </form>-->
                 </div>
             </div>
         </div>
@@ -179,3 +165,5 @@
 
 
 </html>
+
+

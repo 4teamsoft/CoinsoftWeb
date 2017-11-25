@@ -52,9 +52,7 @@ public class CmService {
         return dataStore.countUser(user,pwd);
     }*/
 
-    public Customer findCustomerById(int id) {
-        return dataStore.findCustomerById(id);
-    }
+
 
 
 /*
@@ -74,10 +72,6 @@ public class CmService {
 
     }
 
-
-
-
-
     */
 
 /*
@@ -88,19 +82,20 @@ public class CmService {
 
     }
 
-
-
-
 */
+
+
+    public boolean updateCustomer(int id,String code,String dni,String name, String lastName, int age,String mail, String status)
+    { return dataStore.updateCustomer(id,code,dni,name,lastName,age,mail,status); }
+
+    public Customer findCustomerById(int id) { return dataStore.findCustomerById(id); }
 
     public List<Customer> findAllCustomers() {
         return dataStore.findAllCustomer();
     }
 
-    public Customer createCustomer(int id, String code, String dni, String name, String lastName, int age,
-                                     String mail, String status) {
-        return dataStore.createCustomer(id,code,dni,name,lastName,age,mail,status);
-    }
+    public Customer createCustomer(int id,String code,String dni,String name,String lastName,int age,String mail, String status)
+    { return dataStore.createCustomer(id,code,dni,name,lastName,age,mail,status); }
 
 
 

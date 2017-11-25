@@ -47,7 +47,7 @@
 
         <div class="content">
             <div class="container-fluid">
-                <a href="customer?action=new" class="btn btn-info btn-fill" style="margin-bottom: 10px;">Nuevo Cliente</a>
+                <a href="customers?action=new" class="btn btn-info btn-fill" style="margin-bottom: 10px;">Nuevo Cliente</a>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -57,15 +57,15 @@
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>NAME</th>
-                                                <th>LAST Name</th>
-                                                <th>AGE</th>
-                                                <th>EMAIL</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
+                                    <thead>
+                                    <tr>
+                                        <th>NAME</th>
+                                        <th>LAST Name</th>
+                                        <th>AGE</th>
+                                        <th>EMAIL</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
                                     <tbody>
                                     <c:forEach var="customer" items="${customers}">
                                         <tr>
@@ -74,7 +74,7 @@
                                             <td><c:out value="${customer.age}"/></td>
                                             <td><c:out value="${customer.mail}"/></td>
                                             <td>
-                                                <a href="customer?action=edit&id=${customer.id}">Editar</a>
+                                                <a href="customers?action=edit&id=${customer.id}">Editar</a>
                                             </td>
                                         </tr>
                                     </c:forEach>

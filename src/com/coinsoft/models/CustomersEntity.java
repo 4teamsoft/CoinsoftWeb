@@ -35,11 +35,11 @@ public class CustomersEntity extends BaseEntity {
 
     }
 
-
     public Customer findById(int id) {
         return findByCriteria(
                 String.format("WHERE id = '%d'", id)).get(0);
     }
+
 
     public Customer findByName(String name) {
         return findByCriteria(
@@ -110,7 +110,43 @@ public class CustomersEntity extends BaseEntity {
     public Customer create(int id,String code, String dni, String name, String lastName, int age, String mail, String status/*,PeopleEntity peopleEntity*/) {
         //Person person=peopleEntity.create(id,code, dni, name, lastName, age, mail, status);
         return create(new Customer(id,code,dni, name, lastName, age, mail,status));
+    }
 
+    /*
+    public Customer update(Customer customer) {
+        return executeUpdate(String.format(
+                "UPDATE %s SET id = %d  WHERE id = %d",
+                getTableName(),customer.getId(),customer.getId()))? customer : null;
+    }
+
+    public Customer update(int id,String code,String dni,String name, String lastName, int age,String mail, String status) {
+        return update(new Customer(id,code,dni, name, lastName, age, mail,status));
+*/
+
+    public boolean update(int id,String code,String dni,String name, String lastName, int age,String mail, String status) {
+        return executeUpdate(String.format(
+                "UPDATE %s SET id = %d WHERE id = %d",
+                getTableName(),id, id));
+    }
+
+
+    public boolean update(Customer customer) {
+        return update(customer.getId(),customer.getCode(),customer.getDni(), customer.getName(),
+                customer.getLastName(), customer.getAge(),customer.getMail(),customer.getStatus());
+    }
+
+
+
+
+
+        /*return executeUpdate(String.format(
+                "UPDATE %s SET code = '%s',dni = '%s',name = '%s', last_name='%s', age=%d,mail = '%s', status='%s' WHERE id = %d",
+                getTableName(),code,dni, name, lastName, age,mail, '1', id));*/
 
     }
-}
+
+
+
+
+
+

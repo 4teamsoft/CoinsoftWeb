@@ -69,8 +69,9 @@ public class PeopleEntity extends BaseEntity{
                 String.format("WHERE last_name = '%s'", lastName)).get(0);
     }
 
-
-
+    public List<Person> findAll() {
+        return findByCriteria("");
+    }
 
 
 /*
@@ -104,17 +105,38 @@ public class PeopleEntity extends BaseEntity{
     }
 
 
-
-    public boolean update(int id,String code,String dni,String name, String lastName, int age,String mail, String status) {
+/*
+    public Person update(Person person) {
         return executeUpdate(String.format(
+                "UPDATE %s SET code = '%s',dni = '%s',name = '%s', last_name='%s', age=%d,mail = '%s', status='%s' WHERE id = %d",
+                getTableName(),person.getCode(),person.getDni(), person.getName(),
+                person.getLastName(), person.getAge(),person.getMail(), '1', person.getId()))? person : null;
+    }
+
+    public Person update(int id,String code,String dni,String name, String lastName, int age,String mail, String status) {
+        return update(new Person(id,code,dni, name, lastName, age, mail,status));
+
+        /*return executeUpdate(String.format(
                 "UPDATE %s SET code = '%s',dni = '%s',name = '%s', last_name='%s', age=%d,mail = '%s', status='%s' WHERE id = %d",
                 getTableName(),code,dni, name, lastName, age,mail, '1', id));
     }
 
-    public boolean update(Person person) {
-        return update(person.getId(),person.getCode(),person.getDni(),person.getName(), person.getLastName(),
-                person.getAge(), person.getMail(),person.getStatus());
-    }
+*/
+
+        public boolean update(int id,String code,String dni,String name, String lastName, int age,String mail, String status) {
+        return executeUpdate(String.format(
+        "UPDATE %s SET code = '%s',dni = '%s',name = '%s', last_name='%s', age=%d,mail = '%s', status='%s' WHERE id = %d",
+                getTableName(),code,dni, name, lastName, age,mail, '1', id));
+        }
+
+
+        public boolean update(Person person) {
+        return update(person.getId(),person.getCode(),person.getDni(), person.getName(),
+                person.getLastName(), person.getAge(),person.getMail(),person.getStatus());
+        }
+
+
+
 
 
     public boolean erase(int id) {
