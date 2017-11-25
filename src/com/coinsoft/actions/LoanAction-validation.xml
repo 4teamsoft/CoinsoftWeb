@@ -1,0 +1,47 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+
+<validators>
+    <field name="codeLoan">
+        <field-validator type="requiredstring">
+            <message>A value is required in code loan</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[0-9]*$</param>
+            <message>code loan must include only Alphabet number.</message>
+        </field-validator>
+    </field>
+
+    <field name="dateStart">
+        <field-validator type="requiredstring">
+            <message>A value is required in date start</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[0-9/]*$</param>
+            <message>date start must include only a date</message>
+        </field-validator>
+    </field>
+
+
+    <field name="amount">
+        <field-validator type="requiredstring">
+            <message>A value is required in amount</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[0-9.]*$</param>
+            <message>Amount must include only number.</message>
+        </field-validator>
+    </field>
+
+    <field name="numberQuota">
+        <field-validator type="requiredstring">
+            <message>A value is required in number quota</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[0-9]*$</param>
+            <message>number quota must include only number</message>
+        </field-validator>
+    </field>
+
+</validators>

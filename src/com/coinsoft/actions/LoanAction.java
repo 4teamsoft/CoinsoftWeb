@@ -7,6 +7,7 @@ public class LoanAction extends  ActionSupport {
     private int codeLoan;
     private String dateStart;
     private double amount;
+
     private int numberQuota;
     private int day;
     private String type;
