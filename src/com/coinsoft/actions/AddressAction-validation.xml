@@ -3,7 +3,6 @@
 
 <validators>
 
-
     <field name="department">
         <field-validator type="requiredstring">
             <message>>A value is required in department</message>
@@ -99,21 +98,6 @@
             <message>status must include only Alphabet characters and number</message>
         </field-validator>
     </field>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

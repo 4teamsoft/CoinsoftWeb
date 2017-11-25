@@ -1,0 +1,35 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="code">
+        <field-validator type="requiredstring">
+            <message>A value is required in Code</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[0-9]*$</param>
+            <message>Code must include only Alphabet number.</message>
+        </field-validator>
+    </field>
+
+    <field name="dni">
+        <field-validator type="requiredstring">
+            <message>A value is required in dni</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[-_a-zA-Z0-9.]+$</param>
+            <message>Dni must include only number.</message>
+        </field-validator>
+    </field>
+
+    <field name="name">
+        <field-validator type="requiredstring">
+            <message>A value is required in type</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[0-9]*$</param>
+            <message>type must include only number.</message>
+        </field-validator>
+    </field>
+
+
+</validators>

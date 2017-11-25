@@ -1,11 +1,10 @@
 package com.coinsoft.controllers;
 
-public class VisitController {
+public class AddressController {
 
 
 
 
 
 
-    
 }

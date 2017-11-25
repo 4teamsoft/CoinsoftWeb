@@ -13,10 +13,9 @@ public class CustomerAction extends ActionSupport{
     private String lastName;
     private int age;
     private String mail;
-    private String status;
 
 
-    public CustomerAction(int id, String code, String dni, String name, String lastName, int age, String mail, String status) {
+    public CustomerAction(int id, String code, String dni, String name, String lastName, int age, String mail) {
         this.id = id;
         this.code = code;
         this.dni = dni;
@@ -24,7 +23,7 @@ public class CustomerAction extends ActionSupport{
         this.lastName = lastName;
         this.age = age;
         this.mail = mail;
-        this.status = status;
+
     }
 
     public int getId() {
@@ -81,14 +80,6 @@ public class CustomerAction extends ActionSupport{
 
     public void setMail(String mail) {
         this.mail = mail;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public String execute() {
