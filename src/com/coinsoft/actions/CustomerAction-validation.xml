@@ -7,7 +7,7 @@
         </field-validator>
         <field-validator type="regex">
             <param name="regexExpression">^[0-9]*$</param>
-            <message>Code must include only Alphabet number.</message>
+            <message>Code must include only number.</message>
         </field-validator>
     </field>
 
@@ -16,18 +16,48 @@
             <message>A value is required in dni</message>
         </field-validator>
         <field-validator type="regex">
-            <param name="regexExpression">^[-_a-zA-Z0-9.]+$</param>
+            <param name="regexExpression">^[0-9]*$</param>
             <message>Dni must include only number.</message>
         </field-validator>
     </field>
 
     <field name="name">
         <field-validator type="requiredstring">
-            <message>A value is required in type</message>
+            <message>A value is required in name</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[A-z]+$</param>
+            <message>Name must include only Alphabet characters.</message>
+        </field-validator>
+    </field>
+
+    <field name="lastName">
+        <field-validator type="requiredstring">
+            <message>A value is required in lastName</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[A-z]+$</param>
+            <message>Last Name must include only Alphabet characters.</message>
+        </field-validator>
+    </field>
+
+    <field name="age">
+        <field-validator type="requiredstring">
+            <message>A value is required in age</message>
         </field-validator>
         <field-validator type="regex">
             <param name="regexExpression">^[0-9]*$</param>
-            <message>type must include only number.</message>
+            <message>Age must include only number.</message>
+        </field-validator>
+    </field>
+
+    <field name="mail">
+        <field-validator type="requiredstring">
+            <message>A value is required in mail</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">^[A-Z0-9._%+-]+@(?:[A-Z0-9-]+\.)+[A-Z]{2,}$</param>
+            <message>Error unknown.</message>
         </field-validator>
     </field>
 
