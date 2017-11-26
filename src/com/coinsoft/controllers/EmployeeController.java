@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@javax.servlet.annotation.WebServlet(name = "EmployeeController", urlPatterns = "/employee")
+@javax.servlet.annotation.WebServlet(name = "EmployeeController", urlPatterns = "/employe")
 
 public class EmployeeController extends javax.servlet.http.HttpServlet {
 
@@ -63,6 +63,7 @@ public class EmployeeController extends javax.servlet.http.HttpServlet {
 
             if(action.equals("create")) {
 
+
                 Integer id = 0;
                 String code = request.getParameter("code");
                 String dni = request.getParameter("dni");
@@ -75,11 +76,13 @@ public class EmployeeController extends javax.servlet.http.HttpServlet {
                 String endDate = request.getParameter("endDate");
 
 
+
                 Employe employe = service.createEmploye(id,code,dni,name,lastName,age,mail,status,startDate,endDate);
 
                 List<Employe> employes = service.findAllEmployees();
-                request.setAttribute("employee", employes);
+                request.setAttribute("employe", employe);
                 url = "listEmploye.jsp";
+
             }
 
             if(action.equals("update")) {

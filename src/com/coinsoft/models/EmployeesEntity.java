@@ -68,8 +68,8 @@ public class EmployeesEntity extends BaseEntity{
 
 
 
-    public Employe create(int personID, String code, String dni, String name, String lastName, int age, String mail, String status,String startDate,String endtDate) {
-        return create(new Employe(personID,code,dni,name,lastName,age,mail,status,startDate,endtDate));
+    public Employe create(int personID, String code, String dni, String name, String lastName, int age, String mail, String status,String startDate,String endDate) {
+        return create(new Employe(personID,code,dni,name,lastName,age,mail,status,startDate,endDate));
     }
 
     public Employe create(Employe employe) {

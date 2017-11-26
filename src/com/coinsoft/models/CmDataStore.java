@@ -23,9 +23,6 @@ public class CmDataStore {
     public CmDataStore() {
     }
 
-
-
-
 /*
     public int countUser(String user,String pwd) {
         if(connection == null) return 0;
@@ -163,7 +160,7 @@ public class CmDataStore {
         return getCustomersEntity().create(personID,code,dni,name,lastName,age,mail,status);
     }
 
-    public Employe createEmploye(int id, String code, String dni, String name, String lastName, int age, String mail, String status,String startDate,String endtDate){
+    public Employe createEmploye(int id, String code, String dni, String name, String lastName, int age, String mail, String status,String startDate,String endDate){
 
         if (connection == null) return null;
 
@@ -171,7 +168,7 @@ public class CmDataStore {
 
         int personID = getPeopleEntity().create(person);
 
-        return getEmployeesEntity().create(personID,code,dni,name,lastName,age,mail,status,startDate,endtDate);
+        return getEmployeesEntity().create(personID,code,dni,name,lastName,age,mail,status,startDate,endDate);
     }
 
 

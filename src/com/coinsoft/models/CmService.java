@@ -98,8 +98,8 @@ public class CmService {
     { return dataStore.createCustomer(id,code,dni,name,lastName,age,mail,status); }
 
     public Employe createEmploye(int id, String code, String dni, String name, String lastName, int age,
-                                   String mail, String status, String startDate,String endtDate) {
-      return dataStore.createEmploye(id,code,dni,name,lastName,age,mail,status,startDate,endtDate);
+                                   String mail, String status, String startDate,String endDate) {
+      return dataStore.createEmploye(id,code,dni,name,lastName,age,mail,status,startDate,endDate);
     }
     public boolean updateEmploye(int id,String startDate,String endDate,String code,String dni,String name, String lastName, int age,String mail, String status)
     { return dataStore.updateEmploye(id,startDate,endDate,code,dni,name,lastName,age,mail,status); }

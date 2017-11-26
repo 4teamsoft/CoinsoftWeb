@@ -60,7 +60,7 @@ public class CustomersEntity extends BaseEntity {
         return findByCriteria("c INNER JOIN people p ON c.id=p.id");
     }
 
-/*
+
     public int countCustomers() {
 
         String query="SELECT count(*) From customers";
@@ -74,7 +74,7 @@ public class CustomersEntity extends BaseEntity {
         }
         return count;
     }
-*/
+
     public boolean erase(int id) {
         return executeUpdate(String.format("UPDATE %s SET status='%s' WHERE id = %d",
                 getTableName(),'0', id));
