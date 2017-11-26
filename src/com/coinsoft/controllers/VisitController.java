@@ -2,7 +2,6 @@ package com.coinsoft.controllers;
 
 import  com.coinsoft.models.CmService;
 import com.coinsoft.models.Customer;
-import com.coinsoft.models.Employe;
 import com.coinsoft.models.Visit;
 
 import javax.servlet.http.HttpServletRequest;
@@ -39,67 +38,16 @@ public class VisitController extends javax.servlet.http.HttpServlet {
         if(method.equals("GET")) {
             // Index Action
             if(action.equals("list")) {
-                List<Customer> customers = service.findAllCustomers();
-                request.setAttribute("customers", customers);
-                url = "listCustomers.jsp";
+                List<Visit> visits = service.findAllVisits();
+                request.setAttribute("visits", visits);
+                url = "listVisits.jsp";
             }
-            if(action.equals("show")) {
-                int id = Integer.parseInt(request.getParameter("id"));
-                Customer customer = service.findCustomerById(id);
-                request.setAttribute("customer",customer);
-                url = "showCustomer.jsp";
-            }
+
             if(action.equals("new")) {
-                url = "newCustomer.jsp";
-            }
-            if(action.equals("edit")) {
-                int id = Integer.parseInt(request.getParameter("id"));
-                Customer customer = service.findCustomerById(id);
-                request.setAttribute("customer", customer);
-                url = "editCustomer.jsp";
+                url = "newVisit.jsp";
             }
         }
 
-        if(method.equals("POST")) {
-            // Create Action
-            if(action.equals("create")) {
-
-                Integer id = 0;
-                String code = request.getParameter("code");
-                String dni = request.getParameter("dni");
-                String name = request.getParameter("name");
-                String lastName = request.getParameter("lastName");
-                Integer age = Integer.parseInt(request.getParameter("age"));
-                String mail = request.getParameter("mail");
-                String status="1";
-
-
-                Customer customer = service.createCustomer( id,code,dni,name,lastName,age,mail,status);
-
-
-                List<Customer> customers = service.findAllCustomers();
-                request.setAttribute("customers", customers);
-                url = "listCustomer.jsp";
-            }
-
-
-            if(action.equals("update")) {
-                int id = Integer.parseInt(request.getParameter("id"));;
-                String code = request.getParameter("code");
-                String dni = request.getParameter("dni");
-                String name = request.getParameter("name");
-                String lastName = request.getParameter("lastName");
-                Integer age = Integer.parseInt(request.getParameter("age"));
-                String mail = request.getParameter("mail");
-                String status="1";
-                boolean isUpdated = service.updateCustomer(id, code,dni,name,lastName,age,mail,status);
-                List<Customer> customers = service.findAllCustomers();
-                request.setAttribute("customers", customers);
-                url = "listCustomers.jsp";
-
-
-            }
-        }
 
         request.getRequestDispatcher(url).forward(request, response);
     }

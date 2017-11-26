@@ -17,11 +17,15 @@ public class CmDataStore {
 
 
     public CmDataStore(Connection connection) {
+
         this.connection = connection;
     }
 
     public CmDataStore() {
+
+
     }
+
 
 /*
     public int countUser(String user,String pwd) {
@@ -77,14 +81,18 @@ public class CmDataStore {
 
         return connection == null ? null : getLoansEntity().findAll(getCustomersEntity());
     }
+
+
 /*
     public List<User> findAllUser() {
         return connection == null ? null: getUsersEntity().findAll(getEmployeesEntity());
     }*/
-/*
+
     public List<Visit> findAllVisit() {
-        return connection == null ? null : getVisitsEntity().findAll(getUsersEntity(),getCustomersEntity());
-    }*/
+        return connection == null ? null : getVisitsEntity().findAll(getEmployeesEntity(),getCustomersEntity());
+    }
+
+
 
     public Connection getConnection() {
         return connection;
@@ -117,12 +125,12 @@ public class CmDataStore {
                 person.getLastName(),person.getAge(),person.getMail(),person.getStatus());
         return customer1;
     }
-
+/*
     public int countCustomers() {
         if(connection == null) return 0;
         return getCustomersEntity().countCustomers();
     }
-
+*/
 
 
     public List<Customer> findAllCustomer() {
@@ -160,7 +168,18 @@ public class CmDataStore {
         return getCustomersEntity().create(personID,code,dni,name,lastName,age,mail,status);
     }
 
-    public Employe createEmploye(int id, String code, String dni, String name, String lastName, int age, String mail, String status,String startDate,String endDate){
+    /*
+    public Visit createVisit(int id,String type,String date,String result,String collection_stage,String status){
+
+        if (connection == null) return null;
+
+
+
+
+    }
+    */
+
+    public Employe createEmploye(int id, String code, String dni, String name, String lastName, int age, String mail, String status,String startDate,String endtDate){
 
         if (connection == null) return null;
 
@@ -168,7 +187,7 @@ public class CmDataStore {
 
         int personID = getPeopleEntity().create(person);
 
-        return getEmployeesEntity().create(personID,code,dni,name,lastName,age,mail,status,startDate,endDate);
+        return getEmployeesEntity().create(personID,code,dni,name,lastName,age,mail,status,startDate,endtDate);
     }
 
 

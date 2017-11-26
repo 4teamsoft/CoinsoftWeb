@@ -90,7 +90,7 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
                 Integer age = Integer.parseInt(request.getParameter("age"));
                 String mail = request.getParameter("mail");
                 String status="1";
-                boolean isUpdated = service.updateCustomer(id, code,dni,name,lastName,age,mail,status);
+              //  boolean isUpdated = service.updateCustomer(id, code,dni,name,lastName,age,mail,status);
                 List<Customer> customers = service.findAllCustomers();
                 request.setAttribute("customers", customers);
                 url = "listCustomers.jsp";
@@ -113,7 +113,8 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
          */
 
 
-        request.getRequestDispatcher(url).forward(request, response);
+
+      request.getRequestDispatcher(url).forward(request, response);
     }
 
 //
