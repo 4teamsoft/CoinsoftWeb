@@ -37,11 +37,19 @@ public class CmDataStore {
         return getUsersEntity().findUserWithLogin(user,pwd,employeesEntity);
     }
 */
-/*
-    public Employe findEmployeById(int id) {
+
+   /* public Employe findEmployeById(int id) {
         if(connection == null) return null;
         return getEmployeesEntity().findById(id);
     }*/
+    public Employe findEmployeById(int id) {
+        if(connection == null) return null;
+        Person person = findPersonById(id);
+        Employe employe=getEmployeesEntity().findById(id);
+        Employe employe1=new Employe(person.getId(),person.getCode(),person.getDni(),person.getName(),
+                person.getLastName(),person.getAge(),person.getMail(),person.getStatus(),employe.getStartDate(),employe.getEndDate());
+        return employe1;
+    }
 
     public Loan findLoanById(int id) {
         if(connection == null) return null;
@@ -125,6 +133,11 @@ public class CmDataStore {
         return connection == null ? null : getCustomersEntity().findAll();
     }
 
+    public List<Employe> findAllEmploye() {
+
+        return connection == null ? null : getEmployeesEntity().findAll();
+    }
+
     public List<Person> findAllPerson() {
 
         return connection == null ? null : getPeopleEntity().findAll();
@@ -184,6 +197,17 @@ public class CmDataStore {
     public boolean updateCustomer(Customer customer) {
         return updateCustomer(customer.getId(),customer.getCode(),customer.getDni(),customer.getName(), customer.getLastName(),
                 customer.getAge(), customer.getMail(),customer.getStatus());
+    }
+
+    public boolean updateEmploye(int id,String startDate,String endDate,String code,String dni,String name, String lastName, int age,String mail, String status) {
+        if (connection == null) return false;
+        boolean person=updatePerson(id,code,dni,name,lastName,age,mail,status);
+        return   getEmployeesEntity().update(id,startDate,endDate,code,dni,name,lastName,age,mail,status);
+    }
+
+    public boolean updateEmploye(Employe employe) {
+        return updateEmploye(employe.getId(),employe.getStartDate(),employe.getEndDate(),employe.getCode(),employe.getDni(),employe.getName(),employe.getLastName(),
+                employe.getAge(), employe.getMail(),employe.getStatus());
     }
 
 

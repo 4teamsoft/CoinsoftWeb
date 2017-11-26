@@ -101,24 +101,21 @@ public class CmService {
                                    String mail, String status, String startDate,String endtDate) {
       return dataStore.createEmploye(id,code,dni,name,lastName,age,mail,status,startDate,endtDate);
     }
+    public boolean updateEmploye(int id,String startDate,String endDate,String code,String dni,String name, String lastName, int age,String mail, String status)
+    { return dataStore.updateEmploye(id,startDate,endDate,code,dni,name,lastName,age,mail,status); }
 
 
-
-
-
-
-/*
-        public Employe findEmployeById (int id) {
+    public Employe findEmployeById (int id) {
             return dataStore.findEmployeById(id);
-        }*/
+        }
 /*
     public List<Assignment> findAllAssignments() { return dataStore.findAllAssignment(); }
 /**//*
     public User findUserById (int id) {
         return dataStore.findUserById(id);
     }*/
-/*
-    public List<Employe> findAllEmployes() { return dataStore.findAllEmploye(); }*/
+
+    public List<Employe> findAllEmployees() { return dataStore.findAllEmploye(); }
 /*
     public List<User> findAllUser() { return dataStore.findAllUser(); }
 */

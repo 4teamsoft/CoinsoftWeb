@@ -63,9 +63,9 @@ public class EmployeesEntity extends BaseEntity{
     /*
     public List<Employe> findAllWithManagement() {
         return findByCriteria("id IN (SELECT DISTINCT employe_id FROM visits)");
-    }
+    }*/
 
-    */
+
 
 
     public Employe create(int personID, String code, String dni, String name, String lastName, int age, String mail, String status,String startDate,String endtDate) {
@@ -84,7 +84,7 @@ public class EmployeesEntity extends BaseEntity{
     }
 
 
-    public boolean update(int id,String code,String dni,String name, String lastName, int age,String mail, String status,Date startDate,Date endDate) {
+    public boolean update(int id,String code,String dni,String name, String lastName, int age,String mail, String status,String startDate,Date endDate) {
         return executeUpdate(String.format(
                 "UPDATE %s SET code = '%s',dni = '%s',name = '%s', last_name='%s', age=%d,mail = '%s', status='%s' WHERE id = %d",
                 getTableName(),code,dni, name, lastName, age,mail, status, id));
@@ -92,7 +92,20 @@ public class EmployeesEntity extends BaseEntity{
     public boolean update(Employe employe) {
         return update(employe.getId(),employe.getCode(),employe.getDni(),employe.getName(), employe.getLastName(),
                 employe.getAge(), employe.getMail(),employe.getStatus(),employe.getStartDate(),employe.getEndDate());
+    }*/
+
+    public boolean update(int id,String startDate,String endDate,String code,String dni,String name, String lastName, int age,String mail, String status) {
+        return executeUpdate(String.format(
+                "UPDATE %s SET startDate = '%s', endDate = '%s' WHERE id = %d,",
+                getTableName(),startDate,endDate, id));
     }
+
+
+    public boolean update(Employe employe) {
+        return update(employe.getId(),employe.getStartDate(),employe.getEndDate(),employe.getCode(),employe.getDni(), employe.getName(),
+                employe.getLastName(), employe.getAge(),employe.getMail(),employe.getStatus());
+    }
+    /*
     public boolean erase(int id) {
         return executeUpdate(String.format("DELETE FROM %s WHERE id = %d",
                 getTableName(), id));

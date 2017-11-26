@@ -7,8 +7,9 @@ import com.coinsoft.models.Employe;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
-@javax.servlet.annotation.WebServlet(name = "EmployeeController", urlPatterns = "/employe")
+@javax.servlet.annotation.WebServlet(name = "EmployeeController", urlPatterns = "/employee")
 
 public class EmployeeController extends javax.servlet.http.HttpServlet {
 
@@ -33,10 +34,10 @@ public class EmployeeController extends javax.servlet.http.HttpServlet {
         String action = request.getParameter("action");
 
         if(method.equals("GET")) {
-            /*// Index Action
+            //Index Action
             if(action.equals("index")) {
-                List<Employe> employes = service.findAllEmployes();
-                request.setAttribute("employes", employes);
+                List<Employe> employees = service.findAllEmployees();
+                request.setAttribute("employee", employees);
                 url = "listEmploye.jsp";
             }
             if(action.equals("show")) {
@@ -53,7 +54,8 @@ public class EmployeeController extends javax.servlet.http.HttpServlet {
                Employe employe = service.findEmployeById(id);
                 request.setAttribute("employee", employe);
                 url = "editEmployee.jsp";
-            }*/
+            }
+
         }
 
 
@@ -70,14 +72,33 @@ public class EmployeeController extends javax.servlet.http.HttpServlet {
                 String mail = request.getParameter("mail");
                 String status="1";
                 String startDate = request.getParameter("startDate");
-                String endtDate = request.getParameter("endtDate");
+                String endDate = request.getParameter("endDate");
 
 
-                Employe employe = service.createEmploye(id,code,dni,name,lastName,age,mail,status,startDate,endtDate);
+                Employe employe = service.createEmploye(id,code,dni,name,lastName,age,mail,status,startDate,endDate);
 
-                //List<Employe> employes = service.findAllEmployes();
-                //request.setAttribute("employee", employes);
-                url = "index.jsp";
+                List<Employe> employes = service.findAllEmployees();
+                request.setAttribute("employee", employes);
+                url = "listEmploye.jsp";
+            }
+
+            if(action.equals("update")) {
+                int id = Integer.parseInt(request.getParameter("id"));;
+                String code = request.getParameter("code");
+                String dni = request.getParameter("dni");
+                String name = request.getParameter("name");
+                String lastName = request.getParameter("lastName");
+                Integer age = Integer.parseInt(request.getParameter("age"));
+                String mail = request.getParameter("mail");
+                String starDate = request.getParameter("starDate");
+                String endDate = request.getParameter("endDate");
+                String status="1";
+                boolean isUpdated = service.updateCustomer(id, code,dni,name,lastName,age,mail,status);
+                List<Employe> employes = service.findAllEmployees();
+                request.setAttribute("employee", employes);
+                url = "listEmploye.jsp";
+
+
             }
 
             /*
