@@ -33,7 +33,7 @@
                 </a>
             </li>
             <li>
-                <a href="employe?action=list">
+                <a href="employees?action=list">
                     <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                     <p>Gestores</p>
                 </a>

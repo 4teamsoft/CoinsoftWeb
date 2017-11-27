@@ -18,8 +18,21 @@ public class Employe extends Person {
         this.endDate = endDate;
     }
 
+    public Employe() { }
+
+    public String getStartDate() {
+        return startDate;
+    }
+    public Employe setStartDate(String startDate) { this.startDate = startDate; return this; }
+
+    public String getEndDate() {
+        return endDate;
+    }
+    public Employe setEndDate(String endDate) { this.endDate = endDate; return this; }
+
 
     public static Employe from(ResultSet rs) {
+
         try {
             return new Employe(
                     rs.getInt("id"),
@@ -30,8 +43,8 @@ public class Employe extends Person {
                     rs.getInt("age"),
                     rs.getString("mail"),
                     rs.getString("status"),
-                    rs.getString("startDate"),
-                    rs.getString("endDate")
+                    rs.getString("start_date"),
+                    rs.getString("end_date")
             );
         } catch (SQLException e) {
             e.printStackTrace();
@@ -40,21 +53,5 @@ public class Employe extends Person {
 
     }
 
-    public String getStartDate() {
-        return startDate;
-    }
 
-    public Employe setStartDate(String startDate) {
-        this.startDate = startDate;
-        return this;
-    }
-
-    public String getEndDate() {
-        return endDate;
-    }
-
-    public Employe setEndDate(String endDate) {
-        this.endDate = endDate;
-        return this;
-    }
 }

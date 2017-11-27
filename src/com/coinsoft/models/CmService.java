@@ -17,7 +17,7 @@ public class CmService {
             InitialContext context = new InitialContext();
             dataStore = new CmDataStore();
             connection = ((DataSource) context
-                    .lookup("jdbc/MySQLDataSourceCm"))
+                    .lookup("jdbc/MySQLDataSource"))
                     .getConnection();
             dataStore.setConnection(connection);
         } catch (NamingException e) {
@@ -42,21 +42,17 @@ public class CmService {
     public void setDataStore(CmDataStore dataStore) {
         this.dataStore = dataStore;
     }
-
-   /* public int countCustomers() {
+/*
+    public int countCustomers() {
         return dataStore.countCustomers();
     }
-
-    */
-
+*/
 /*
     public int countUser(String user,String pwd) {
         return dataStore.countUser(user,pwd);
     }*/
 
-    public Customer findCustomerById(int id) {
-        return dataStore.findCustomerById(id);
-    }
+
 
 
 /*
@@ -66,17 +62,12 @@ public class CmService {
 */
 
 
-
     /*
     public Customer createCustomer(String code,String dni,String name,String lastName,
      int age,String mail) {
         return dataStore.createCustomer(code,dni,name,lastName,age,mail);
 
     }
-
-
-
-
 
     */
 
@@ -88,55 +79,58 @@ public class CmService {
 
     }
 
-
-
-
 */
+    public boolean updateCustomer(int id,String code,String dni,String name, String lastName, int age,String mail, String status)
+    { return dataStore.updateCustomer(id,code,dni,name,lastName,age,mail,status); }
 
+    public boolean updateEmploye(int id,String code,String dni,String name, String lastName, int age,String mail, String status,String startDate,String endDate)
+    { return dataStore.updateEmploye(id,code,dni,name,lastName,age,mail,status,startDate,endDate); }
+
+    public Customer findCustomerById(int id) { return dataStore.findCustomerById(id); }
+
+    public Employe findEmployeById(int id) { return dataStore.findEmployeById(id); }
 
     public List<Customer> findAllCustomers() {
         return dataStore.findAllCustomer();
     }
 
-    public Customer createCustomer(int id, String code, String dni, String name, String lastName, int age,
-                                     String mail, String status) {
-        return dataStore.createCustomer(id,code,dni,name,lastName,age,mail,status);
+    public List<Employe> findAllEmployees() {
+        return dataStore.findAllEmployees();
     }
-    public boolean updateEmploye(int id,String startDate,String endDate,String code,String dni,String name, String lastName, int age,String mail, String status)
-    { return dataStore.updateEmploye(id,startDate,endDate,code,dni,name,lastName,age,mail,status); }
+
+    public Customer createCustomer(int id,String code,String dni,String name,String lastName,int age,String mail, String status)
+    { return dataStore.createCustomer(id,code,dni,name,lastName,age,mail,status); }
+
+    public Employe createEmploye(int id,String code,String dni,String name,String lastName,int age,String mail,String status,String startDate,String endDate) {
+      return dataStore.createEmploye(id,code,dni,name,lastName,age,mail,status,startDate,endDate);
+    }
+
+    public boolean eraseEmploye(int id) {
+        return dataStore.eraseEmploye(id);
+    }
+
+    public boolean eraseCustomer(int id) {
+        return dataStore.eraseCustomer(id);
+    }
 
 
-    public Employe findEmployeById (int id) {
 
 
-            return dataStore.findEmployeById(id);
-
-
-        }
 /*
+
     public List<Assignment> findAllAssignments() { return dataStore.findAllAssignment(); }
 /**//*
     public User findUserById (int id) {
         return dataStore.findUserById(id);
     }*/
-
-    public List<Employe> findAllEmployees() { return dataStore.findAllEmploye(); }
+/*
+    public List<Employe> findAllEmployes() { return dataStore.findAllEmploye(); }*/
 /*
     public List<User> findAllUser() { return dataStore.findAllUser(); }
 */
-    public List<Loan> findAllLoans() {
-        return dataStore.findAllLoan();
-    }
+    public List<Loan> findAllLoans() { return dataStore.findAllLoan(); }
 
     public Loan findLoanById (int id) { return dataStore.findLoanById(id); }
-
-
-    public List<Visit> findAllVisits(){
-
-        return dataStore.findAllVisit();
-
-}
-
 
 
 

@@ -37,7 +37,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Clientes/Lista</a>
+                    <a class="navbar-brand" href="#">Gestores/Lista</a>
                 </div>
 
                 <%@include file="/shared/navbar.jsp"%>
@@ -47,13 +47,13 @@
 
         <div class="content">
             <div class="container-fluid">
-                <a href="customers?action=new" class="btn btn-info btn-fill" style="margin-bottom: 10px;">Nuevo Cliente</a>
+                <a href="employees?action=new" class="btn btn-info btn-fill" style="margin-bottom: 10px;">Nuevo Gestor</a>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Clientes Activos</h4>
-                                <p class="category">Solo se muestra los clientes activos</p>
+                                <h4 class="title">Gestores Activos</h4>
+                                <p class="category">Solo se muestra los gestores activos</p>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
@@ -68,14 +68,14 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="customer" items="${customers}">
+                                    <c:forEach var="employe" items="${employees}">
                                         <tr>
-                                            <td><c:out value="${customer.name}"/></td>
-                                            <td><c:out value="${customer.lastName}"/></td>
-                                            <td><c:out value="${customer.age}"/></td>
-                                            <td><c:out value="${customer.mail}"/></td>
-                                            <td><a href="customers?action=edit&id=${customer.id}">Editar</a></td>
-                                            <td><a href="customers?action=erase&id=${customer.id}">Eliminar</a></td>
+                                            <td><c:out value="${employe.name}"/></td>
+                                            <td><c:out value="${employe.lastName}"/></td>
+                                            <td><c:out value="${employe.age}"/></td>
+                                            <td><c:out value="${employe.mail}"/></td>
+                                            <td> <a href="employees?action=edit&id=${employe.id}">Editar</a></td>
+                                            <td> <a href="employees?action=erase&id=${employe.id}">Eliminar</a></td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>

@@ -17,14 +17,13 @@ public class CmDataStore {
 
 
     public CmDataStore(Connection connection) {
-
         this.connection = connection;
     }
 
     public CmDataStore() {
-
-
     }
+
+
 
 
 /*
@@ -38,19 +37,11 @@ public class CmDataStore {
         return getUsersEntity().findUserWithLogin(user,pwd,employeesEntity);
     }
 */
-
-   /* public Employe findEmployeById(int id) {
+/*
+    public Employe findEmployeById(int id) {
         if(connection == null) return null;
         return getEmployeesEntity().findById(id);
     }*/
-    public Employe findEmployeById(int id) {
-        if(connection == null) return null;
-        Person person = findPersonById(id);
-        Employe employe=getEmployeesEntity().findById(id);
-        Employe employe1=new Employe(person.getId(),person.getCode(),person.getDni(),person.getName(),
-                person.getLastName(),person.getAge(),person.getMail(),person.getStatus(),employe.getStartDate(),employe.getEndDate());
-        return employe1;
-    }
 
     public Loan findLoanById(int id) {
         if(connection == null) return null;
@@ -81,18 +72,14 @@ public class CmDataStore {
 
         return connection == null ? null : getLoansEntity().findAll(getCustomersEntity());
     }
-
-
 /*
     public List<User> findAllUser() {
         return connection == null ? null: getUsersEntity().findAll(getEmployeesEntity());
     }*/
-
+/*
     public List<Visit> findAllVisit() {
-        return connection == null ? null : getVisitsEntity().findAll(getEmployeesEntity(),getCustomersEntity());
-    }
-
-
+        return connection == null ? null : getVisitsEntity().findAll(getUsersEntity(),getCustomersEntity());
+    }*/
 
     public Connection getConnection() {
         return connection;
@@ -125,12 +112,24 @@ public class CmDataStore {
                 person.getLastName(),person.getAge(),person.getMail(),person.getStatus());
         return customer1;
     }
-/*
+
+    public Employe findEmployeById(int id) {
+        if(connection == null) return null;
+        Person person = findPersonById(id);
+        Employe employe=getEmployeesEntity().findById(id);
+        Employe employe1=new Employe(person.getId(),person.getCode(),person.getDni(),person.getName(),
+                person.getLastName(),person.getAge(),person.getMail(),person.getStatus(),employe.getStartDate(),employe.getEndDate());
+        return employe1;
+    }
+
+
+
+
     public int countCustomers() {
         if(connection == null) return 0;
         return getCustomersEntity().countCustomers();
     }
-*/
+
 
 
     public List<Customer> findAllCustomer() {
@@ -138,15 +137,18 @@ public class CmDataStore {
         return connection == null ? null : getCustomersEntity().findAll();
     }
 
-    public List<Employe> findAllEmploye() {
-
-        return connection == null ? null : getEmployeesEntity().findAll();
-    }
-
     public List<Person> findAllPerson() {
 
         return connection == null ? null : getPeopleEntity().findAll();
     }
+
+    public List<Employe> findAllEmployees() {
+
+        return connection == null ? null : getEmployeesEntity().findAll();
+    }
+
+
+
 
 /*
     public Person createPerson(String code, String dni, String name, String lastName, int age, String mail, String status){
@@ -168,18 +170,7 @@ public class CmDataStore {
         return getCustomersEntity().create(personID,code,dni,name,lastName,age,mail,status);
     }
 
-    /*
-    public Visit createVisit(int id,String type,String date,String result,String collection_stage,String status){
-
-        if (connection == null) return null;
-
-
-
-
-    }
-    */
-
-    public Employe createEmploye(int id, String code, String dni, String name, String lastName, int age, String mail, String status,String startDate,String endtDate){
+    public Employe createEmploye(int id, String code, String dni, String name, String lastName, int age, String mail, String status,String startDate,String endDate){
 
         if (connection == null) return null;
 
@@ -187,7 +178,7 @@ public class CmDataStore {
 
         int personID = getPeopleEntity().create(person);
 
-        return getEmployeesEntity().create(personID,code,dni,name,lastName,age,mail,status,startDate,endtDate);
+        return getEmployeesEntity().create(personID,code,dni,name,lastName,age,mail,status,startDate,endDate);
     }
 
 
@@ -215,15 +206,27 @@ public class CmDataStore {
                 customer.getAge(), customer.getMail(),customer.getStatus());
     }
 
-    public boolean updateEmploye(int id,String startDate,String endDate,String code,String dni,String name, String lastName, int age,String mail, String status) {
+    public boolean updateEmploye(int id,String code,String dni,String name, String lastName, int age,String mail, String status,String startDate,String endDate) {
         if (connection == null) return false;
         boolean person=updatePerson(id,code,dni,name,lastName,age,mail,status);
-        return   getEmployeesEntity().update(id,startDate,endDate,code,dni,name,lastName,age,mail,status);
+        return   getEmployeesEntity().update(id,code,dni,name,lastName,age,mail,status,startDate,endDate);
     }
 
     public boolean updateEmploye(Employe employe) {
-        return updateEmploye(employe.getId(),employe.getStartDate(),employe.getEndDate(),employe.getCode(),employe.getDni(),employe.getName(),employe.getLastName(),
-                employe.getAge(), employe.getMail(),employe.getStatus());
+        return updateEmploye(employe.getId(),employe.getCode(),employe.getDni(),employe.getName(), employe.getLastName(),
+                employe.getAge(), employe.getMail(),employe.getStatus(),employe.getStartDate(),employe.getEndDate());
+    }
+
+    public boolean eraseEmploye(int id) {
+        return connection == null ?
+                false :
+                getEmployeesEntity().erase(id);
+    }
+
+    public boolean eraseCustomer(int id) {
+        return connection == null ?
+                false :
+                getCustomersEntity().erase(id);
     }
 
 

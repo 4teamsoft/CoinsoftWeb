@@ -13,7 +13,7 @@ public class EmployeesEntity extends BaseEntity{
 
     public EmployeesEntity() {
         super();
-        setTableName("Employes");
+        setTableName("employees");
 
     }
 
@@ -24,9 +24,11 @@ public class EmployeesEntity extends BaseEntity{
 
     public List<Employe> findByCriteria(String criteria) {
         try {
+
             ResultSet rs = getConnection()
                     .createStatement()
                     .executeQuery(getBaseStatement().concat(criteria));
+
             List<Employe> employees = new ArrayList<>();
             while (rs.next())
                 employees.add(Employe.from(rs));
@@ -36,13 +38,13 @@ public class EmployeesEntity extends BaseEntity{
             e.printStackTrace();
         }
         return null;
-
     }
 
 
     public Employe findById(int id) {
         return findByCriteria(
-                String.format("WHERE id = '%d'", id)).get(0);
+                String.format("e INNER JOIN people p ON e.id=p.id WHERE e.id = %d", id)).get(0);
+
     }
     public Employe findByName(String name) {
         return findByCriteria(
@@ -57,26 +59,33 @@ public class EmployeesEntity extends BaseEntity{
                 String.format("WHERE last_name = '%s'", lastName)).get(0);
     }
     public List<Employe> findAll() {
-        return findByCriteria("e INNER JOIN people p ON e.id=p.id");
+        return findByCriteria("e INNER JOIN people p ON e.id=p.id Where e.status='1'");
     }
 
     /*
     public List<Employe> findAllWithManagement() {
         return findByCriteria("id IN (SELECT DISTINCT employe_id FROM visits)");
-    }*/
+    }
+
+    */
 
 
-
-
-    public Employe create(int personID, String code, String dni, String name, String lastName, int age, String mail, String status,String startDate,String endDate) {
-        return create(new Employe(personID,code,dni,name,lastName,age,mail,status,startDate,endDate));
+    public Employe create(int id, String code, String dni, String name, String lastName, int age, String mail, String status,String startDate,String endDate) {
+        return create(new Employe(id,code,dni,name,lastName,age,mail,status,startDate,endDate));
     }
 
     public Employe create(Employe employe) {
-        return executeUpdate(String.format(
-                "INSERT INTO %s(id,start_date,end_date,employe_status) VALUES(%d,'%s','%s','1')", getTableName(), employe.getId(),employe.getStartDate(),employe.getEndDate())) ? employe : null;
+        return executeUpdate(String.format("INSERT INTO %s(id,start_date,end_date,status) VALUES(%d,%s,%s,'1')",
+               getTableName(), employe.getId(),employe.getStartDate(),employe.getEndDate())) ? employe : null;
+
+                //return executeUpdate(String.format("INSERT INTO %s(id,start_date,end_date) VALUES(%d,'%s','%s')",
+        //        getTableName(), employe.getId(),employe.getStartDate(),employe.getEndDate() )) ? employe : null;
+
+        //return executeUpdate( "INSERT INTO "+getTableName()+" (id,start_date,end_date) VALUES("+employe.getId()+","+employe.getStartDate()+","+employe.getEndDate()+")" ) ? employe : null;
 
     }
+
+
 
     /*
     public Employe create(int id,String code,String dni,String name, String lastName, int age,String mail, String status,Date startDate,Date endDate) {
@@ -84,7 +93,7 @@ public class EmployeesEntity extends BaseEntity{
     }
 
 
-    public boolean update(int id,String code,String dni,String name, String lastName, int age,String mail, String status,String startDate,Date endDate) {
+    public boolean update(int id,String code,String dni,String name, String lastName, int age,String mail, String status,Date startDate,Date endDate) {
         return executeUpdate(String.format(
                 "UPDATE %s SET code = '%s',dni = '%s',name = '%s', last_name='%s', age=%d,mail = '%s', status='%s' WHERE id = %d",
                 getTableName(),code,dni, name, lastName, age,mail, status, id));
@@ -92,20 +101,7 @@ public class EmployeesEntity extends BaseEntity{
     public boolean update(Employe employe) {
         return update(employe.getId(),employe.getCode(),employe.getDni(),employe.getName(), employe.getLastName(),
                 employe.getAge(), employe.getMail(),employe.getStatus(),employe.getStartDate(),employe.getEndDate());
-    }*/
-
-    public boolean update(int id,String startDate,String endDate,String code,String dni,String name, String lastName, int age,String mail, String status) {
-        return executeUpdate(String.format(
-                "UPDATE %s SET startDate = '%s', endDate = '%s' WHERE id = %d,",
-                getTableName(),startDate,endDate, id));
     }
-
-
-    public boolean update(Employe employe) {
-        return update(employe.getId(),employe.getStartDate(),employe.getEndDate(),employe.getCode(),employe.getDni(), employe.getName(),
-                employe.getLastName(), employe.getAge(),employe.getMail(),employe.getStatus());
-    }
-    /*
     public boolean erase(int id) {
         return executeUpdate(String.format("DELETE FROM %s WHERE id = %d",
                 getTableName(), id));
@@ -116,4 +112,30 @@ public class EmployeesEntity extends BaseEntity{
     }
 
 */
+
+    public boolean update(int id,String code,String dni,String name, String lastName, int age,String mail, String status,String startDate,String endDate) {
+        return executeUpdate(String.format(
+                "UPDATE %s SET start_date = %s,end_date = %s WHERE id = %d ",
+                getTableName(), startDate, endDate, id));
+    }
+
+
+    public boolean update(Employe employe) {
+        return update(employe.getId(),employe.getCode(),employe.getDni(), employe.getName(),
+                employe.getLastName(), employe.getAge(),employe.getMail(),employe.getStatus(),employe.getStartDate(),employe.getStartDate());
+    }
+
+    public boolean erase(int id) {
+        return executeUpdate(String.format("UPDATE %s SET status = '0' WHERE id = %d ",
+                getTableName(), id));
+    }
+    public boolean erase(Employe employe) {
+        return executeUpdate(String.format("UPDATE %s SET status = '0' WHERE id = %d",
+                getTableName(), employe.getId()));
+    }
+
+
+
+
+
 }

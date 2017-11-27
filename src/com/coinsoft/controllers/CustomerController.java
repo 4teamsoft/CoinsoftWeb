@@ -2,6 +2,7 @@ package com.coinsoft.controllers;
 
 import com.coinsoft.models.CmService;
 import com.coinsoft.models.Customer;
+import com.coinsoft.models.Employe;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -56,6 +57,14 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
                 request.setAttribute("customer", customer);
                 url = "editCustomer.jsp";
             }
+            if(action.equals("erase")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+                boolean isErased = service.eraseCustomer(id);
+                List<Customer> customers = service.findAllCustomers();
+                request.setAttribute("customers", customers);
+                url = "listCustomers.jsp";
+
+            }
         }
 
         if(method.equals("POST")) {
@@ -77,7 +86,7 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
 
                 List<Customer> customers = service.findAllCustomers();
                 request.setAttribute("customers", customers);
-                url = "listCustomer.jsp";
+                url = "listCustomers.jsp";
             }
 
 

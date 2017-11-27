@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 
 
-@javax.servlet.annotation.WebServlet(name = "EmployeeController", urlPatterns = "/employe")
+@javax.servlet.annotation.WebServlet(name = "LoanController", urlPatterns = "/loans")
 
 public class LoanController extends javax.servlet.http.HttpServlet {
 

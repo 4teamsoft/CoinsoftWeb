@@ -51,7 +51,7 @@ public class PeopleEntity extends BaseEntity{
 
     public Person findById(int id) {
         return findByCriteria(
-                String.format("WHERE id = '%d'", id)).get(0);
+                String.format("WHERE id = %d", id)).get(0);
     }
 
     public Person findByName(String name) {

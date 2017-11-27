@@ -77,7 +77,7 @@
                                 <h4 class="title">Datos del Trabajador</h4>
                             </div>
                             <div class="content">
-                                <form action="employe" method="post">
+                                <form action="employees" method="post">
                                     <fieldset>
                                         <input type="hidden" name="action" value="create"/>
                                         <div class="row">
@@ -136,7 +136,7 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Fecha de Final</label>
-                                                    <input class="form-control" type="date" min="2000-01-02" name="endtDate" value="${employe.endDate}">
+                                                    <input class="form-control" type="date" min="2000-01-02" name="endDate" value="${employe.endDate}">
                                                 </div>
                                             </div>
                                         </div>
