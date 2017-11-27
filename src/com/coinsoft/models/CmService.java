@@ -42,24 +42,25 @@ public class CmService {
     public void setDataStore(CmDataStore dataStore) {
         this.dataStore = dataStore;
     }
-/*
+
+    //prueba
     public int countCustomers() {
         return dataStore.countCustomers();
     }
-*/
-/*
+
+
     public int countUser(String user,String pwd) {
         return dataStore.countUser(user,pwd);
-    }*/
+    }
 
 
 
 
-/*
+
     public User findUserWithLogin(String user,String pwd) {
         return dataStore.findUserWithLogin(user,pwd);
     }
-*/
+
 
 
     /*

@@ -58,27 +58,27 @@ public class UserController extends javax.servlet.http.HttpServlet {
             }*/
         }
         if (method.equals("POST")) {
-/*
+
             if (action.equals("index")) {
 
                 String user = request.getParameter("user");
                 String pwd = request.getParameter("pwd");
                 int countUser   = service.countUser(user,pwd);
                 int countCustomers = service.countCustomers();
-                EmployeesEntity employeesEntity=null;
+                //EmployeesEntity employeesEntity=null;
 
-                User users = service.findUserWithLogin(user,pwd, employeesEntity);
+                User users = service.findUserWithLogin(user,pwd/*, employeesEntity*/);
                 request.setAttribute("countUser", countUser);
                 request.setAttribute("countCustomers",countCustomers);
 
-                if(countUser == 0){
-                    url = "index.jsp";
-                }
-                else{
+                if(countUser!=0){
                     url = "dashboard.jsp";
                 }
+                else url = "index.jsp";
 
-            }*/
+
+
+            }
             /*if (action.equals("create")) {
                 String name = request.getParameter("name");
                 User user = service.createUser(name);

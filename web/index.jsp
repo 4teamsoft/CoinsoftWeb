@@ -20,10 +20,10 @@
     <fieldset>
       <input type="hidden" name="action" value="index"/>
       <p class="login-username">
-        <input type="text" name="user" id="user" class="input" placeholder="Usuario" value="" size="20" />
+        <input type="text" name="user" id="user" class="input" placeholder="Usuario" value="${user.user}" size="20" />
       </p>
       <p class="login-password">
-        <input type="password" name="pwd" id="pwd" class="input" placeholder="Contraseña" value="" size="20" />
+        <input type="password" name="pwd" id="pwd" class="input" placeholder="Contraseña" value="${user.pwd}" size="20" />
       </p>
       <p class="login-submit">
         <!--<a href="users?action=index" class="button-primary" style="margin-bottom: 10px;">Ingresar</a>-->

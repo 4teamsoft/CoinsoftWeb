@@ -26,17 +26,18 @@ public class CmDataStore {
 
 
 
-/*
+
     public int countUser(String user,String pwd) {
         if(connection == null) return 0;
         return getUsersEntity().countUser(user,pwd);
     }
 
-    public User findUserWithLogin(String user,String pwd,EmployeesEntity employeesEntity ) {
+    public User findUserWithLogin(String user,String pwd/*,EmployeesEntity employeesEntity*/ ) {
         if(connection == null) return null;
+        EmployeesEntity employeesEntity=getEmployeesEntity();
         return getUsersEntity().findUserWithLogin(user,pwd,employeesEntity);
     }
-*/
+
 /*
     public Employe findEmployeById(int id) {
         if(connection == null) return null;
