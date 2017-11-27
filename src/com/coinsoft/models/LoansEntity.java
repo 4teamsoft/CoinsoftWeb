@@ -65,7 +65,7 @@ public class LoansEntity extends BaseEntity{
                         loan.getAmount(),loan.getNumberQuota(),loan.getDay(),loan.getType(),loan.getCustomer().getId()));
     }
 
-    /*
+
     public boolean update(int id, String code,String startDate,double amount,int numberQuota,int day,String type,String status,Customer customer) {
         return executeUpdate(String.format(
                 "UPDATE %s SET code = '%s',start_date = %s,amount = %f,number_quota = %d, day = %d, type = '%s'," +
@@ -88,7 +88,7 @@ public class LoansEntity extends BaseEntity{
                 getTableName(), loan.getId()));
     }
 
-    */
+
 
 
 }

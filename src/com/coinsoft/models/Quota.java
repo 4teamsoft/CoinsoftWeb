@@ -1,5 +1,8 @@
 package com.coinsoft.models;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Quota {
     private int id;
     private String code;
@@ -74,8 +77,8 @@ public class Quota {
         return this;
     }
 
-/*
-    public static Quota from(ResultSet rs, LoansEntity loansEntity){
+
+    public static Quota from(ResultSet rs, LoansEntity loansEntity,CustomersEntity customersEntity){
         Quota quota=new Quota();
         try{
 
@@ -84,7 +87,7 @@ public class Quota {
                     .setPaymentDate(rs.getString("payment_Date"))
                     .setAmount(rs.getDouble("amount"))
                     .setStatus(rs.getString("status"))
-                    .setLoan(loansEntity.findById(rs.getInt("loan_id"))
+                    .setLoan(loansEntity.findById(rs.getInt("loan_id"),customersEntity)
                     );
 
         } catch (SQLException e){
@@ -94,7 +97,7 @@ public class Quota {
         return null;
     }
 
-*/
+
 
 
 

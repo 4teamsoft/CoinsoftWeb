@@ -127,7 +127,6 @@
 
                                         <div class="row">
                                             <div class="col-md-3">
-                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Fecha de Ingreso</label>
                                                     <input class="form-control" type="date" min="2000-01-02" name="startDate" value="${employe.startDate}">
