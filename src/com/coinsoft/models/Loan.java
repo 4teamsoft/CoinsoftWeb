@@ -6,8 +6,8 @@ import java.sql.SQLException;
 public class Loan {
 
         private int id;
-        private int codeLoan;
-        private String dateStart;
+        private String code;
+        private String startDate;
         private double amount;
         private int numberQuota;
         private int day;
@@ -18,10 +18,10 @@ public class Loan {
         public Loan() {
         }
 
-        public Loan(int id, int codeLoan, String dateStart, double amount, int numberQuota, int day, String type, String status, Customer customer) {
+        public Loan(int id, String code, String startDate, double amount, int numberQuota, int day, String type, String status, Customer customer) {
             this.id = id;
-            this.codeLoan = codeLoan;
-            this.dateStart = dateStart;
+            this.code = code;
+            this.startDate = startDate;
             this.amount = amount;
             this.numberQuota = numberQuota;
             this.day = day;
@@ -30,93 +30,89 @@ public class Loan {
             this.customer = customer;
         }
 
-        public int getId() {
-            return id;
-        }
 
-        public com.coinsoft.models.Loan setId(int id) {
-            this.id = id;
-            return this;
-        }
+    public int getId() {
+        return id;
+    }
 
-        public int getCodeLoan() {
-            return codeLoan;
-        }
+    public Loan setId(int id) {
+        this.id = id;return this;
+    }
 
-        public com.coinsoft.models.Loan setCodeLoan(int codeLoan) {
-            this.codeLoan = codeLoan;
-            return this;
-        }
+    public String getCode() {
+        return code;
+    }
 
-        public String getDateStart() {
-            return dateStart;
-        }
+    public Loan setCode(String code) {
+        this.code = code;return this;
+    }
 
-        public com.coinsoft.models.Loan setDateStart(String dateStart) {
-            this.dateStart = dateStart;
-            return this;
-        }
+    public String getStartDate() {
+        return startDate;
+    }
 
-        public double getAmount() {
-            return amount;
-        }
+    public Loan setStartDate(String startDate) {
+        this.startDate = startDate;return this;
+    }
 
-        public com.coinsoft.models.Loan setAmount(double amount) {
-            this.amount = amount;
-            return this;
-        }
+    public double getAmount() {
+        return amount;
+    }
 
-        public int getNumberQuota() {
-            return numberQuota;
-        }
+    public Loan setAmount(double amount) {
+        this.amount = amount;return this;
+    }
 
-        public com.coinsoft.models.Loan setNumberQuota(int numberQuota) {
-            this.numberQuota = numberQuota;
-            return this;
-        }
+    public int getNumberQuota() {
+        return numberQuota;
+    }
 
-        public int getDay() {
-            return day;
-        }
+    public Loan setNumberQuota(int numberQuota) {
+        this.numberQuota = numberQuota;return this;
+    }
 
-        public com.coinsoft.models.Loan setDay(int day) {
-            this.day = day;
-            return this;
-        }
+    public int getDay() {
+        return day;
+    }
 
-        public String getType() {
-            return type;
-        }
+    public Loan setDay(int day) {
+        this.day = day;return this;
+    }
 
-        public com.coinsoft.models.Loan setType(String type) {
-            this.type = type;
-            return this;
-        }
+    public String getType() {
+        return type;
+    }
 
-        public String getStatus() {
-            return status;
-        }
+    public Loan setType(String type) {
+        this.type = type;return this;
+    }
 
-        public com.coinsoft.models.Loan setStatus(String status) {
-            this.status = status;
-            return this;
-        }
+    public String getStatus() {
+        return status;
+    }
 
-        public Customer getCustomer() {
-            return customer;
-        }
+    public Loan setStatus(String status) {
+        this.status = status;return this;
+    }
 
-        public com.coinsoft.models.Loan setCustomer(Customer customer) {
-            this.customer = customer;
-            return this;
-        }
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public Loan setCustomer(Customer customer) {
+        this.customer = customer; return this;
+    }
+
+
+
+
 
     public static Loan from(ResultSet rs, CustomersEntity customersEntity) {
         Loan loan = new Loan();
         try {
             return loan.setId(rs.getInt	("loan_id"))
-                    .setCodeLoan(rs.getInt("code"))
-                    .setDateStart(rs.getString("start_date"))
+                    .setCode(rs.getString("code"))
+                    .setStartDate(rs.getString("start_date"))
                     .setAmount(rs.getDouble("amount"))
                     .setNumberQuota(rs.getInt("number_quota"))
                     .setDay(rs.getInt("day"))
@@ -129,5 +125,6 @@ public class Loan {
         }
         return null;
     }
+
 
 }
