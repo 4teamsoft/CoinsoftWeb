@@ -32,9 +32,9 @@ public class CmDataStore {
         return getUsersEntity().countUser(user,pwd);
     }
 
-    public User findUserWithLogin(String user,String pwd/*,EmployeesEntity employeesEntity*/ ) {
+    public User findUserWithLogin(String user,String pwd,EmployeesEntity employeesEntity ) {
         if(connection == null) return null;
-        EmployeesEntity employeesEntity=getEmployeesEntity();
+        employeesEntity=getEmployeesEntity();
         return getUsersEntity().findUserWithLogin(user,pwd,employeesEntity);
     }
 

@@ -1,6 +1,7 @@
 package com.coinsoft.models;
 
 
+import javax.jws.soap.SOAPBinding;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -42,6 +43,9 @@ public class UsersEntity extends BaseEntity {
         return findByCriteria(
                 String.format("WHERE user = '%s' and pwd = '%s'", user,pwd ),employeesEntity).get(0);
     }
+
+
+
 
 
     public int countUser(String user,String pwd) {

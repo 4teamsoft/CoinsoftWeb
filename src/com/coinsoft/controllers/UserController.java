@@ -34,7 +34,7 @@ public class UserController extends javax.servlet.http.HttpServlet {
         if (method.equals("GET")) {
 
             if (action.equals("access")) {
-                    url = "accessUser.jsp";
+                url = "accessUser.jsp";
             }
 
             if (action.equals("index")) {
@@ -61,24 +61,25 @@ public class UserController extends javax.servlet.http.HttpServlet {
 
             if (action.equals("index")) {
 
+
                 String user = request.getParameter("user");
                 String pwd = request.getParameter("pwd");
-                int countUser   = service.countUser(user,pwd);
+
+                int countUser = service.countUser(user, pwd);
                 int countCustomers = service.countCustomers();
-                //EmployeesEntity employeesEntity=null;
-
-                User users = service.findUserWithLogin(user,pwd/*, employeesEntity*/);
+                EmployeesEntity employeesEntity=null;
+                //User users = service.findUserWithLogin(user, pwd, employeesEntity);
                 request.setAttribute("countUser", countUser);
-                request.setAttribute("countCustomers",countCustomers);
+                request.setAttribute("countCustomers", countCustomers);
 
-                if(countUser!=0){
+                if (countUser != 0) {
                     url = "dashboard.jsp";
+                } else {
+                    url = "index.jsp";
                 }
-                else url = "index.jsp";
 
 
 
-            }
             /*if (action.equals("create")) {
                 String name = request.getParameter("name");
                 User user = service.createUser(name);
@@ -94,7 +95,8 @@ public class UserController extends javax.servlet.http.HttpServlet {
                 request.setAttribute("users", users);
                 url = "listUsers.jsp";
             }*/
+            }
+            request.getRequestDispatcher(url).forward(request, response);
         }
-        request.getRequestDispatcher(url).forward(request, response);
     }
 }

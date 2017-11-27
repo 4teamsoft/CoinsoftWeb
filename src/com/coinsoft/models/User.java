@@ -84,7 +84,7 @@ public class User {
         try {
             return user.setId(rs.getInt("id"))
                     .setUser(rs.getString("user"))
-                    .setPassword(rs.getString("password"))
+                    .setPassword(rs.getString("pwd"))
                     .setType(rs.getString("type"))
                     .setStatus(rs.getString("status"))
                     .setEmploye(employeesEntity.findById(rs.getInt("employe_id")));
