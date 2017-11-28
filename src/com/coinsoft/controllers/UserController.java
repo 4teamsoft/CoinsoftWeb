@@ -8,6 +8,7 @@ import com.coinsoft.models.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Objects;
 
 
 @javax.servlet.annotation.WebServlet(name = "UserController", urlPatterns = "/users")
@@ -67,16 +68,24 @@ public class UserController extends javax.servlet.http.HttpServlet {
 
                 int countUser = service.countUser(user, pwd);
                 int countCustomers = service.countCustomers();
-                EmployeesEntity employeesEntity=null;
+                //EmployeesEntity employeesEntity=null;
                 //User users = service.findUserWithLogin(user, pwd, employeesEntity);
                 request.setAttribute("countUser", countUser);
                 request.setAttribute("countCustomers", countCustomers);
 
+
                 if (countUser != 0) {
-                    url = "dashboard.jsp";
+                    url = "dashboardForEmploye.jsp";
+
                 } else {
                     url = "index.jsp";
                 }
+
+                if (user.equals("admin") && pwd.equals("admin")) {
+                    url = "dashboard.jsp";
+                }
+
+
 
 
 

@@ -77,20 +77,20 @@ public class Sector {
         return this;
     }
 
-/*    public static Sector from(ResultSet rs, CustomersEntity customersEntity, EmployeesEntity employeesEntity) {
+    public static Sector from(ResultSet rs, EmployeesEntity employeesEntity, CustomersEntity customersEntity) {
         Sector sector = new Sector();
         try {
             return sector.setId(rs.getInt("id"))
                     .setName(rs.getString("name"))
                     .setDetail(rs.getString("detail"))
                     .setStatus(rs.getString("status"))
-                    .setEmploye(employeesEntity.findById(rs.getInt("id")))
-                    .setCustomer(customersEntity.findById(rs.getInt("id")));
+                    .setEmploye(employeesEntity.findById(rs.getInt("employe_id")))
+                    .setCustomer(customersEntity.findById(rs.getInt("customer_id")));
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
-    }*/
+    }
 
 }
