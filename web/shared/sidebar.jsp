@@ -20,12 +20,14 @@
                     <p>Inicio</p>
                 </a>
             </li>
+            <!--
             <li>
                 <a href="user.html">
                     <i class="fa fa-handshake-o" aria-hidden="true"></i>
                     <p>Asignacion</p>
                 </a>
             </li>
+            -->
             <li>
                 <a href="customers?action=list">
                     <i class="fa fa-user" aria-hidden="true"></i>
@@ -38,14 +40,16 @@
                     <p>Gestores</p>
                 </a>
             </li>
+            <!--
             <li>
                 <a href="typography.html">
                     <i class="fa fa-bar-chart" aria-hidden="true"></i>
                     <p>Reportes</p>
                 </a>
             </li>
+            -->
             <li>
-                <a href="icons.html">
+                <a href="customers?action=portfolio">
                     <i class="fa fa-briefcase" aria-hidden="true"></i>
                     <p>Carteras</p>
                 </a>

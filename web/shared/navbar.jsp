@@ -5,11 +5,14 @@
   Time: 10:27
   To change this template use File | Settings | File Templates.
 --%>
+
+
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
                         <p>
-                            Bienvenido, {Nombre}
+                            Bienvenido, <c:out value="${user.nombre}" />
                             <b class="caret"></b>
                         </p>
 

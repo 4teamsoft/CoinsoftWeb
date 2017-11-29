@@ -45,7 +45,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <p>
-                                    {Usuario}
+                                    <c:out value="${employe.name}" />
                                     <b class="caret"></b>
                                 </p>
 

@@ -15,36 +15,30 @@
 
         <ul class="nav">
             <li>
-                <a href="dashboard.jsp">
+                <a href="dashboardForEmploye.jsp">
                     <i class="fa fa-home" aria-hidden="true"></i>
                     <p>Inicio</p>
                 </a>
             </li>
             <li>
-                <a href="employees?action=portfolio">
+                <a href="customers?action=portfolio">
                     <i class="fa fa-handshake-o" aria-hidden="true"></i>
                     <p>Mi Cartera</p>
                 </a>
             </li>
             <li>
-                <a href="customers?action=list">
+                <a href="employees?action=task">
                     <i class="fa fa-user" aria-hidden="true"></i>
                     <p>Mis actividades</p>
                 </a>
             </li>
             <li>
-                <a href="employees?action=list">
+                <a href="employees?action=visit">
                     <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                     <p>Planes de Visita</p>
                 </a>
             </li>
 
-            <li>
-                <a href="notifications.html">
-                    <i class="fa fa-retweet" aria-hidden="true"></i>
-                    <p>Transaccion</p>
-                </a>
-            </li>
         </ul>
     </div>
 </div>

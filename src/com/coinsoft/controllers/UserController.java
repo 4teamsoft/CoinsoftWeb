@@ -1,6 +1,7 @@
 package com.coinsoft.controllers;
 
 import  com.coinsoft.models.CmService;
+import com.coinsoft.models.Employe;
 import com.coinsoft.models.EmployeesEntity;
 import com.coinsoft.models.User;
 
@@ -68,8 +69,11 @@ public class UserController extends javax.servlet.http.HttpServlet {
 
                 int countUser = service.countUser(user, pwd);
                 int countCustomers = service.countCustomers();
-                //EmployeesEntity employeesEntity=null;
-                //User users = service.findUserWithLogin(user, pwd, employeesEntity);
+                EmployeesEntity employeesEntity=null;
+                User users = service.findUserWithLogin(user, pwd, employeesEntity);
+                Employe employe = service.findEmployeById(users.getEmploye().getId());
+                request.setAttribute("employe",employe);
+
                 request.setAttribute("countUser", countUser);
                 request.setAttribute("countCustomers", countCustomers);
 
