@@ -44,7 +44,10 @@ public class UsersEntity extends BaseEntity {
                 String.format("WHERE user = '%s' and pwd = '%s'", user,pwd)).get(0);
     }
 
-
+    public User findById(int id, EmployeesEntity employeesEntity) {
+        return findByCriteria(
+                String.format("WHERE id = %d", id)).get(0);
+    }
 
     public int countUser(String user,String pwd) {
 

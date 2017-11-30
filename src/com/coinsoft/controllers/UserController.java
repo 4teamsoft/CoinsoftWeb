@@ -77,6 +77,7 @@ public class UserController extends javax.servlet.http.HttpServlet {
                     session.setMaxInactiveInterval(30*60);
                     session.setAttribute("user", users.getUser());
                     session.setAttribute("type", users.getType());
+                    session.setAttribute("employeId", users.getEmployeId());
 
                     url = "dashboard.jsp";
                 }
@@ -91,7 +92,7 @@ public class UserController extends javax.servlet.http.HttpServlet {
                 request.setAttribute("countCustomers", countCustomers);*/
 /*
                 if (countUser != 0) {
-                    url = "dashboardForEmploye.jsp";
+                    url = "dashboardForEmployegg.jsp";
 
                 } else {
                     url = "index.jsp";

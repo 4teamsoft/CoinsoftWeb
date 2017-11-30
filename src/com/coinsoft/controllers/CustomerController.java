@@ -1,12 +1,12 @@
 package com.coinsoft.controllers;
 
-import com.coinsoft.models.CmService;
-import com.coinsoft.models.Customer;
-import com.coinsoft.models.Employe;
+import com.coinsoft.models.*;
 
+import javax.crypto.SecretKey;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 
@@ -39,7 +39,10 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
             // Index Action
             if(action.equals("list")) {
                 List<Customer> customers = service.findAllCustomers();
-                  request.setAttribute("customers", customers);
+
+
+                request.setAttribute("customers", customers);
+                request.setAttribute("customers", customers);
                 url = "listCustomers.jsp";
             }
             if(action.equals("show")) {
@@ -63,6 +66,18 @@ public class CustomerController extends javax.servlet.http.HttpServlet {
                 List<Customer> customers = service.findAllCustomers();
                 request.setAttribute("customers", customers);
                 url = "listCustomers.jsp";
+
+            }
+            if(action.equals("portfolio")) {
+
+                HttpSession session = request.getSession();
+                int id = (int) session.getAttribute("employeId");
+
+                List<Sector> sectors=service.findByEmploye(id,null,null);
+
+
+                request.setAttribute("sectors", sectors);
+                url = "portfolioCustomers.jsp";
 
             }
         }

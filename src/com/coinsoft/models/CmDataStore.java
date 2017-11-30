@@ -13,6 +13,7 @@ public class CmDataStore {
     private PeopleEntity peopleEntity;
     private UsersEntity usersEntity;
     private VisitsEntity visitsEntity;
+    private SectorsEntity sectorsEntity;
 
 
 
@@ -36,6 +37,20 @@ public class CmDataStore {
         if(connection == null) return null;
           return getUsersEntity().findUserWithLogin(user,pwd);
     }
+
+    public User findUserById(int id,EmployeesEntity employeesEntity ) {
+        if(connection == null) return null;
+        employeesEntity=getEmployeesEntity();
+        return getUsersEntity().findById(id,employeesEntity);
+    }
+
+    public List<Sector> findByEmploye(int employe_id,EmployeesEntity employeesEntity,CustomersEntity customersEntity){
+        if(connection == null) return null;
+        employeesEntity=getEmployeesEntity();
+        customersEntity=getCustomersEntity();
+        return getSectorsEntity().findByEmploye(employe_id,employeesEntity,customersEntity);
+    }
+
 
 /*
     public Employe findEmployeById(int id) {
@@ -88,14 +103,6 @@ public class CmDataStore {
     public void setConnection(Connection connection) {
         this.connection = connection;
     }
-
-    /*private AssignmentsEntity getAssignmentsEntity() {
-        if(assignmentsEntity == null) {
-            assignmentsEntity = new AssignmentsEntity();
-            assignmentsEntity.setConnection(connection);
-        }
-        return assignmentsEntity;
-    }*/
 
 
     public Person findPersonById(int id) {
@@ -229,6 +236,13 @@ public class CmDataStore {
                 getCustomersEntity().erase(id);
     }
 
+    private SectorsEntity getSectorsEntity() {
+        if(sectorsEntity == null) {
+            sectorsEntity = new SectorsEntity();
+            sectorsEntity.setConnection(connection);
+        }
+        return sectorsEntity;
+    }
 
 
     private CustomersEntity getCustomersEntity() {

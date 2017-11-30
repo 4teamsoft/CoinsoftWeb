@@ -52,7 +52,7 @@
                 <a href="typography.html">
                     <i class="fa fa-bar-chart" aria-hidden="true"></i>
                     <p>Reportes</p>
-                </a>
+                </a>   &variable2=valor
             </li>
             <% } %>
             <li>

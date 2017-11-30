@@ -61,6 +61,9 @@ public class CmService {
         return dataStore.findUserWithLogin(user,pwd);
     }
 
+    public User findUserById(int id,EmployeesEntity employeesEntity) {
+        return dataStore.findUserById(id,employeesEntity);
+    }
 
 
     /*
@@ -81,6 +84,13 @@ public class CmService {
     }
 
 */
+
+    public List<Sector> findByEmploye(int employe_id,EmployeesEntity employeesEntity,CustomersEntity customersEntity){
+        return dataStore.findByEmploye(employe_id,employeesEntity,customersEntity);
+    }
+
+
+
     public boolean updateCustomer(int id,String code,String dni,String name, String lastName, int age,String mail, String status)
     { return dataStore.updateCustomer(id,code,dni,name,lastName,age,mail,status); }
 

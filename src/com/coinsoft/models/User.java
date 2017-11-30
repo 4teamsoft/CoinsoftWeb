@@ -10,17 +10,19 @@ public class User {
     private String password;
     private int type;
     private String status;
+    private int employeId;
 
 
     public User() {
     }
 
-    public User(int id, String user, String password, int type, String status) {
+    public User(int id, String user, String password, int type, String status,int employeId) {
         this.id = id;
         this.user = user;
         this.password = password;
         this.type = type;
         this.status = status;
+        this.employeId=employeId;
     }
 
     public int getId() {
@@ -67,7 +69,13 @@ public class User {
         return this;
     }
 
+    public int getEmployeId() {
+        return employeId;
+    }
 
+    public User setEmployeId(int employeId) {
+        this.employeId = employeId; return this;
+    }
 
     public static User from(ResultSet rs) {
         User user = new User();
@@ -76,16 +84,16 @@ public class User {
                     .setUser(rs.getString("user"))
                     .setPassword(rs.getString("pwd"))
                     .setType(rs.getInt("type"))
-                    .setStatus(rs.getString("status"));
+                    .setStatus(rs.getString("status"))
+                    .setEmployeId(rs.getInt("employe_id"));
+
+
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
     }
-
-
-
 
 
 }

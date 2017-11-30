@@ -14,10 +14,7 @@ public class SectorsEntity extends BaseEntity{
 
     }
 
-    public Sector findById(int id, EmployeesEntity employeesEntity,CustomersEntity customersEntity) {
-        return findByCriteria(
-                String.format("WHERE id = %d", id), employeesEntity,customersEntity).get(0);
-    }
+
 
     public List<Sector> findByCriteria(String criteria, EmployeesEntity employeesEntity,CustomersEntity customersEntity) {
         try {
@@ -52,6 +49,15 @@ public class SectorsEntity extends BaseEntity{
         return 0;
     }
 
+    public Sector findById(int id, EmployeesEntity employeesEntity,CustomersEntity customersEntity) {
+        return findByCriteria(
+                String.format("WHERE id = %d", id), employeesEntity,customersEntity).get(0);
+    }
+
+    public List<Sector> findByEmploye(int employe_id,EmployeesEntity employeesEntity,CustomersEntity customersEntity){
+        return findByCriteria(
+                String.format("WHERE employe_id = %d", employe_id), employeesEntity,customersEntity);
+    }
 
 
     public List<Sector> findAll(EmployeesEntity employeesEntity, CustomersEntity customersEntity)
