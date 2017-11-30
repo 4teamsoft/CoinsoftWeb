@@ -20,34 +20,41 @@
                     <p>Inicio</p>
                 </a>
             </li>
-            <!--
-            <li>
-                <a href="user.html">
-                    <i class="fa fa-handshake-o" aria-hidden="true"></i>
-                    <p>Asignacion</p>
-                </a>
-            </li>
-            -->
+
+
+
+            <%
+                int value = (Integer)session.getAttribute("type");
+                if (value == 0) { %>
+                    <li>
+                        <a href="user.html">
+                            <i class="fa fa-handshake-o" aria-hidden="true"></i>
+                            <p>Asignacion</p>
+                        </a>
+                    </li>
+            <% } %>
+
             <li>
                 <a href="customers?action=list">
                     <i class="fa fa-user" aria-hidden="true"></i>
                     <p>Clientes</p>
                 </a>
             </li>
+
+            <% if (value == 0) { %>
             <li>
                 <a href="employees?action=list">
                     <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                     <p>Gestores</p>
                 </a>
             </li>
-            <!--
             <li>
                 <a href="typography.html">
                     <i class="fa fa-bar-chart" aria-hidden="true"></i>
                     <p>Reportes</p>
                 </a>
             </li>
-            -->
+            <% } %>
             <li>
                 <a href="customers?action=portfolio">
                     <i class="fa fa-briefcase" aria-hidden="true"></i>

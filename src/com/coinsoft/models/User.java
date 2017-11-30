@@ -1,6 +1,5 @@
 package com.coinsoft.models;
 
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -9,21 +8,19 @@ public class User {
     private int id;
     private String user;
     private String password;
-    private String type;
+    private int type;
     private String status;
-    private Employe employe;
 
 
     public User() {
     }
 
-    public User(int id, String user, String password, String type, String status, Employe employe) {
+    public User(int id, String user, String password, int type, String status) {
         this.id = id;
         this.user = user;
         this.password = password;
         this.type = type;
         this.status = status;
-        this.employe = employe;
     }
 
     public int getId() {
@@ -52,11 +49,11 @@ public class User {
         return this;
     }
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public User setType(String type) {
+    public User setType(int type) {
         this.type = type;
         return this;
     }
@@ -70,24 +67,16 @@ public class User {
         return this;
     }
 
-    public Employe getEmploye() {
-        return employe;
-    }
-
-    public User setEmploye(Employe employe) {
-        this.employe = employe; return this;
-    }
 
 
-    public static User from(ResultSet rs, EmployeesEntity employeesEntity) {
+    public static User from(ResultSet rs) {
         User user = new User();
         try {
             return user.setId(rs.getInt("id"))
                     .setUser(rs.getString("user"))
                     .setPassword(rs.getString("pwd"))
-                    .setType(rs.getString("type"))
-                    .setStatus(rs.getString("status"))
-                    .setEmploye(employeesEntity.findById(rs.getInt("employe_id")));
+                    .setType(rs.getInt("type"))
+                    .setStatus(rs.getString("status"));
 
         } catch (SQLException e) {
             e.printStackTrace();

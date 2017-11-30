@@ -8,6 +8,7 @@ import com.coinsoft.models.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -67,17 +68,28 @@ public class UserController extends javax.servlet.http.HttpServlet {
                 String user = request.getParameter("user");
                 String pwd = request.getParameter("pwd");
 
-                int countUser = service.countUser(user, pwd);
-                int countCustomers = service.countCustomers();
-                EmployeesEntity employeesEntity=null;
-                User users = service.findUserWithLogin(user, pwd, employeesEntity);
-                Employe employe = service.findEmployeById(users.getEmploye().getId());
+
+                User users = service.findUserWithLogin(user, pwd);
+
+                if(users != null){
+
+                    HttpSession session = request.getSession();
+                    session.setMaxInactiveInterval(30*60);
+                    session.setAttribute("user", users.getUser());
+                    session.setAttribute("type", users.getType());
+
+                    url = "dashboard.jsp";
+                }
+
+
+
+                /*Employe employe = service.findEmployeById(users.getEmploye().getId());
+
                 request.setAttribute("employe",employe);
 
                 request.setAttribute("countUser", countUser);
-                request.setAttribute("countCustomers", countCustomers);
-
-
+                request.setAttribute("countCustomers", countCustomers);*/
+/*
                 if (countUser != 0) {
                     url = "dashboardForEmploye.jsp";
 
@@ -91,7 +103,7 @@ public class UserController extends javax.servlet.http.HttpServlet {
 
 
 
-
+*/
 
             /*if (action.equals("create")) {
                 String name = request.getParameter("name");

@@ -17,7 +17,7 @@ public class CmService {
             InitialContext context = new InitialContext();
             dataStore = new CmDataStore();
             connection = ((DataSource) context
-                    .lookup("jdbc/MySQLDataSource"))
+                    .lookup("jdbc/MySQLDataSourceCm"))
                     .getConnection();
             dataStore.setConnection(connection);
         } catch (NamingException e) {
@@ -57,8 +57,8 @@ public class CmService {
 
 
 
-    public User findUserWithLogin(String user,String pwd,EmployeesEntity employeesEntity) {
-        return dataStore.findUserWithLogin(user,pwd,employeesEntity);
+    public User findUserWithLogin(String user,String pwd) {
+        return dataStore.findUserWithLogin(user,pwd);
     }
 
 

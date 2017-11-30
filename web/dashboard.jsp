@@ -41,30 +41,8 @@
                 </div>
                 <div class="collapse navbar-collapse">
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <p>
-                                    <c:out value="${employe.name}" />
-                                    <b class="caret"></b>
-                                </p>
+                    <%@include file="/shared/navbar.jsp"%>
 
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action 1</a></li>
-                                <li><a href="#">Action 2</a></li>
-                                <li><a href="#">Action 3</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Mas</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <p>Salir</p>
-                            </a>
-                        </li>
-                        <li class="separator hidden-lg hidden-md"></li>
-                    </ul>
                 </div>
             </div>
         </nav>

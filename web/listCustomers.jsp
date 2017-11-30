@@ -37,11 +37,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Clientes/Lista</a>
+                    <a class="navbar-brand" href="#">Lista de Clientes</a>
                 </div>
+                <div class="collapse navbar-collapse">
 
-                <%@include file="/shared/navbar.jsp"%>
+                    <%@include file="/shared/navbar.jsp"%>
 
+                </div>
             </div>
         </nav>
 
